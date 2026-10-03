@@ -17,7 +17,7 @@ O **Acessília** é um projeto multidisciplinar que integra:
 
 - **🔬 Projeto de Pesquisa Científica (UFG / INF / LaMCAD):** Desenvolvido no Instituto de Informática da Universidade Federal de Goiás, com apoio da infraestrutura de supercomputação do **LaMCAD/UFG** (Laboratório Multiusuário de Computação de Alto Desempenho e Arquitetura de Dados). A pesquisa fundamenta suas decisões técnicas na resolução dos desafios descritos no benchmark internacional **Dr.DocBench** (*A Comprehensive Benchmark for Expert-Level and Difficult Document Parsing*, arXiv:2606.01393).
 - **🎓 Projeto de Extensão Universitária A11yDevs:** O Acessília é uma das principais frentes do projeto de extensão acadêmica da UFG, promovendo capacitação, difusão de diretrizes de acessibilidade e desenvolvimento de tecnologias assistivas de impacto social.
-- **♿ Aplicação Real no Núcleo de Acessibilidade da UFG (NA/UFG):** Ferramenta utilizada diretamente na rotina universitária para a produção de material didático adaptado (PDF/UA e audiodescrição técnica) para estudantes cegos e com baixa visão da UFG, integrado ao painel institucional [Acessilia Gestor](https://github.com/A11yDevs/acessilia-ufg).
+- **♿ Acessibilidade no Ensino Superior:** Voltado para atender demandas de adaptação e conversão de livros didáticos, apostilas e artigos acadêmicos (PDF/UA e audiodescrição técnica) para estudantes cegos e com baixa visão, conectando-se a sistemas de gestão educacional como o [Acessilia Gestor](https://github.com/A11yDevs/acessilia-ufg).
 - **🌐 Comunidade de Software Livre:** Iniciativa 100% aberta (Licença MIT) coordenada pelo **Prof. Dr. Marcelo Akira Inuzuka** e liderada tecnicamente por **Jhonata Fernandes Cordeiro**, com colaboração de estudantes, pesquisadores e voluntários.
 
 ---
