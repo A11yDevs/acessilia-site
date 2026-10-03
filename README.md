@@ -1,0 +1,97 @@
+# Acessília — Site Oficial & Documentação Web
+
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deploy-blue?logo=github)](https://a11ydevs.github.io/acessilia-site/)
+[![WCAG AAA](https://img.shields.io/badge/Acessibilidade-WCAG%202.2%20AAA-green)](https://www.w3.org/WAI/standards-guidelines/wcag/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Org](https://img.shields.io/badge/Organização-A11yDevs-1E40AF)](https://github.com/A11yDevs)
+
+Este repositório contém o código-fonte do website oficial do projeto **[Acessília](https://github.com/A11yDevs/acessilia)**, hospedado via **GitHub Pages**.
+
+🔗 **Acesse o site online:** [https://a11ydevs.github.io/acessilia-site/](https://a11ydevs.github.io/acessilia-site/)
+
+---
+
+## 🎯 Sobre o Projeto
+
+O **Acessília** é uma plataforma de inteligência artificial orientada a agentes para extração de estruturas complexas de documentos (PDF, imagens, apostilas, DOCX) e conversão automática para formatos acessíveis de padrão internacional (**PDF/UA**, **áudio narrado MP3**, **HTML semântico** e **DOCX**).
+
+Este website foi construído para apresentar o projeto, suas especificações arquiteturais, guias de execução e demonstrador interativo, priorizando os mais altos padrões de acessibilidade web.
+
+---
+
+## ♿ Recursos de Acessibilidade do Site
+
+O site foi construído seguindo rigorosamente as diretrizes **WCAG 2.2 Nível AAA** e o **e-MAG** (Modelo de Acessibilidade em Governo Eletrônico):
+
+- **Navegação completa por teclado:** Suporte a atalhos e salto rápido para o conteúdo principal (`Skip Links`).
+- **Anéis de foco reforçados (`:focus-visible`):** Destaque nítido e de alto contraste em todos os elementos interativos.
+- **Barra de acessibilidade nativa:**
+  - Redimensionamento dinâmico de fonte (A-, Normal, A+);
+  - Modo de **Alto Contraste** (preto e amarelo/branco);
+  - Alternador de **Tema Escuro / Claro** com persistência no `localStorage`.
+- **Regiões dinâmicas (`aria-live`):** Comunicação em tempo real para tecnologias assistivas e leitores de tela (NVDA, JAWS, VoiceOver, Orca).
+- **Semântica HTML5 nativa:** Estruturação hierárquica clara de cabeçalhos (`h1` a `h6`), listas, marcos ARIA e tabelas acessíveis com `scope="col"`.
+- **Respeito às preferências do usuário:** Suporte completo a `@media (prefers-reduced-motion)` e `@media (prefers-color-scheme)`.
+
+---
+
+## 📁 Estrutura de Arquivos
+
+```text
+acessilia-site/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml      # Workflow de deploy automático no GitHub Pages
+├── assets/
+│   ├── css/
+│   │   └── style.css       # Estilos acessíveis com variáveis CSS e temas
+│   └── js/
+│       └── main.js         # Lógica de acessibilidade, abas ARIA e simulador
+├── .nojekyll               # Desativa o processador Jekyll no Pages
+├── index.html              # Página principal do website
+└── README.md               # Documentação do repositório
+```
+
+---
+
+## 🚀 Como Executar Localmente
+
+Como o projeto é composto por tecnologias web nativas (HTML5, CSS3 e JavaScript puro), você pode executá-lo com qualquer servidor estático local:
+
+### Usando Python 3
+```bash
+python -m http.server 3000
+```
+Depois, abra `http://localhost:3000` no seu navegador.
+
+### Usando Node.js / npx
+```bash
+npx serve .
+```
+
+---
+
+## 🔄 Deploy no GitHub Pages
+
+O deploy é executado automaticamente pelo GitHub Actions a cada commit na branch `main`.
+
+Para verificar ou habilitar nas configurações do repositório:
+1. Acesse **Settings** > **Pages** no repositório.
+2. Em **Build and deployment** > **Source**, selecione **GitHub Actions**.
+
+---
+
+## 🤝 Como Contribuir
+
+Contribuições são muito bem-vindas! Sinta-se à vontade para:
+1. Fazer um Fork do projeto.
+2. Criar uma branch de funcionalidade (`git checkout -b feature/nova-melhoria`).
+3. Submeter um Pull Request.
+
+---
+
+## 📜 Licença
+
+Distribuído sob a licença MIT. Consulte o arquivo de licença do ecossistema [Acessília](https://github.com/A11yDevs/acessilia) para mais detalhes.
+
+Copyright © 2026 **A11yDevs** — Jhonata Fernandes Cordeiro.

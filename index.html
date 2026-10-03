@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="system" data-contrast="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acessília — Plataforma de IA para Documentos Acessíveis</title>
+  <meta name="description" content="Plataforma agentica de código aberto para compreensão, extração estrutural e transformação de documentos em formatos acessíveis (PDF/UA, áudio, HTML, DOCX).">
+  <meta name="keywords" content="acessibilidade, a11y, PDF/UA, OCR, IA, leitor de tela, audiodescrição, Docling, A11yDevs, inclusão digital">
+  <meta name="author" content="A11yDevs">
+  <meta name="theme-color" content="#1a365d">
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://a11ydevs.github.io/acessilia-site/">
+  <meta property="og:title" content="Acessília — IA para Documentos Acessíveis">
+  <meta property="og:description" content="Transforme documentos visuais e PDFs em formatos universais acessíveis com agentes de IA e OCR estruturado.">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♿</text></svg>">
+</head>
+<body>
+
+  <!-- Links de salto (Skip links para navegação por teclado / leitores de tela) -->
+  <nav class="skip-links" aria-label="Atalhos de navegação rápida">
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    <a href="#accessibility-toolbar" class="skip-link">Pular para a barra de acessibilidade</a>
+    <a href="#primary-nav" class="skip-link">Pular para o menu de navegação</a>
+  </nav>
+
+  <!-- Região para anúncios dinâmicos de acessibilidade (leitores de tela) -->
+  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Barra de Ferramentas de Acessibilidade -->
+  <section id="accessibility-toolbar" class="a11y-toolbar" aria-label="Ferramentas de Acessibilidade">
+    <div class="container a11y-toolbar__inner">
+      <span class="a11y-toolbar__title">
+        <span class="icon-a11y" aria-hidden="true">♿</span>
+        <strong>Acessibilidade do Site:</strong>
+      </span>
+
+      <div class="a11y-toolbar__actions">
+        <!-- Controle de tamanho da fonte -->
+        <div class="btn-group" role="group" aria-label="Ajustar tamanho do texto">
+          <button type="button" id="btn-font-decrease" class="btn btn-sm" aria-label="Diminuir tamanho da fonte (A menos)">
+            <span aria-hidden="true">A-</span>
+          </button>
+          <button type="button" id="btn-font-reset" class="btn btn-sm" aria-label="Restaurar tamanho padrão da fonte (A normal)">
+            <span aria-hidden="true">A</span>
+          </button>
+          <button type="button" id="btn-font-increase" class="btn btn-sm" aria-label="Aumentar tamanho da fonte (A mais)">
+            <span aria-hidden="true">A+</span>
+          </button>
+        </div>
+
+        <!-- Alternador de Alto Contraste -->
+        <button type="button" id="btn-toggle-contrast" class="btn btn-sm" aria-pressed="false">
+          <span class="icon" aria-hidden="true">◐</span>
+          <span>Alto Contraste</span>
+        </button>
+
+        <!-- Alternador de Tema Escuro/Claro -->
+        <button type="button" id="btn-toggle-theme" class="btn btn-sm" aria-label="Alternar tema de cores">
+          <span id="theme-icon" class="icon" aria-hidden="true">🌙</span>
+          <span id="theme-label">Tema Escuro</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cabeçalho Principal -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <div class="site-header__brand">
+        <a href="#inicio" class="brand-link" aria-label="Acessília - Página inicial">
+          <div class="brand-logo" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+              <path d="M12 28L20 12L28 28M15 23H25" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="20" cy="8" r="2.5" fill="var(--color-accent)"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Acessília</span>
+            <span class="brand-tagline">por A11yDevs</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Menu de Navegação -->
+      <nav id="primary-nav" class="site-nav" aria-label="Navegação principal">
+        <button type="button" class="nav-toggle" id="btn-nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu de navegação">
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+        </button>
+
+        <ul id="nav-menu" class="nav-list">
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#funcionalidades" class="nav-link">Recursos</a></li>
+          <li><a href="#arquitetura" class="nav-link">Arquitetura</a></li>
+          <li><a href="#formatos" class="nav-link">Formatos</a></li>
+          <li><a href="#demonstracao" class="nav-link">Demonstração</a></li>
+          <li><a href="#como-usar" class="nav-link">Como Usar</a></li>
+          <li>
+            <a href="https://github.com/A11yDevs/acessilia" class="btn btn-primary btn-github" target="_blank" rel="noopener noreferrer">
+              <svg class="icon-github" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span>GitHub</span>
+              <span class="sr-only">(abre em nova janela)</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="main-content" tabindex="-1">
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section" aria-labelledby="hero-title">
+      <div class="container hero-section__inner">
+        <div class="hero-content">
+          <div class="badge-pill">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Plataforma Aberta de Inteligência Artificial para Acessibilidade
+          </div>
+
+          <h1 id="hero-title" class="hero-title">
+            Transformando qualquer documento em conhecimento universal e acessível
+          </h1>
+
+          <p class="hero-lead">
+            O <strong>Acessília</strong> é uma plataforma agentica de código aberto que extrai estruturas visuais complexas, classifica conteúdos e gera versões acessíveis em <strong>PDF/UA</strong>, <strong>HTML semântico</strong>, <strong>áudio narrado</strong> e <strong>audiodescrições detalhadas</strong> para pessoas com deficiência.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#como-usar" class="btn btn-primary btn-lg">
+              Começar a Usar
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#demonstracao" class="btn btn-outline btn-lg">
+              Ver Demonstração Interativa
+            </a>
+          </div>
+
+          <div class="hero-badges" aria-label="Estatísticas e características do projeto">
+            <div class="hero-badge-item">
+              <span class="hero-badge-num">100%</span>
+              <span class="hero-badge-desc">Código Aberto (MIT)</span>
+            </div>
+            <div class="hero-badge-item">
+              <span class="hero-badge-num">WCAG & PDF/UA</span>
+              <span class="hero-badge-desc">Conformidade Internacional</span>
+            </div>
+            <div class="hero-badge-item">
+              <span class="hero-badge-num">Local & Nuvem</span>
+              <span class="hero-badge-desc">Ollama ou OpenRouter</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="pipeline-card">
+            <div class="pipeline-header">
+              <span class="circle circle-red"></span>
+              <span class="circle circle-yellow"></span>
+              <span class="circle circle-green"></span>
+              <span class="pipeline-title">Pipeline de Transformação Acessília</span>
+            </div>
+            <div class="pipeline-body">
+              <div class="pipeline-step">
+                <span class="step-num">01</span>
+                <div class="step-info">
+                  <strong>Entrada Heterogênea</strong>
+                  <p>PDFs digitalizados, imagens, DOCX, apostilas acadêmicas</p>
+                </div>
+              </div>
+              <div class="pipeline-connector">↓</div>
+              <div class="pipeline-step">
+                <span class="step-num">02</span>
+                <div class="step-info">
+                  <strong>Análise Estrutural & OCR</strong>
+                  <p>Docling + RapidOCR para reconhecimento de tabelas, fórmulas e hierarquia</p>
+                </div>
+              </div>
+              <div class="pipeline-connector">↓</div>
+              <div class="pipeline-step">
+                <span class="step-num">03</span>
+                <div class="step-info">
+                  <strong>Agentes LLM Especializados</strong>
+                  <p>Audiodescrição técnica, correção sintática e enriquecimento semântico</p>
+                </div>
+              </div>
+              <div class="pipeline-connector">↓</div>
+              <div class="pipeline-step">
+                <span class="step-num">04</span>
+                <div class="step-info highlight">
+                  <strong>Saída Universal Acessível</strong>
+                  <p>PDF/UA, Áudio sintetizado MP3, HTML Semântico, DOCX e TXT</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section id="sobre" class="section section--alt" aria-labelledby="sobre-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="sobre-title" class="section-title">O Que É o Projeto Acessília?</h2>
+          <p class="section-subtitle">
+            Uma ponte tecnológica entre documentos visuais e a autonomia de leitura para pessoas cegas ou com baixa visão.
+          </p>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card card--padded">
+            <div class="card-icon" aria-hidden="true">🎯</div>
+            <h3 class="card-title">O Desafio</h3>
+            <p>
+              Milhões de documentos acadêmicos, livros, relatórios governamentais e apostilas circulam em PDFs sem marcação estrutural, imagens sem audiodescrição ou digitalizações ilegíveis para leitores de tela convencionais (como NVDA, JAWS, Orca ou VoiceOver). O resultado é a exclusão informacional direta.
+            </p>
+          </div>
+
+          <div class="card card--padded">
+            <div class="card-icon" aria-hidden="true">💡</div>
+            <h3 class="card-title">Nossa Solução</h3>
+            <p>
+              O Acessília decompõe o documento, reconstrói sua árvore semântica correta (títulos H1 a H6, tabelas com cabeçalhos acessíveis, listas ordenadas, fórmulas em MathML/LaTeX) e emprega modelos de linguagem para audiodescrever figuras e diagramas com precisão técnica e contexto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Funcionalidades -->
+    <section id="funcionalidades" class="section" aria-labelledby="func-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="func-title" class="section-title">Principais Capacidades</h2>
+          <p class="section-subtitle">Projetado com base em padrões de acessibilidade digital e arquitetura moderna.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <!-- Card 1 -->
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">📑</div>
+            <h3 class="feature-title">PDF/UA Universal</h3>
+            <p>
+              Exporta PDFs etiquetados de acordo com a norma <strong>ISO 14289-1 (PDF/UA)</strong>, garantindo conformidade com leitores de tela e tecnologias assistivas em qualquer plataforma.
+            </p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🖼️</div>
+            <h3 class="feature-title">Audiodescrição com IA</h3>
+            <p>
+              Agentes multimodais inspecionam imagens, fotos, infográficos e esquemas gráficos, gerando descrições textuais contextuais e alt text de alto padrão.
+            </p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🎧</div>
+            <h3 class="feature-title">Síntese de Voz Integrada</h3>
+            <p>
+              Gera versões em áudio (MP3) com ritmo natural e capítulos estruturados, permitindo audição contínua sem depender exclusivamente do leitor de tela do dispositivo.
+            </p>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🔬</div>
+            <h3 class="feature-title">Extração Docling + RapidOCR</h3>
+            <p>
+              Combina redes neurais de ponta para segmentação de layout com motores OCR rápidos, identificando colunas múltiplas, cabeçalhos, notas de rodapé e tabelas complexas.
+            </p>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🔒</div>
+            <h3 class="feature-title">Privacidade e Execução Local</h3>
+            <p>
+              Suporta execução 100% offline e local via <strong>Ollama</strong>, protegendo dados confidenciais ou institucionais, além de integração com <strong>OpenRouter</strong> para modelos em nuvem.
+            </p>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">⚡</div>
+            <h3 class="feature-title">Múltiplas Interfaces</h3>
+            <p>
+              Acesse como preferir: através da <strong>API REST</strong>, de um <strong>Painel Web</strong> intuitivo, de um <strong>Bot do Telegram</strong> ágil ou via <strong>Linha de Comando (CLI)</strong>.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Formatos de Saída -->
+    <section id="formatos" class="section section--alt" aria-labelledby="formatos-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="formatos-title" class="section-title">Formatos Acessíveis de Saída</h2>
+          <p class="section-subtitle">
+            Um único upload gera diversos formatos otimizados para cada perfil de uso e tecnologia assistiva.
+          </p>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table-accessible">
+            <caption class="sr-only">Tabela comparativa de formatos de exportação gerados pelo Acessília</caption>
+            <thead>
+              <tr>
+                <th scope="col">Formato</th>
+                <th scope="col">Extensão</th>
+                <th scope="col">Objetivo Principal</th>
+                <th scope="col">Diferencial de Acessibilidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>PDF Universalmente Acessível</strong></td>
+                <td><code>.pdf</code> (PDF/UA)</td>
+                <td>Documento final com preservação visual</td>
+                <td>Árvore de tags semânticas, textos alternativos e ordem de leitura navegável.</td>
+              </tr>
+              <tr>
+                <td><strong>Áudio Falado</strong></td>
+                <td><code>.mp3</code></td>
+                <td>Audição móvel e pessoas com fadiga visual</td>
+                <td>Síntese de voz com leitura contextual de fórmulas, tabelas e audiodescrição.</td>
+              </tr>
+              <tr>
+                <td><strong>HTML Estruturado</strong></td>
+                <td><code>.html</code></td>
+                <td>Navegação web e leitores de tela rápidos</td>
+                <td>Marcação HTML5 semântica (H1-H6, semântica ARIA, listas e tabelas completas).</td>
+              </tr>
+              <tr>
+                <td><strong>Documento Editável</strong></td>
+                <td><code>.docx</code></td>
+                <td>Revisão, notas acadêmicas e anotações</td>
+                <td>Estilos estruturados de parágrafo e título, compatível com Microsoft Word e LibreOffice.</td>
+              </tr>
+              <tr>
+                <td><strong>Texto Puro Simples</strong></td>
+                <td><code>.txt</code></td>
+                <td>Terminais braille e dispositivos minimalistas</td>
+                <td>Texto linear limpo sem artefatos de quebra de linha espúrios ou colunas truncadas.</td>
+              </tr>
+              <tr>
+                <td><strong>Pacote Completo</strong></td>
+                <td><code>.zip</code></td>
+                <td>Arquivo institucional e arquivamento</td>
+                <td>Todos os formatos acima empacotados com metadados e relatório de conformidade.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Arquitetura -->
+    <section id="arquitetura" class="section" aria-labelledby="arq-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="arq-title" class="section-title">Arquitetura Modular</h2>
+          <p class="section-subtitle">
+            Separação clara entre Domínio, Aplicação e Interfaces para máxima extensibilidade.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card card--bordered">
+            <div class="card-badge">Camada 1</div>
+            <h3 class="card-title">Backend & Domínio</h3>
+            <ul class="clean-list">
+              <li><strong>Agentes de IA:</strong> Avaliação contextual e descrições visuais.</li>
+              <li><strong>Clientes LLM:</strong> Abstração para Ollama, OpenRouter e APIs externas.</li>
+              <li><strong>Pipeline Modular:</strong> Estágios desacoplados de extração e normalização.</li>
+              <li><strong>Exportadores:</strong> Geradores nativos de PDF/UA, HTML, MP3 e DOCX.</li>
+            </ul>
+          </div>
+
+          <div class="card card--bordered">
+            <div class="card-badge">Camada 2</div>
+            <h3 class="card-title">API REST Núcleo</h3>
+            <ul class="clean-list">
+              <li><strong>FastAPI assíncrona:</strong> Alta performance e documentação OpenAPI.</li>
+              <li><strong>Fila de Jobs:</strong> Processamento em fila com consulta de status em tempo real.</li>
+              <li><strong>Segurança:</strong> Downloads via token seguro com expiração configurável.</li>
+              <li><strong>Persistência:</strong> Registro de histórico e telemetria via SQLite.</li>
+            </ul>
+          </div>
+
+          <div class="card card--bordered">
+            <div class="card-badge">Camada 3</div>
+            <h3 class="card-title">Frontends & Clientes</h3>
+            <ul class="clean-list">
+              <li><strong>Painel Web:</strong> Interface acessível para envio de arquivos e acompanhamento.</li>
+              <li><strong>Bot do Telegram:</strong> Envio prático de áudio ou documento pelo celular.</li>
+              <li><strong>CLI (Terminal):</strong> Automatização e processamento em lote em servidores.</li>
+              <li><strong>MCP Server:</strong> Integração com agentes e ferramentas externas.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Demonstração Interativa -->
+    <section id="demonstracao" class="section section--alt" aria-labelledby="demo-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="demo-title" class="section-title">Simulador do Pipeline Acessília</h2>
+          <p class="section-subtitle">
+            Experimente como o Acessília processa um documento e gera acessibilidade instantânea.
+          </p>
+        </div>
+
+        <div class="demo-wrapper">
+          <div class="demo-controls" role="region" aria-label="Controles do simulador">
+            <label for="demo-select-doc" class="form-label">
+              <strong>Selecione um exemplo de documento para simular:</strong>
+            </label>
+            <div class="demo-actions">
+              <select id="demo-select-doc" class="form-select">
+                <option value="artigo">Artigo Científico com Gráficos e Fórmulas</option>
+                <option value="apostila">Apostila Universitária com Tabelas Complexas</option>
+                <option value="relatorio">Relatório Técnico com Imagens Digitalizadas</option>
+              </select>
+              <button type="button" id="btn-run-simulation" class="btn btn-primary">
+                <span class="icon" aria-hidden="true">▶</span>
+                Executar Simulação
+              </button>
+            </div>
+          </div>
+
+          <div class="demo-stage" id="demo-stage" aria-live="polite">
+            <div class="demo-status" id="demo-status-box">
+              <div class="status-indicator">
+                <span class="status-pulse" aria-hidden="true"></span>
+                <span id="demo-status-text">Pronto para simulação. Pressione "Executar Simulação".</span>
+              </div>
+            </div>
+
+            <div class="demo-results" id="demo-results-box" style="display: none;">
+              <h3 class="demo-results__title">Resultado da Extração Semântica</h3>
+              
+              <div class="grid grid-2">
+                <div class="card result-card">
+                  <h4 class="result-heading">Antes: PDF Não Estruturado</h4>
+                  <div class="raw-preview" id="demo-raw-content">
+                    <em>Texto corrido desordenado sem tags, tabelas transformadas em colunas desconexas, imagens sem alt text e ausência de títulos navegáveis.</em>
+                  </div>
+                </div>
+
+                <div class="card result-card result-card--accessible">
+                  <h4 class="result-heading">Depois: Estrutura Acessília Enriquecida</h4>
+                  <div class="accessible-preview" id="demo-accessible-content">
+                    <!-- Preenchido dinamicamente via JS -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Como Usar / Instalação -->
+    <section id="como-usar" class="section" aria-labelledby="usar-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="usar-title" class="section-title">Como Começar</h2>
+          <p class="section-subtitle">
+            Suba seu próprio ambiente Acessília em poucos minutos via Docker ou Poetry.
+          </p>
+        </div>
+
+        <div class="tabs" id="install-tabs">
+          <div class="tabs__list" role="tablist" aria-label="Opções de instalação e execução">
+            <button type="button" class="tab-button" role="tab" aria-selected="true" aria-controls="panel-docker" id="tab-docker">
+              Docker (Recomendado)
+            </button>
+            <button type="button" class="tab-button" role="tab" aria-selected="false" aria-controls="panel-poetry" id="tab-poetry" tabindex="-1">
+              Poetry / Python 3.11+
+            </button>
+            <button type="button" class="tab-button" role="tab" aria-selected="false" aria-controls="panel-api" id="tab-api" tabindex="-1">
+              Consumindo a API REST
+            </button>
+          </div>
+
+          <!-- Painel Docker -->
+          <div class="tab-panel" id="panel-docker" role="tabpanel" aria-labelledby="tab-docker">
+            <h3 class="sr-only">Execução com Docker</h3>
+            <p>Utilize as imagens oficiais publicadas no GitHub Container Registry (ghcr.io):</p>
+            <div class="code-block">
+              <div class="code-block__header">
+                <span class="code-lang">Bash / Terminal</span>
+                <button type="button" class="btn-copy" aria-label="Copiar comando Docker para a área de transferência">Copiar</button>
+              </div>
+              <pre><code># Baixar a imagem completa com Docling, RapidOCR e PyTorch CPU
+docker pull ghcr.io/a11ydevs/acessilia:main
+
+# Executar os serviços (API na porta 8000 e painel Web na 8001)
+docker run --rm \
+  --env-file .env \
+  -p 8000:8000 \
+  -p 8001:8001 \
+  -v "$PWD/var:/app/var" \
+  ghcr.io/a11ydevs/acessilia:main</code></pre>
+            </div>
+            <p class="tip-note">
+              <strong>Nota:</strong> Para servidores com recursos reduzidos, utilize a versão leve <code>ghcr.io/a11ydevs/acessilia:main-slim</code>.
+            </p>
+          </div>
+
+          <!-- Painel Poetry -->
+          <div class="tab-panel" id="panel-poetry" role="tabpanel" aria-labelledby="tab-poetry" hidden>
+            <h3 class="sr-only">Instalação com Poetry</h3>
+            <p>Clone o repositório oficial e configure o ambiente com o Poetry:</p>
+            <div class="code-block">
+              <div class="code-block__header">
+                <span class="code-lang">Bash / Terminal</span>
+                <button type="button" class="btn-copy" aria-label="Copiar comandos Poetry para a área de transferência">Copiar</button>
+              </div>
+              <pre><code># Clonar o repositório
+git clone https://github.com/A11yDevs/acessilia.git
+cd acessilia
+
+# Instalar dependências
+poetry install
+
+# Configurar variáveis de ambiente
+cp .env.example .env
+
+# Iniciar todos os serviços (API + Web + Telegram)
+poetry run python -m frontend.run</code></pre>
+            </div>
+          </div>
+
+          <!-- Painel API -->
+          <div class="tab-panel" id="panel-api" role="tabpanel" aria-labelledby="tab-api" hidden>
+            <h3 class="sr-only">Consumindo a API REST</h3>
+            <p>Envie um arquivo para processamento assíncrono via cURL:</p>
+            <div class="code-block">
+              <div class="code-block__header">
+                <span class="code-lang">cURL / HTTP</span>
+                <button type="button" class="btn-copy" aria-label="Copiar requisição cURL para a área de transferência">Copiar</button>
+              </div>
+              <pre><code># 1. Enviar documento para a fila
+curl -X POST "http://localhost:8000/api/v1/jobs" \
+  -F "file=@documento.pdf" \
+  -F "export_formats=pdf_ua,mp3,html"
+
+# 2. Consultar status do processamento
+curl -X GET "http://localhost:8000/api/v1/jobs/{task_id}"
+
+# 3. Baixar versão PDF/UA acessível gerada
+curl -O "http://localhost:8000/api/v1/download/{token}/pdf_ua"</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção FAQ -->
+    <section id="faq" class="section section--alt" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="faq-title" class="section-title">Perguntas Frequentes (FAQ)</h2>
+          <p class="section-subtitle">Tire suas dúvidas sobre o funcionamento, acessibilidade e privacidade do Acessília.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>O que é um arquivo PDF/UA e por que ele é importante?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                PDF/UA (Universal Accessibility, norma ISO 14289) é o padrão internacional que assegura que arquivos PDF sejam completamente interpretáveis por tecnologias assistivas. Ele exige etiquetas semânticas, ordem de leitura rigorosa, contraste adequado e descrição para todos os elementos não textuais.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Meus documentos enviados para processamento ficam salvos ou expostos?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Não. Ao executar a plataforma localmente via Docker com Ollama, nenhum dado ou texto sai da sua rede corporativa ou computador pessoal. A API gerencia tokens efêmeros para download e limpa os arquivos após o ciclo de vida definido na configuração.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Como o Acessília descreve imagens complexas e equações matemáticas?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                O Acessília usa modelos de visão computacional combinados com prompts estruturados para audiodescrição técnica (seguindo diretrizes de audiodescrição para exames e materiais didáticos). Fórmulas matemáticas são extraídas e convertidas em notação semântica (como LaTeX ou MathML), permitindo navegação símbolo por símbolo no leitor de tela.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Como posso contribuir com o desenvolvimento do Acessília?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                O projeto é 100% de código aberto sob licença MIT, mantido pela organização <strong>A11yDevs</strong>. Você pode contribuir abrindo issues, sugerindo melhorias na pipeline de IA, adicionando novos exportadores ou aprimorando o suporte a leitores de tela no repositório GitHub.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Chamada para Ação (CTA) -->
+    <section class="section section-cta" aria-labelledby="cta-title">
+      <div class="container text-center">
+        <h2 id="cta-title" class="cta-title">Pronto para tornar seus documentos verdadeiramente acessíveis?</h2>
+        <p class="cta-subtitle">
+          Junte-se à comunidade A11yDevs e faça parte da transformação para uma web e uma educação inclusiva.
+        </p>
+        <div class="cta-actions">
+          <a href="https://github.com/A11yDevs/acessilia" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+            Acessar o Repositório no GitHub
+            <span class="sr-only">(abre em nova janela)</span>
+          </a>
+          <a href="https://github.com/A11yDevs/acessilia/blob/main/CONTRIBUTING.md" class="btn btn-outline-light btn-lg" target="_blank" rel="noopener noreferrer">
+            Guia de Contribuição
+            <span class="sr-only">(abre em nova janela)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container site-footer__inner">
+      <div class="footer-col footer-col--brand">
+        <div class="brand-text">
+          <span class="brand-name">Acessília</span>
+          <span class="brand-tagline">Tecnologia assistiva & IA para todos</span>
+        </div>
+        <p class="footer-desc">
+          Um projeto mantido com dedicação pela organização <strong>A11yDevs</strong> para democratizar a acessibilidade documental através de IA de código aberto.
+        </p>
+        <p class="footer-license">
+          Licenciado sob a <a href="https://github.com/A11yDevs/acessilia/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">Licença MIT</a>.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="#sobre">Sobre o Projeto</a></li>
+          <li><a href="#funcionalidades">Recursos</a></li>
+          <li><a href="#formatos">Formatos Acessíveis</a></li>
+          <li><a href="#arquitetura">Arquitetura</a></li>
+          <li><a href="#como-usar">Instalação</a></li>
+          <li><a href="#faq">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Ecossistema A11yDevs</h3>
+        <ul class="footer-links">
+          <li><a href="https://github.com/A11yDevs/acessilia" target="_blank" rel="noopener noreferrer">Acessília Core</a></li>
+          <li><a href="https://github.com/A11yDevs/acessilia-toolbox" target="_blank" rel="noopener noreferrer">Acessília Toolbox (MCP)</a></li>
+          <li><a href="https://github.com/A11yDevs/acessilia-dataset" target="_blank" rel="noopener noreferrer">Dataset de Testes</a></li>
+          <li><a href="https://github.com/A11yDevs/normas-acessilia" target="_blank" rel="noopener noreferrer">Normas Semânticas</a></li>
+          <li><a href="https://github.com/A11yDevs" target="_blank" rel="noopener noreferrer">Organização A11yDevs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Declaração de Acessibilidade</h3>
+        <p class="footer-text">
+          Este site foi desenvolvido seguindo rigorosamente as diretrizes <strong>WCAG 2.2 Nível AAA</strong> e o modelo de acessibilidade do governo brasileiro (<strong>e-MAG</strong>). Se encontrar qualquer barreira de acesso, reporte via GitHub.
+        </p>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="container footer-bottom__inner">
+        <p>© 2026 A11yDevs — Jhonata Fernandes Cordeiro. Todos os direitos reservados.</p>
+        <p><a href="#inicio" class="back-to-top">Voltar ao topo ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
