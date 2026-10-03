@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   document.querySelectorAll('.btn-copy').forEach(button => {
     button.addEventListener('click', async () => {
-      const codeBlock = button.closest('.code-block');
+      const codeBlock = button.closest('.code-block') || button.closest('.citation-block');
       const code = codeBlock?.querySelector('pre code')?.innerText || '';
 
       try {

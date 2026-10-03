@@ -11,11 +11,22 @@ Este repositório contém o código-fonte do website oficial do projeto **[Acess
 
 ---
 
+## 🏛️ Frentes Institucionais & Multidisciplinares
+
+O **Acessília** é um projeto multidisciplinar que integra:
+
+- **🔬 Projeto de Pesquisa Científica (UFG / INF / LaMCAD):** Desenvolvido no Instituto de Informática da Universidade Federal de Goiás, com apoio da infraestrutura de supercomputação do **LaMCAD/UFG** (Laboratório Multiusuário de Computação de Alto Desempenho e Arquitetura de Dados). A pesquisa fundamenta suas decisões técnicas na resolução dos desafios descritos no benchmark internacional **Dr.DocBench** (*A Comprehensive Benchmark for Expert-Level and Difficult Document Parsing*, arXiv:2606.01393).
+- **🎓 Projeto de Extensão Universitária A11yDevs:** O Acessília é uma das principais frentes do projeto de extensão acadêmica da UFG, promovendo capacitação, difusão de diretrizes de acessibilidade e desenvolvimento de tecnologias assistivas de impacto social.
+- **♿ Aplicação Real no Núcleo de Acessibilidade da UFG (NA/UFG):** Ferramenta utilizada diretamente na rotina universitária para a produção de material didático adaptado (PDF/UA e audiodescrição técnica) para estudantes cegos e com baixa visão da UFG, integrado ao painel institucional [Acessilia Gestor](https://github.com/A11yDevs/acessilia-ufg).
+- **🌐 Comunidade de Software Livre:** Iniciativa 100% aberta (Licença MIT) coordenada pelo **Prof. Dr. Marcelo Akira Inuzuka** e liderada tecnicamente por **Jhonata Fernandes Cordeiro**, com colaboração de estudantes, pesquisadores e voluntários.
+
+---
+
 ## 🎯 Sobre o Projeto
 
 O **Acessília** é uma plataforma de inteligência artificial orientada a agentes para extração de estruturas complexas de documentos (PDF, imagens, apostilas, DOCX) e conversão automática para formatos acessíveis de padrão internacional (**PDF/UA**, **áudio narrado MP3**, **HTML semântico** e **DOCX**).
 
-Este website foi construído para apresentar o projeto, suas especificações arquiteturais, guias de execução e demonstrador interativo, priorizando os mais altos padrões de acessibilidade web.
+Este website foi construído para apresentar o projeto, suas frentes institucionais, guias de execução e demonstrador interativo, priorizando os mais altos padrões de acessibilidade web.
 
 ---
 

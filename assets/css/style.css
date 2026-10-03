@@ -1170,3 +1170,230 @@ body {
     padding: 3.5rem 0;
   }
 }
+
+/* ==========================================================================
+   16. Componentes Institucionais e Acadêmicos (UFG, LaMCAD, Dr.DocBench)
+   ========================================================================== */
+
+/* Barra de Parcerias Institucionais (Trust Ribbon) */
+.trust-ribbon {
+  background-color: var(--bg-alt);
+  border-top: 1px solid var(--bg-card-border);
+  border-bottom: 1px solid var(--bg-card-border);
+  padding: 1.25rem 0;
+}
+
+.trust-ribbon__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.trust-item:hover {
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.trust-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.trust-text small {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Cards das Frentes Institucionais */
+.pillar-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--bg-card-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.pillar-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.pillar-card__icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.pillar-card__badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background-color: var(--bg-alt);
+  color: var(--color-primary);
+  border: 1px solid var(--bg-card-border);
+}
+
+.pillar-card__title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.pillar-card__desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.pillar-card__meta {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--bg-card-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.pillar-card__meta strong {
+  color: var(--text-primary);
+}
+
+/* Bloco do Projeto de Extensão Anexado */
+.extension-box {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.extension-box summary {
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--color-primary);
+  padding: 0.25rem 0;
+}
+
+.extension-box__content {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--bg-card-border);
+  font-size: 0.875rem;
+}
+
+/* Seção de Pesquisa & Benchmark Dr.DocBench */
+.paper-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--bg-card-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+  margin-top: 2rem;
+}
+
+.paper-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.paper-badge {
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.paper-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.paper-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.paper-abstract {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.citation-block {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  overflow-x: auto;
+  border: 1px solid var(--bg-card-border);
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.citation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.citation-label {
+  color: #94A3B8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.paper-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
