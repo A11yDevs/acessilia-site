@@ -1,13 +1,13 @@
 # Acessília — Site Oficial & Documentação Web
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deploy-blue?logo=github)](https://a11ydevs.github.io/acessilia-site/)
+[![Website](https://img.shields.io/badge/Website-acessilia.org-blue?logo=googlechrome)](https://acessilia.org/)
 [![WCAG AAA](https://img.shields.io/badge/Acessibilidade-WCAG%202.2%20AAA-green)](https://www.w3.org/WAI/standards-guidelines/wcag/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Org](https://img.shields.io/badge/Organização-A11yDevs-1E40AF)](https://github.com/A11yDevs)
 
 Este repositório contém o código-fonte do website oficial do projeto **[Acessília](https://github.com/A11yDevs/acessilia)**, hospedado via **GitHub Pages**.
 
-🔗 **Acesse o site online:** [https://a11ydevs.github.io/acessilia-site/](https://a11ydevs.github.io/acessilia-site/)
+🔗 **Acesse o site online:** [https://acessilia.org/](https://acessilia.org/) (ou [https://a11ydevs.github.io/acessilia-site/](https://a11ydevs.github.io/acessilia-site/))
 
 ---
 
