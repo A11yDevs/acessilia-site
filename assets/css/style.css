@@ -1397,3 +1397,126 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
 }
+
+/* ==========================================================================
+   17. Seção do Ecossistema Integrado (4 Repositórios)
+   ========================================================================== */
+
+.ecosystem-section {
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--bg-card-border);
+}
+
+.ecosystem-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--bg-card-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ecosystem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.ecosystem-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.ecosystem-card__badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background-color: var(--bg-alt);
+  color: var(--color-primary);
+  border: 1px solid var(--bg-card-border);
+}
+
+.ecosystem-card__title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.ecosystem-card__repo {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ecosystem-card__repo:hover {
+  text-decoration: underline;
+}
+
+.ecosystem-card__desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.ecosystem-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.ecosystem-card__features li {
+  position: relative;
+  padding-left: 1.4rem;
+  line-height: 1.4;
+}
+
+.ecosystem-card__features li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  background-color: var(--bg-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--bg-card-border);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.ecosystem-card__actions {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--bg-card-border);
+}

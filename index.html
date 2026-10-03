@@ -99,6 +99,7 @@
 
         <ul id="nav-menu" class="nav-list">
           <li><a href="#institucional" class="nav-link">Institucional</a></li>
+          <li><a href="#ecossistema" class="nav-link">Ecossistema</a></li>
           <li><a href="#pesquisa" class="nav-link">Pesquisa & Artigo</a></li>
           <li><a href="#sobre" class="nav-link">Sobre</a></li>
           <li><a href="#funcionalidades" class="nav-link">Recursos</a></li>
@@ -318,19 +319,19 @@
             </div>
           </article>
 
-          <!-- Pilar 3: Acessibilidade no Ensino Superior -->
+          <!-- Pilar 3: Acessibilidade no Ensino Superior & Núcleo UFG -->
           <article class="pillar-card">
             <div class="pillar-card__header">
               <span class="pillar-card__icon" aria-hidden="true">♿</span>
-              <span class="pillar-card__badge">Acessibilidade & Inclusão</span>
+              <span class="pillar-card__badge">Em Fase de Implantação</span>
             </div>
             <h3 class="pillar-card__title">Acessibilidade no Ensino Superior</h3>
             <p class="pillar-card__desc">
-              O projeto foi concebido para atender às demandas de conversão e adaptação de livros didáticos, artigos científicos, apostilas e exames para estudantes cegos e com baixa visão no ambiente acadêmico, eliminando barreiras informacionais e assegurando autonomia e equidade educacional.
+              O projeto foi concebido para atender às demandas de conversão e adaptação de livros didáticos, artigos científicos, apostilas e exames para estudantes cegos e com baixa visão. <strong>O sistema está em fase de preparação e planejamento para ser colocado em uso em breve pelo Núcleo de Acessibilidade da UFG</strong>, proporcionando um fluxo institucional integrado e ágil para a produção e entrega de materiais didáticos em formatos acessíveis.
             </p>
             <div class="pillar-card__meta">
-              <span><strong>Público Beneficiado:</strong> Estudantes cegos e com baixa visão, docentes e revisores.</span>
-              <span><strong>Finalidade:</strong> Democratizar o acesso a materiais didáticos acessíveis de padrão PDF/UA.</span>
+              <span><strong>Perspectiva Institucional:</strong> Em preparação para adoção e operação pelo Núcleo de Acessibilidade da UFG.</span>
+              <span><strong>Público Beneficiado:</strong> Estudantes cegos e com baixa visão da UFG e da comunidade educacional.</span>
             </div>
           </article>
 
@@ -347,6 +348,164 @@
             <div class="pillar-card__meta">
               <span><strong>Liderança & Coordenação:</strong> Prof. Dr. Marcelo Akira Inuzuka e Jhonata Fernandes Cordeiro.</span>
               <span><strong>Código Aberto:</strong> Livre para qualquer instituição de ensino ou órgão público utilizar e estender.</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Ecossistema Acessília (Os 4 Repositórios) -->
+    <section id="ecossistema" class="section ecosystem-section" aria-labelledby="eco-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Arquitetura Modular Integrada
+          </div>
+          <h2 id="eco-title" class="section-title">O Ecossistema Acessília</h2>
+          <p class="section-subtitle">
+            Conheça os quatro projetos modulares de código aberto que compõem o ecossistema: do núcleo de IA e gateway MCP até a gestão acadêmica e a suíte de testes contínuos.
+          </p>
+        </div>
+
+        <div class="grid grid-2">
+          <!-- Card 1: Acessília Core -->
+          <article class="ecosystem-card">
+            <div class="ecosystem-card__top">
+              <span class="pillar-card__icon" aria-hidden="true">🧠</span>
+              <span class="ecosystem-card__badge">Núcleo de IA & Pipeline</span>
+            </div>
+            <h3 class="ecosystem-card__title">Acessília Core</h3>
+            <a href="https://github.com/A11yDevs/acessilia" class="ecosystem-card__repo" target="_blank" rel="noopener noreferrer">
+              A11yDevs/acessilia ↗
+            </a>
+            <p class="ecosystem-card__desc">
+              A plataforma principal orientada a agentes para extração estrutural, enriquecimento semântico e transformação documental. Executa a orquestração do pipeline completo com Docling, RapidOCR, LLMs (Ollama local ou OpenRouter em nuvem) e geradores nativos de PDF/UA, HTML semântico, áudio narrado (TTS) e DOCX.
+            </p>
+            <ul class="ecosystem-card__features">
+              <li><strong>API REST Assíncrona:</strong> Fila de processamento assíncrono em FastAPI com tokens seguros e efêmeros de download.</li>
+              <li><strong>Exportadores Nativos:</strong> PDF/UA (ISO 14289), áudio sintetizado MP3 com ritmo e capítulos, HTML semântico, DOCX e TXT.</li>
+              <li><strong>Múltiplos Clientes:</strong> Painel web acessível, bot interativo do Telegram e interface de linha de comando (CLI).</li>
+              <li><strong>Distribuição Docker:</strong> Imagens oficiais Linux amd64 no GHCR (variante completa e variante slim).</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Python 3.11</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Docling</span>
+              <span class="tech-tag">RapidOCR</span>
+              <span class="tech-tag">Ollama / LLMs</span>
+              <span class="tech-tag">PDF/UA</span>
+            </div>
+            <div class="ecosystem-card__actions">
+              <a href="https://github.com/A11yDevs/acessilia" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
+                <span>Repositório no GitHub</span>
+                <span class="sr-only">(abre em nova janela)</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: Acessília Gestor (UFG) -->
+          <article class="ecosystem-card">
+            <div class="ecosystem-card__top">
+              <span class="pillar-card__icon" aria-hidden="true">🏛️</span>
+              <span class="ecosystem-card__badge">Gestão Institucional Web</span>
+            </div>
+            <h3 class="ecosystem-card__title">Acessília Gestor</h3>
+            <a href="https://github.com/A11yDevs/acessilia-ufg" class="ecosystem-card__repo" target="_blank" rel="noopener noreferrer">
+              A11yDevs/acessilia-ufg ↗
+            </a>
+            <p class="ecosystem-card__desc">
+              Painel institucional web independente concebido para a administração acadêmica de acessibilidade na universidade. Gerencia turmas, docentes, discentes com deficiência e fluxos de adaptação e revisão humana especializada de materiais didáticos. Em fase de preparação para implantação no Núcleo de Acessibilidade da UFG.
+            </p>
+            <ul class="ecosystem-card__features">
+              <li><strong>Controle de Acesso RBAC:</strong> Perfis diferenciados para Administradores, Professores, Revisores e Estudantes.</li>
+              <li><strong>Segurança & Alta Confiabilidade:</strong> Criptografia Argon2id, proteção contra força bruta, tokens CSRF e sessões seguras.</li>
+              <li><strong>Arquitetura Leve:</strong> Node.js com Fastify e banco de dados SQLite em modo WAL com 30 tabelas relacionais normalizadas.</li>
+              <li><strong>Integração Desacoplada:</strong> Comunicação com a API do Acessília Core via tracking assíncrono e idempotência rigorosa.</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Fastify</span>
+              <span class="tech-tag">SQLite WAL</span>
+              <span class="tech-tag">Argon2id</span>
+              <span class="tech-tag">RBAC</span>
+              <span class="tech-tag">WCAG 2.2</span>
+            </div>
+            <div class="ecosystem-card__actions">
+              <a href="https://github.com/A11yDevs/acessilia-ufg" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
+                <span>Repositório no GitHub</span>
+                <span class="sr-only">(abre em nova janela)</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: Acessília Toolbox (MCP) -->
+          <article class="ecosystem-card">
+            <div class="ecosystem-card__top">
+              <span class="pillar-card__icon" aria-hidden="true">🧰</span>
+              <span class="ecosystem-card__badge">Gateway MCP & Ferramentas</span>
+            </div>
+            <h3 class="ecosystem-card__title">Acessília Toolbox</h3>
+            <a href="https://github.com/A11yDevs/acessilia-toolbox" class="ecosystem-card__repo" target="_blank" rel="noopener noreferrer">
+              A11yDevs/acessilia-toolbox ↗
+            </a>
+            <p class="ecosystem-card__desc">
+              Caixa de ferramentas sem estado (<em>stateless</em>) e gateway de capacidades que expõe operações determinísticas para sistemas agenticos via REST e <strong>Model Context Protocol (MCP)</strong>. Garante neutralidade de fornecedores para que agentes de IA nunca fiquem acoplados a um provedor específico.
+            </p>
+            <ul class="ecosystem-card__features">
+              <li><strong>Suporte Nativo a MCP:</strong> Ferramentas padronizadas para invocação direta por agentes autônomos e IDEs com suporte a MCP.</li>
+              <li><strong>Planejamento PDDL:</strong> Integração com lógica formal PDDL (Planning Domain Definition Language) para orquestração automática.</li>
+              <li><strong>Camada de Mediação Neutra:</strong> Desacoplamento entre capacidades (<code>document.structure.extract</code>) e provedores (<code>docling-serve</code>, <code>MinerU</code>).</li>
+              <li><strong>Infraestrutura de Alto Desempenho:</strong> Suporte a cache inteligente com Valkey e armazenamento distribuído com MinIO.</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Model Context Protocol (MCP)</span>
+              <span class="tech-tag">PDDL Planning</span>
+              <span class="tech-tag">docling-serve</span>
+              <span class="tech-tag">REST API</span>
+              <span class="tech-tag">Valkey</span>
+              <span class="tech-tag">MinIO</span>
+            </div>
+            <div class="ecosystem-card__actions">
+              <a href="https://github.com/A11yDevs/acessilia-toolbox" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
+                <span>Repositório no GitHub</span>
+                <span class="sr-only">(abre em nova janela)</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 4: Acessília Dataset -->
+          <article class="ecosystem-card">
+            <div class="ecosystem-card__top">
+              <span class="pillar-card__icon" aria-hidden="true">📊</span>
+              <span class="ecosystem-card__badge">Testes & Ground Truth</span>
+            </div>
+            <h3 class="ecosystem-card__title">Acessília Dataset</h3>
+            <a href="https://github.com/A11yDevs/acessilia-dataset" class="ecosystem-card__repo" target="_blank" rel="noopener noreferrer">
+              A11yDevs/acessilia-dataset ↗
+            </a>
+            <p class="ecosystem-card__desc">
+              Infraestrutura compartilhada de testes com acervo curado de documentos reais e sintéticos desafiadores (fórmulas de Bhaskara, integrais gaussianas, matrizes, somatórios e tabelas degradadas), acompanhados das extrações e marcações canônicas esperadas (<em>ground truth</em>).
+            </p>
+            <ul class="ecosystem-card__features">
+              <li><strong>Prevenção de Regressão:</strong> Testes automáticos que garantem a integridade da extração a cada novo PR ou release.</li>
+              <li><strong>Ground Truth para Fórmulas:</strong> Mapeamento rigoroso de imagens matemáticas para notação LaTeX oficial em CSV.</li>
+              <li><strong>Artefatos Intermediários:</strong> Schemas JSON padronizados (v1.0.0) para documentos canônicos, ProcessingManifest e planos PDDL.</li>
+              <li><strong>Integração Flexível:</strong> Consumível tanto como submódulo Git (<code>git submodule</code>) quanto como pacote Python pip.</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Ground Truth</span>
+              <span class="tech-tag">LaTeX Math</span>
+              <span class="tech-tag">Regression Suite</span>
+              <span class="tech-tag">JSON Schema</span>
+              <span class="tech-tag">CSV Manifests</span>
+              <span class="tech-tag">Git Submodule</span>
+            </div>
+            <div class="ecosystem-card__actions">
+              <a href="https://github.com/A11yDevs/acessilia-dataset" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
+                <span>Repositório no GitHub</span>
+                <span class="sr-only">(abre em nova janela)</span>
+              </a>
             </div>
           </article>
         </div>
