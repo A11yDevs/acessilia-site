@@ -2069,3 +2069,108 @@ kbd {
   color: var(--text-secondary);
 }
 
+/* ==========================================================================
+   24. Subpáginas: Cabeçalho & Breadcrumbs
+   ========================================================================== */
+
+.page-header {
+  padding: 3rem 0 2.25rem;
+  background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg-primary) 100%);
+  border-bottom: 1px solid var(--bg-card-border);
+  margin-bottom: 2.5rem;
+}
+
+.page-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.page-lead {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 850px;
+  line-height: 1.6;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.breadcrumb a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-sep {
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.subpage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+  margin: 2rem 0;
+}
+
+.subpage-nav-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--bg-card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.subpage-nav-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.subpage-nav-card__icon {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.subpage-nav-card__title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.subpage-nav-card__desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.subpage-nav-card__link {
+  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="system" data-contrast="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como Usar & Instalação — Acessília | Docker • Poetry • API</title>
+  <meta name="description" content="Guia completo de instalação e execução do Acessília: imagens Docker oficiais no GHCR, Poetry, consumo da API REST e servidor MCP.">
+  <meta name="keywords" content="instalação, docker, poetry, api rest, fastapi, curl, python, mcp, como usar, tutorial, Acessília">
+  <meta name="author" content="A11yDevs">
+  <meta name="theme-color" content="#1a365d">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://acessilia.org/como-usar.html">
+  <meta property="og:title" content="Como Começar — Acessília">
+  <meta property="og:description" content="Suba seu próprio ambiente Acessília em poucos minutos com Docker ou Poetry.">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♿</text></svg>">
+</head>
+<body>
+
+  <!-- Skip links -->
+  <nav class="skip-links" aria-label="Atalhos de navegação rápida">
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    <a href="#accessibility-toolbar" class="skip-link">Pular para a barra de acessibilidade</a>
+    <a href="#primary-nav" class="skip-link">Pular para o menu de navegação</a>
+  </nav>
+
+  <!-- Região para anúncios dinâmicos de acessibilidade -->
+  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Barra de Ferramentas de Acessibilidade -->
+  <section id="accessibility-toolbar" class="a11y-toolbar" aria-label="Ferramentas de Acessibilidade">
+    <div class="container a11y-toolbar__inner">
+      <span class="a11y-toolbar__title">
+        <span class="icon-a11y" aria-hidden="true">♿</span>
+        <strong>Acessibilidade do Site:</strong>
+      </span>
+
+      <div class="a11y-toolbar__actions">
+        <!-- Controle de tamanho da fonte -->
+        <div class="btn-group" role="group" aria-label="Ajustar tamanho do texto">
+          <button type="button" id="btn-font-decrease" class="btn btn-sm" aria-label="Diminuir tamanho da fonte (A menos)">
+            <span aria-hidden="true">A-</span>
+          </button>
+          <button type="button" id="btn-font-reset" class="btn btn-sm" aria-label="Restaurar tamanho padrão da fonte (A normal)">
+            <span aria-hidden="true">A</span>
+          </button>
+          <button type="button" id="btn-font-increase" class="btn btn-sm" aria-label="Aumentar tamanho da fonte (A mais)">
+            <span aria-hidden="true">A+</span>
+          </button>
+        </div>
+
+        <!-- Alternador de Alto Contraste -->
+        <button type="button" id="btn-toggle-contrast" class="btn btn-sm" aria-pressed="false" accesskey="c">
+          <span class="icon" aria-hidden="true">◐</span>
+          <span data-i18n="toolbar.contrast">Alto Contraste</span>
+        </button>
+
+        <!-- Alternador de Tema Escuro/Claro -->
+        <button type="button" id="btn-toggle-theme" class="btn btn-sm" aria-label="Alternar tema de cores" accesskey="t">
+          <span id="theme-icon" class="icon" aria-hidden="true">🌙</span>
+          <span id="theme-label" data-i18n="toolbar.theme_dark">Tema Escuro</span>
+        </button>
+
+        <!-- Alternador de Idioma (i18n PT-BR / EN) -->
+        <button type="button" id="btn-toggle-lang" class="btn btn-sm btn-lang" aria-label="Mudar idioma para Inglês / Switch to English" accesskey="l">
+          <span class="icon lang-flag" aria-hidden="true">🌐</span>
+          <span id="lang-current-label">EN</span>
+        </button>
+
+        <!-- Atalhos de Teclado (?) -->
+        <button type="button" id="btn-open-shortcuts" class="btn btn-sm" aria-label="Ver atalhos de teclado (Pressione interrogação)">
+          <span class="icon" aria-hidden="true">⌨️</span>
+          <span data-i18n="toolbar.shortcuts">Atalhos (?)</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cabeçalho Principal -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <div class="site-header__brand">
+        <a href="index.html" class="brand-link" aria-label="Acessília - Página inicial">
+          <div class="brand-logo" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+              <path d="M12 28L20 12L28 28M15 23H25" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="20" cy="8" r="2.5" fill="var(--color-accent)"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Acessília</span>
+            <span class="brand-tagline">UFG • LaMCAD • A11yDevs</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Menu de Navegação -->
+      <nav id="primary-nav" class="site-nav" aria-label="Navegação principal">
+        <button type="button" class="nav-toggle" id="btn-nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu de navegação">
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+        </button>
+
+        <ul id="nav-menu" class="nav-list">
+          <li><a href="index.html" class="nav-link" data-i18n="nav.home">Início</a></li>
+          <li><a href="institucional.html" class="nav-link" data-i18n="nav.institutional">Institucional</a></li>
+          <li><a href="pesquisa.html" class="nav-link" data-i18n="nav.research">Pesquisa & Artigo</a></li>
+          <li><a href="ecossistema.html" class="nav-link" data-i18n="nav.ecosystem">Ecossistema</a></li>
+          <li><a href="demonstracao.html" class="nav-link" data-i18n="nav.demo">Demonstração</a></li>
+          <li><a href="como-usar.html" class="nav-link" aria-current="page" data-i18n="nav.how_to_use">Como Usar</a></li>
+          <li><a href="roadmap.html" class="nav-link" data-i18n="nav.roadmap">Roadmap</a></li>
+          <li>
+            <a href="https://github.com/A11yDevs/acessilia" class="btn btn-primary btn-github" target="_blank" rel="noopener noreferrer">
+              <svg class="icon-github" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span>GitHub</span>
+              <span class="sr-only">(abre em nova janela)</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="main-content" tabindex="-1">
+
+    <!-- Cabeçalho da Página -->
+    <header class="page-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Caminho de navegação">
+          <a href="index.html">Início</a>
+          <span class="breadcrumb-sep" aria-hidden="true">/</span>
+          <span aria-current="page">Como Usar</span>
+        </nav>
+        <h1 class="page-title">Instalação, Execução & Integração</h1>
+        <p class="page-lead">
+          Suba seu próprio nó do Acessília em poucos minutos. Suporte nativo a Docker (GHCR), ambiente virtual com Poetry, consumo via API REST FastAPI e conector MCP Server.
+        </p>
+      </div>
+    </header>
+
+    <!-- Seção Abas de Instalação -->
+    <section class="section" aria-labelledby="inst-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Passo a Passo
+          </div>
+          <h2 id="inst-title" class="section-title">Escolha seu Método de Implantação</h2>
+          <p class="section-subtitle">
+            Ambiente pronto para desenvolvimento local ou servidores de produção de instituições de ensino.
+          </p>
+        </div>
+
+        <div class="tabs" id="install-tabs">
+          <div class="tabs__list" role="tablist" aria-label="Opções de instalação e execução">
+            <button type="button" class="tab-button" role="tab" aria-selected="true" aria-controls="panel-docker" id="tab-docker">
+              Docker (Recomendado)
+            </button>
+            <button type="button" class="tab-button" role="tab" aria-selected="false" aria-controls="panel-poetry" id="tab-poetry" tabindex="-1">
+              Poetry / Python 3.11+
+            </button>
+            <button type="button" class="tab-button" role="tab" aria-selected="false" aria-controls="panel-api" id="tab-api" tabindex="-1">
+              Consumindo a API REST
+            </button>
+            <button type="button" class="tab-button" role="tab" aria-selected="false" aria-controls="panel-mcp" id="tab-mcp" tabindex="-1">
+              Servidor MCP
+            </button>
+          </div>
+
+          <!-- Painel Docker -->
+          <div class="tab-panel" id="panel-docker" role="tabpanel" aria-labelledby="tab-docker">
+            <h3 class="sr-only">Execução com Docker</h3>
+            <p>Utilize as imagens oficiais publicadas no GitHub Container Registry (<code>ghcr.io</code>):</p>
+            <div class="code-block">
+              <div class="code-block__header">
+                <span class="code-lang">Bash / Terminal</span>
+                <button type="button" class="btn-copy" aria-label="Copiar comando Docker para a área de transferência">Copiar</button>
+              </div>
+              <pre><code># Baixar a imagem completa com Docling, RapidOCR e PyTorch CPU
+docker pull ghcr.io/a11ydevs/acessilia:main
+
+# Executar os serviços (API na porta 8000 e painel Web na 8001)
+docker run --rm \
+  --env-file .env \
+  -p 8000:8000 \
+  -p 8001:8001 \
+  -v "$PWD/var:/app/var" \
+  ghcr.io/a11ydevs/acessilia:main</code></pre>
+            </div>
+            <p class="tip-note">
+              <strong>Dica de Desempenho:</strong> Para servidores com menos de 8 GB de memória RAM, utilize a versão leve <code>ghcr.io/a11ydevs/acessilia:main-slim</code>.
+            </p>
+          </div>
+
+          <!-- Painel Poetry -->
+          <div class="tab-panel" id="panel-poetry" role="tabpanel" aria-labelledby="tab-poetry" hidden>
+            <h3 class="sr-only">Instalação com Poetry</h3>
+            <p>Clone o repositório oficial e configure o ambiente com o gerenciador de pacotes Poetry:</p>
+            <div class="code-block">
+              <div class="code-block__header">
+                <span class="code-lang">Bash / Terminal</span>
+                <button type="button" class="btn-copy" aria-label="Copiar comandos Poetry para a área de transferência">Copiar</button>
+              </div>
+              <pre><code># 1. Clonar o repositório
+git clone https://github.com/A11yDevs/acessilia.git
+cd acessilia
+
+# 2. Instalar dependências em ambiente virtual isolado
+poetry install
+
+# 3. Configurar variáveis de ambiente
+cp .env.example .env
+
+# 4. Iniciar todos os serviços integrados (API + Web + Telegram)
+poetry run python -m frontend.run</code></pre>
+            </div>
+          </div>
+
+          <!-- Painel API -->
+          <div class="tab-panel" id="panel-api" role="tabpanel" aria-labelledby="tab-api" hidden>
+            <h3 class="sr-only">Consumindo a API REST</h3>
+            <p>Envie um arquivo para processamento assíncrono via cURL ou qualquer biblioteca HTTP:</p>
+            <div class="code-block">
+              <div class="code-block__header">
+                <span class="code-lang">cURL / HTTP</span>
+                <button type="button" class="btn-copy" aria-label="Copiar requisição cURL para a área de transferência">Copiar</button>
+              </div>
+              <pre><code># 1. Enviar documento PDF para a fila assíncrona
+curl -X POST "http://localhost:8000/api/v1/jobs" \
+  -F "file=@apostila_calculo.pdf" \
+  -F "export_formats=pdf_ua,mp3,html"
+
+# Resposta JSON: {"task_id": "job_94a7e2b1", "status": "queued"}
+
+# 2. Consultar status do processamento
+curl -X GET "http://localhost:8000/api/v1/jobs/job_94a7e2b1"
+
+# 3. Baixar versão PDF/UA acessível gerada
+curl -O "http://localhost:8000/api/v1/download/{download_token}/pdf_ua"</code></pre>
+            </div>
+          </div>
+
+          <!-- Painel MCP -->
+          <div class="tab-panel" id="panel-mcp" role="tabpanel" aria-labelledby="tab-mcp" hidden>
+            <h3 class="sr-only">Integração via Servidor MCP</h3>
+            <p>Conecte o Acessília ao seu assistente de inteligência artificial via Model Context Protocol:</p>
+            <div class="code-block">
+              <div class="code-block__header">
+                <span class="code-lang">JSON (mcp.json)</span>
+                <button type="button" class="btn-copy" aria-label="Copiar configuração MCP para a área de transferência">Copiar</button>
+              </div>
+              <pre><code>{
+  "mcpServers": {
+    "acessilia": {
+      "command": "python",
+      "args": ["-m", "acessilia_toolbox.server"],
+      "env": {
+        "ACESSILIA_API_URL": "http://localhost:8000"
+      }
+    }
+  }
+}</code></pre>
+            </div>
+            <p class="tip-note">
+              <strong>Ferramentas Disponibilizadas:</strong> <code>describe_academic_chart</code>, <code>extract_mathml_equations</code> e <code>audit_pdf_ua_compliance</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Declaração Formal de Acessibilidade -->
+    <section id="declaracao-a11y" class="section section--alt" aria-labelledby="dec-title">
+      <div class="container">
+        <div class="declaration-card">
+          <div class="declaration-header">
+            <span aria-hidden="true">🛡️</span>
+            <h2 id="dec-title" class="section-title" style="font-size: 1.3rem; margin: 0;" data-i18n="declaration.title">
+              Declaração de Conformidade de Acessibilidade
+            </h2>
+          </div>
+          <p data-i18n="declaration.p1">
+            O sítio oficial do Acessília foi projetado e auditado para alcançar nível <strong>AAA de conformidade</strong> segundo as Diretrizes de Acessibilidade para Conteúdo Web (<strong>WCAG 2.2</strong>) do W3C e as recomendações do <strong>e-MAG</strong> (Modelo de Acessibilidade em Governo Eletrônico).
+          </p>
+          <div class="declaration-badges">
+            <span class="criteria-badge">WCAG 2.2 AAA</span>
+            <span class="criteria-badge">e-MAG Governo Federal</span>
+            <span class="criteria-badge">PDF/UA (ISO 14289)</span>
+            <span class="criteria-badge">MathPlayer & MathML</span>
+            <span class="criteria-badge">HTML5 Semântico</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container site-footer__inner">
+      <div class="footer-col footer-col--brand">
+        <div class="brand-text">
+          <span class="brand-name">Acessília</span>
+          <span class="brand-tagline">UFG • INF • LaMCAD • A11yDevs</span>
+        </div>
+        <p class="footer-desc">
+          Iniciativa de pesquisa e extensão desenvolvida no <strong>Instituto de Informática da Universidade Federal de Goiás (INF/UFG)</strong>, com suporte computacional do <strong>LaMCAD/UFG</strong>.
+        </p>
+        <p class="footer-license">
+          Software Livre sob a <a href="https://github.com/A11yDevs/acessilia/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">Licença MIT</a>.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="institucional.html">Frentes Institucionais</a></li>
+          <li><a href="pesquisa.html">Pesquisa & Dr.DocBench</a></li>
+          <li><a href="ecossistema.html">Ecossistema</a></li>
+          <li><a href="demonstracao.html">Demonstração</a></li>
+          <li><a href="como-usar.html">Instalação & API</a></li>
+          <li><a href="roadmap.html">Roadmap Público</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Ecossistema A11yDevs</h3>
+        <ul class="footer-links">
+          <li><a href="https://github.com/A11yDevs/acessilia" target="_blank" rel="noopener noreferrer">Acessília Core (API + Pipeline)</a></li>
+          <li><a href="https://github.com/A11yDevs/acessilia-ufg" target="_blank" rel="noopener noreferrer">Acessilia Gestor Acadêmico</a></li>
+          <li><a href="https://github.com/A11yDevs/acessilia-toolbox" target="_blank" rel="noopener noreferrer">Acessília Toolbox (MCP)</a></li>
+          <li><a href="https://github.com/A11yDevs/acessilia-dataset" target="_blank" rel="noopener noreferrer">Dataset de Testes</a></li>
+          <li><a href="https://github.com/A11yDevs/normas-acessilia" target="_blank" rel="noopener noreferrer">Normas Semânticas</a></li>
+          <li><a href="https://github.com/A11yDevs" target="_blank" rel="noopener noreferrer">Organização A11yDevs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Declaração de Acessibilidade</h3>
+        <p class="footer-text">
+          Desenvolvido segundo as diretrizes <strong>WCAG 2.2 Nível AAA</strong> e o modelo de acessibilidade do governo brasileiro (<strong>e-MAG</strong>). Testado com leitores de tela NVDA, JAWS, VoiceOver e Orca.
+        </p>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="container footer-bottom__inner">
+        <p>© 2026 A11yDevs — Universidade Federal de Goiás (UFG).</p>
+        <p><a href="#accessibility-toolbar" class="back-to-top">Voltar ao topo ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de Atalhos de Teclado (<dialog>) -->
+  <dialog id="modal-shortcuts" class="modal-a11y" aria-labelledby="modal-shortcuts-title">
+    <div class="modal-inner">
+      <div class="modal-header">
+        <h2 id="modal-shortcuts-title" class="modal-title">
+          <span aria-hidden="true">⌨️</span>
+          <span data-i18n="shortcuts.title">Atalhos de Teclado Globais</span>
+        </h2>
+        <button type="button" id="btn-close-shortcuts" class="btn-close-modal" aria-label="Fechar janela de atalhos de teclado">✕</button>
+      </div>
+
+      <table class="shortcuts-table">
+        <caption class="sr-only">Tabela de teclas de atalho e suas respectivas funções na página</caption>
+        <thead>
+          <tr>
+            <th scope="col" data-i18n="shortcuts.key_col">Tecla de Atalho</th>
+            <th scope="col" data-i18n="shortcuts.action_col">Ação Executada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><kbd>Alt</kbd> + <kbd>1</kbd></td><td>Pular diretamente para o conteúdo principal</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>2</kbd></td><td>Pular para a barra de acessibilidade (fonte, cores, idioma)</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>3</kbd></td><td>Pular para o menu de navegação</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>C</kbd></td><td>Alternar modo de alto contraste</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>T</kbd></td><td>Alternar tema de cores (claro / escuro)</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>L</kbd></td><td>Alternar idioma do site (Português / Inglês)</td></tr>
+          <tr><td><kbd>?</kbd> (Shift + /)</td><td>Abrir esta janela de atalhos de teclado</td></tr>
+          <tr><td><kbd>Esc</kbd></td><td>Fechar janelas modais e menus abertos</td></tr>
+        </tbody>
+      </table>
+
+      <div style="text-align: right;">
+        <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('modal-shortcuts').close()">
+          Fechar Janela
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

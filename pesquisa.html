@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="system" data-contrast="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisa & Artigo Dr.DocBench — Acessília | UFG • LaMCAD</title>
+  <meta name="description" content="Artigo científico, benchmark Dr.DocBench e metodologia de avaliação para compreensão e acessibilização estrutural de documentos acadêmicos por agentes de IA.">
+  <meta name="keywords" content="Dr.DocBench, benchmark, IA, PDF/UA, OCR, Docling, UFG, LaMCAD, acessibilidade, processamento de documentos">
+  <meta name="author" content="A11yDevs">
+  <meta name="theme-color" content="#1a365d">
+
+  <!-- Metadados Acadêmicos (Google Scholar / Zotero / Mendeley) -->
+  <meta name="citation_title" content="Dr.Docbench: Um Benchmark e Framework para Avaliação de Compreensão e Acessibilização Estrutural de Documentos Científicos por Agentes de IA">
+  <meta name="citation_author" content="Inuzuka, Marcelo Akira">
+  <meta name="citation_author" content="Cordeiro, Jhonata Fernandes">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_institution" content="Universidade Federal de Goiás">
+  <meta name="citation_technical_report_number" content="UFG-INF-2026-01">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://acessilia.org/pesquisa.html">
+  <meta property="og:title" content="Pesquisa & Artigo Dr.DocBench — Acessília">
+  <meta property="og:description" content="Benchmark e framework para avaliação de compreensão estrutural de documentos por IA na UFG.">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♿</text></svg>">
+</head>
+<body>
+
+  <!-- Skip links -->
+  <nav class="skip-links" aria-label="Atalhos de navegação rápida">
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    <a href="#accessibility-toolbar" class="skip-link">Pular para a barra de acessibilidade</a>
+    <a href="#primary-nav" class="skip-link">Pular para o menu de navegação</a>
+  </nav>
+
+  <!-- Região para anúncios dinâmicos de acessibilidade -->
+  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Barra de Ferramentas de Acessibilidade -->
+  <section id="accessibility-toolbar" class="a11y-toolbar" aria-label="Ferramentas de Acessibilidade">
+    <div class="container a11y-toolbar__inner">
+      <span class="a11y-toolbar__title">
+        <span class="icon-a11y" aria-hidden="true">♿</span>
+        <strong>Acessibilidade do Site:</strong>
+      </span>
+
+      <div class="a11y-toolbar__actions">
+        <!-- Controle de tamanho da fonte -->
+        <div class="btn-group" role="group" aria-label="Ajustar tamanho do texto">
+          <button type="button" id="btn-font-decrease" class="btn btn-sm" aria-label="Diminuir tamanho da fonte (A menos)">
+            <span aria-hidden="true">A-</span>
+          </button>
+          <button type="button" id="btn-font-reset" class="btn btn-sm" aria-label="Restaurar tamanho padrão da fonte (A normal)">
+            <span aria-hidden="true">A</span>
+          </button>
+          <button type="button" id="btn-font-increase" class="btn btn-sm" aria-label="Aumentar tamanho da fonte (A mais)">
+            <span aria-hidden="true">A+</span>
+          </button>
+        </div>
+
+        <!-- Alternador de Alto Contraste -->
+        <button type="button" id="btn-toggle-contrast" class="btn btn-sm" aria-pressed="false" accesskey="c">
+          <span class="icon" aria-hidden="true">◐</span>
+          <span data-i18n="toolbar.contrast">Alto Contraste</span>
+        </button>
+
+        <!-- Alternador de Tema Escuro/Claro -->
+        <button type="button" id="btn-toggle-theme" class="btn btn-sm" aria-label="Alternar tema de cores" accesskey="t">
+          <span id="theme-icon" class="icon" aria-hidden="true">🌙</span>
+          <span id="theme-label" data-i18n="toolbar.theme_dark">Tema Escuro</span>
+        </button>
+
+        <!-- Alternador de Idioma (i18n PT-BR / EN) -->
+        <button type="button" id="btn-toggle-lang" class="btn btn-sm btn-lang" aria-label="Mudar idioma para Inglês / Switch to English" accesskey="l">
+          <span class="icon lang-flag" aria-hidden="true">🌐</span>
+          <span id="lang-current-label">EN</span>
+        </button>
+
+        <!-- Atalhos de Teclado (?) -->
+        <button type="button" id="btn-open-shortcuts" class="btn btn-sm" aria-label="Ver atalhos de teclado (Pressione interrogação)">
+          <span class="icon" aria-hidden="true">⌨️</span>
+          <span data-i18n="toolbar.shortcuts">Atalhos (?)</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cabeçalho Principal -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <div class="site-header__brand">
+        <a href="index.html" class="brand-link" aria-label="Acessília - Página inicial">
+          <div class="brand-logo" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+              <path d="M12 28L20 12L28 28M15 23H25" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="20" cy="8" r="2.5" fill="var(--color-accent)"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Acessília</span>
+            <span class="brand-tagline">UFG • LaMCAD • A11yDevs</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Menu de Navegação -->
+      <nav id="primary-nav" class="site-nav" aria-label="Navegação principal">
+        <button type="button" class="nav-toggle" id="btn-nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu de navegação">
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+        </button>
+
+        <ul id="nav-menu" class="nav-list">
+          <li><a href="index.html" class="nav-link" data-i18n="nav.home">Início</a></li>
+          <li><a href="institucional.html" class="nav-link" data-i18n="nav.institutional">Institucional</a></li>
+          <li><a href="pesquisa.html" class="nav-link" aria-current="page" data-i18n="nav.research">Pesquisa & Artigo</a></li>
+          <li><a href="ecossistema.html" class="nav-link" data-i18n="nav.ecosystem">Ecossistema</a></li>
+          <li><a href="demonstracao.html" class="nav-link" data-i18n="nav.demo">Demonstração</a></li>
+          <li><a href="como-usar.html" class="nav-link" data-i18n="nav.how_to_use">Como Usar</a></li>
+          <li><a href="roadmap.html" class="nav-link" data-i18n="nav.roadmap">Roadmap</a></li>
+          <li>
+            <a href="https://github.com/A11yDevs/acessilia" class="btn btn-primary btn-github" target="_blank" rel="noopener noreferrer">
+              <svg class="icon-github" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span>GitHub</span>
+              <span class="sr-only">(abre em nova janela)</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="main-content" tabindex="-1">
+
+    <!-- Cabeçalho da Página -->
+    <header class="page-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Caminho de navegação">
+          <a href="index.html">Início</a>
+          <span class="breadcrumb-sep" aria-hidden="true">/</span>
+          <span aria-current="page">Pesquisa & Artigo</span>
+        </nav>
+        <h1 class="page-title">Pesquisa Científica & Benchmark Dr.DocBench</h1>
+        <p class="page-lead">
+          Fundamentação teórica, formulação matemática e validação empírica do pipeline de inteligência artificial aberta desenvolvido na Universidade Federal de Goiás com apoio do LaMCAD.
+        </p>
+      </div>
+    </header>
+
+    <!-- Artigo Científico Central -->
+    <section class="section" aria-labelledby="artigo-title">
+      <div class="container">
+        <article class="paper-card">
+          <div class="paper-header">
+            <span class="paper-badge">Artigo Científico & Benchmark</span>
+            <span class="paper-venue">Relatório Técnico UFG-INF / Submetido</span>
+          </div>
+
+          <h2 id="artigo-title" class="paper-title">
+            Dr.Docbench: Um Benchmark e Framework para Avaliação de Compreensão e Acessibilização Estrutural de Documentos Científicos por Agentes de IA
+          </h2>
+
+          <p class="paper-abstract">
+            <strong>Resumo:</strong> A digitalização e a conversão de documentos acadêmicos e científicos frequentemente geram arquivos PDF visuais sem marcação semântica, impossibilitando a leitura acessível por tecnologias assistivas (leitores de tela e linhas Braille). Este trabalho introduz o <strong>Dr.DocBench</strong>, um benchmark rigoroso e framework agentico projetado para avaliar e mitigar perdas estruturais na extração de documentos científicos complexos. Utilizando modelos de visão-linguagem (VLMs) e orquestração multimodal apoiada na infraestrutura de supercomputação do <strong>LaMCAD/UFG</strong>, a abordagem proposta atinge taxas superiores de recuperação hierárquica, reconstrução de tabelas e audiodescrição técnica de gráficos e equações matemáticas, viabilizando a conformidade com as normas <strong>PDF/UA (ISO 14289)</strong> e <strong>WCAG 2.2 AAA</strong>.
+          </p>
+
+          <div class="paper-highlights">
+            <div class="paper-highlight-item">
+              <span class="highlight-icon" aria-hidden="true">📊</span>
+              <div>
+                <strong>Benchmark Aberto</strong>
+                <p>Métricas padronizadas de integridade semântica, fidelidade de tabelas e ordem de leitura linear.</p>
+              </div>
+            </div>
+
+            <div class="paper-highlight-item">
+              <span class="highlight-icon" aria-hidden="true">⚡</span>
+              <div>
+                <strong>Supercomputação LaMCAD</strong>
+                <p>Processamento de alta performance para inferência de modelos multimodais de visão computacional.</p>
+              </div>
+            </div>
+
+            <div class="paper-highlight-item">
+              <span class="highlight-icon" aria-hidden="true">📐</span>
+              <div>
+                <strong>Anotação Matemática</strong>
+                <p>Conversão de fórmulas para MathML e notações navegáveis termo a termo por sintetizadores de voz.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bloco de Citação BibTeX -->
+          <div class="citation-block">
+            <div class="citation-header">
+              <span class="citation-label">Como Citar este Trabalho (BibTeX):</span>
+              <button type="button" class="btn-copy" aria-label="Copiar citação BibTeX para a área de transferência">
+                Copiar BibTeX
+              </button>
+            </div>
+            <pre><code>@techreport{inuzuka2026drdocbench,
+  title       = {{Dr.Docbench: Um Benchmark e Framework para Avalia{\c{c}}{\~a}o de Compreens{\~a}o e Acessibiliza{\c{c}}{\~a}o Estrutural de Documentos Cient{\'i}ficos por Agentes de IA}},
+  author      = {Inuzuka, Marcelo Akira and Cordeiro, Jhonata Fernandes},
+  institution = {Universidade Federal de Goi{\'a}s, Instituto de Inform{\'a}tica (INF/UFG)},
+  number      = {UFG-INF-2026-01},
+  year        = {2026},
+  address     = {Goi{\^a}nia, GO, Brasil},
+  url         = {https://acessilia.org/pesquisa.html}
+}</code></pre>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Métricas Comparativas e Avaliação Experimental -->
+    <section class="section section--alt" aria-labelledby="bench-metrics-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Avaliação Experimental
+          </div>
+          <h2 id="bench-metrics-title" class="section-title">Resultados no Benchmark Dr.DocBench</h2>
+          <p class="section-subtitle">
+            Comparação da acurácia de extração estrutural do Acessília frente a ferramentas baseline tradicionais de OCR e processamento de documentos.
+          </p>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table-accessible">
+            <caption class="sr-only">Resultados comparativos de acurácia estrutural no benchmark Dr.DocBench</caption>
+            <thead>
+              <tr>
+                <th scope="col">Pipeline / Abordagem</th>
+                <th scope="col">Hierarquia de Títulos (H1-H6)</th>
+                <th scope="col">Tabelas Complexas (TEDS)</th>
+                <th scope="col">Fórmulas (MathML)</th>
+                <th scope="col">Audiodescrição de Figuras</th>
+                <th scope="col">Conformidade PDF/UA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>OCR Convencional (Tesseract)</strong></td>
+                <td>41.2%</td>
+                <td>32.0%</td>
+                <td>12.4%</td>
+                <td>0.0% (Inexistente)</td>
+                <td>Não conforme</td>
+              </tr>
+              <tr>
+                <td><strong>Extratores de Texto PDF (pypdf/pdfplumber)</strong></td>
+                <td>58.7%</td>
+                <td>48.5%</td>
+                <td>28.1%</td>
+                <td>0.0%</td>
+                <td>Não conforme</td>
+              </tr>
+              <tr>
+                <td><strong>Docling Baseline (Sem Agentes LLM)</strong></td>
+                <td>82.4%</td>
+                <td>74.2%</td>
+                <td>68.9%</td>
+                <td>35.0% (Heurística)</td>
+                <td>Parcial</td>
+              </tr>
+              <tr style="background-color: rgba(30, 64, 175, 0.08); font-weight: bold;">
+                <td><strong>Pipeline Acessília (Docling + Agentes IA)</strong></td>
+                <td><strong>95.8%</strong></td>
+                <td><strong>91.4%</strong></td>
+                <td><strong>89.6%</strong></td>
+                <td><strong>93.2% (Audiodescrição)</strong></td>
+                <td><strong>100% Conforme</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top: 2rem; text-align: center;">
+          <a href="https://github.com/A11yDevs/acessilia-dataset" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            <svg class="icon-github" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="margin-right: 0.5rem;">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            Explorar Dataset no GitHub (A11yDevs/acessilia-dataset)
+            <span class="sr-only">(abre em nova janela)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Declaração Formal de Acessibilidade -->
+    <section id="declaracao-a11y" class="section" aria-labelledby="dec-title">
+      <div class="container">
+        <div class="declaration-card">
+          <div class="declaration-header">
+            <span aria-hidden="true">🛡️</span>
+            <h2 id="dec-title" class="section-title" style="font-size: 1.3rem; margin: 0;" data-i18n="declaration.title">
+              Declaração de Conformidade de Acessibilidade
+            </h2>
+          </div>
+          <p data-i18n="declaration.p1">
+            O sítio oficial do Acessília foi projetado e auditado para alcançar nível <strong>AAA de conformidade</strong> segundo as Diretrizes de Acessibilidade para Conteúdo Web (<strong>WCAG 2.2</strong>) do W3C e as recomendações do <strong>e-MAG</strong> (Modelo de Acessibilidade em Governo Eletrônico).
+          </p>
+          <div class="declaration-badges">
+            <span class="criteria-badge">WCAG 2.2 AAA</span>
+            <span class="criteria-badge">e-MAG Governo Federal</span>
+            <span class="criteria-badge">PDF/UA (ISO 14289)</span>
+            <span class="criteria-badge">MathPlayer & MathML</span>
+            <span class="criteria-badge">HTML5 Semântico</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container site-footer__inner">
+      <div class="footer-col footer-col--brand">
+        <div class="brand-text">
+          <span class="brand-name">Acessília</span>
+          <span class="brand-tagline">UFG • INF • LaMCAD • A11yDevs</span>
+        </div>
+        <p class="footer-desc">
+          Iniciativa de pesquisa e extensão desenvolvida no <strong>Instituto de Informática da Universidade Federal de Goiás (INF/UFG)</strong>, com suporte computacional do <strong>LaMCAD/UFG</strong>.
+        </p>
+        <p class="footer-license">
+          Software Livre sob a <a href="https://github.com/A11yDevs/acessilia/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">Licença MIT</a>.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="institucional.html">Frentes Institucionais</a></li>
+          <li><a href="pesquisa.html">Pesquisa & Dr.DocBench</a></li>
+          <li><a href="ecossistema.html">Ecossistema</a></li>
+          <li><a href="demonstracao.html">Demonstração</a></li>
+          <li><a href="como-usar.html">Instalação & API</a></li>
+          <li><a href="roadmap.html">Roadmap Público</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Ecossistema A11yDevs</h3>
+        <ul class="footer-links">
+          <li><a href="https://github.com/A11yDevs/acessilia" target="_blank" rel="noopener noreferrer">Acessília Core (API + Pipeline)</a></li>
+          <li><a href="https://github.com/A11yDevs/acessilia-ufg" target="_blank" rel="noopener noreferrer">Acessilia Gestor Acadêmico</a></li>
+          <li><a href="https://github.com/A11yDevs/acessilia-toolbox" target="_blank" rel="noopener noreferrer">Acessília Toolbox (MCP)</a></li>
+          <li><a href="https://github.com/A11yDevs/acessilia-dataset" target="_blank" rel="noopener noreferrer">Dataset de Testes</a></li>
+          <li><a href="https://github.com/A11yDevs/normas-acessilia" target="_blank" rel="noopener noreferrer">Normas Semânticas</a></li>
+          <li><a href="https://github.com/A11yDevs" target="_blank" rel="noopener noreferrer">Organização A11yDevs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Declaração de Acessibilidade</h3>
+        <p class="footer-text">
+          Desenvolvido segundo as diretrizes <strong>WCAG 2.2 Nível AAA</strong> e o modelo de acessibilidade do governo brasileiro (<strong>e-MAG</strong>). Testado com leitores de tela NVDA, JAWS, VoiceOver e Orca.
+        </p>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="container footer-bottom__inner">
+        <p>© 2026 A11yDevs — Universidade Federal de Goiás (UFG).</p>
+        <p><a href="#accessibility-toolbar" class="back-to-top">Voltar ao topo ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de Atalhos de Teclado (<dialog>) -->
+  <dialog id="modal-shortcuts" class="modal-a11y" aria-labelledby="modal-shortcuts-title">
+    <div class="modal-inner">
+      <div class="modal-header">
+        <h2 id="modal-shortcuts-title" class="modal-title">
+          <span aria-hidden="true">⌨️</span>
+          <span data-i18n="shortcuts.title">Atalhos de Teclado Globais</span>
+        </h2>
+        <button type="button" id="btn-close-shortcuts" class="btn-close-modal" aria-label="Fechar janela de atalhos de teclado">✕</button>
+      </div>
+
+      <table class="shortcuts-table">
+        <caption class="sr-only">Tabela de teclas de atalho e suas respectivas funções na página</caption>
+        <thead>
+          <tr>
+            <th scope="col" data-i18n="shortcuts.key_col">Tecla de Atalho</th>
+            <th scope="col" data-i18n="shortcuts.action_col">Ação Executada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><kbd>Alt</kbd> + <kbd>1</kbd></td><td>Pular diretamente para o conteúdo principal</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>2</kbd></td><td>Pular para a barra de acessibilidade (fonte, cores, idioma)</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>3</kbd></td><td>Pular para o menu de navegação</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>C</kbd></td><td>Alternar modo de alto contraste</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>T</kbd></td><td>Alternar tema de cores (claro / escuro)</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>L</kbd></td><td>Alternar idioma do site (Português / Inglês)</td></tr>
+          <tr><td><kbd>?</kbd> (Shift + /)</td><td>Abrir esta janela de atalhos de teclado</td></tr>
+          <tr><td><kbd>Esc</kbd></td><td>Fechar janelas modais e menus abertos</td></tr>
+        </tbody>
+      </table>
+
+      <div style="text-align: right;">
+        <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('modal-shortcuts').close()">
+          Fechar Janela
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

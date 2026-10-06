@@ -135,17 +135,17 @@ document.addEventListener('DOMContentLoaded', () => {
       'toolbar.contrast': 'Alto Contraste',
       'toolbar.theme_dark': 'Tema Escuro',
       'toolbar.theme_light': 'Tema Claro',
+      'nav.home': 'Início',
       'nav.institutional': 'Institucional',
-      'nav.ecosystem': 'Ecossistema',
       'nav.research': 'Pesquisa & Artigo',
-      'nav.team': 'Equipe',
+      'nav.ecosystem': 'Ecossistema',
+      'nav.demo': 'Demonstração',
+      'nav.how_to_use': 'Como Usar',
       'nav.roadmap': 'Roadmap',
-      'nav.satellites': 'Satélites',
       'nav.about': 'Sobre',
       'nav.features': 'Recursos',
       'nav.architecture': 'Arquitetura',
       'nav.formats': 'Formatos',
-      'nav.how_to_use': 'Como Usar',
       'hero.badge': '🏛️ Pesquisa & Extensão UFG • Apoio LaMCAD • Software Livre',
       'hero.title': 'Inteligência Artificial Aberta para Documentos Acessíveis no Ensino Superior',
       'hero.lead': 'O <strong>Acessília</strong> é uma iniciativa multidisciplinar de pesquisa e extensão da <strong>Universidade Federal de Goiás (UFG)</strong> com apoio de supercomputação do <strong>LaMCAD/UFG</strong>. Desenvolvido em software livre, transforma apostilas, artigos e livros acadêmicos em <strong>PDF/UA</strong>, <strong>áudio narrado</strong> e <strong>HTML semântico</strong> com audiodescrição técnica para estudantes cegos e com baixa visão.',
@@ -162,9 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
       'audio.speed': 'Velocidade',
       'audio.download_sample': 'Baixar Amostra Acessível (.HTML / MathML)',
       'audio.download_desc': 'Pacote modelo com HTML5 semântico, MathML legível por leitor de tela, audiodescrição de imagem e tags WCAG 2.2 AAA.',
-      'team.badge': 'Governança & Pesquisa',
-      'team.title': 'Equipe Acadêmica e Colaboradores',
-      'team.subtitle': 'Conheça os docentes, pesquisadores, discentes e revisores que constroem a acessibilidade digital na UFG.',
       'roadmap.badge': 'Planejamento Estratégico',
       'roadmap.title': 'Roadmap Público de Desenvolvimento',
       'roadmap.subtitle': 'Da concepção dos modelos agenticos à implantação no Núcleo de Acessibilidade da UFG e dispositivos vestíveis.',
@@ -185,17 +182,17 @@ document.addEventListener('DOMContentLoaded', () => {
       'toolbar.contrast': 'High Contrast',
       'toolbar.theme_dark': 'Dark Mode',
       'toolbar.theme_light': 'Light Mode',
+      'nav.home': 'Home',
       'nav.institutional': 'Institutional',
-      'nav.ecosystem': 'Ecosystem',
       'nav.research': 'Research & Paper',
-      'nav.team': 'Team',
+      'nav.ecosystem': 'Ecosystem',
+      'nav.demo': 'Demonstration',
+      'nav.how_to_use': 'Getting Started',
       'nav.roadmap': 'Roadmap',
-      'nav.satellites': 'Satellites',
       'nav.about': 'About',
       'nav.features': 'Features',
       'nav.architecture': 'Architecture',
       'nav.formats': 'Formats',
-      'nav.how_to_use': 'Getting Started',
       'hero.badge': '🏛️ UFG Research & Outreach • Supported by LaMCAD • Open Source',
       'hero.title': 'Open Artificial Intelligence for Accessible Documents in Higher Education',
       'hero.lead': '<strong>Acessília</strong> is a multidisciplinary research and university outreach initiative at the <strong>Federal University of Goiás (UFG)</strong> powered by supercomputing from <strong>LaMCAD/UFG</strong>. Built as free open-source software, it transforms textbooks, papers, and course notes into <strong>PDF/UA</strong>, <strong>narrated audio</strong>, and <strong>semantic HTML</strong> with technical audio description for blind and low-vision students.',
@@ -212,9 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
       'audio.speed': 'Speed',
       'audio.download_sample': 'Download Accessible Sample (.HTML / MathML)',
       'audio.download_desc': 'Template package with semantic HTML5, screen-reader readable MathML, image audio description, and WCAG 2.2 AAA compliance tags.',
-      'team.badge': 'Governance & Research',
-      'team.title': 'Academic Team & Collaborators',
-      'team.subtitle': 'Meet the professors, researchers, students, and accessibility reviewers building digital inclusion at UFG.',
       'roadmap.badge': 'Strategic Milestones',
       'roadmap.title': 'Public Development Roadmap',
       'roadmap.subtitle': 'From agentic pipeline conception to adoption at the UFG Accessibility Center and wearable assistive devices.',
@@ -289,10 +283,24 @@ document.addEventListener('DOMContentLoaded', () => {
   btnToggleLang?.addEventListener('click', toggleLanguage);
 
   /* ==========================================================================
-     5. Menu de Navegação Responsivo Acessível
+     5. Menu de Navegação Responsivo Acessível & Destaque de Página Ativa
      ========================================================================== */
   const btnNavToggle = document.getElementById('btn-nav-toggle');
   const navMenu = document.getElementById('nav-menu');
+
+  // Identifica página atual e define aria-current="page"
+  const rawPath = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPath = rawPath === '' ? 'index.html' : rawPath;
+  document.querySelectorAll('#primary-nav .nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath || (currentPath === 'index.html' && (href === 'index.html' || href === './' || href === '/'))) {
+      link.setAttribute('aria-current', 'page');
+      link.classList.add('is-active');
+    } else {
+      link.removeAttribute('aria-current');
+      link.classList.remove('is-active');
+    }
+  });
 
   btnNavToggle?.addEventListener('click', () => {
     const isExpanded = btnNavToggle.getAttribute('aria-expanded') === 'true';

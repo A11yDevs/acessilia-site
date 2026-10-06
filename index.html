@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acessília — Plataforma de IA para Documentos Acessíveis</title>
-  <meta name="description" content="Plataforma agentica de código aberto para compreensão, extração estrutural e transformação de documentos em formatos acessíveis (PDF/UA, áudio, HTML, DOCX).">
-  <meta name="keywords" content="acessibilidade, a11y, PDF/UA, OCR, IA, leitor de tela, audiodescrição, Docling, A11yDevs, inclusão digital">
+  <title>Acessília — Plataforma de IA para Documentos Acessíveis | UFG • LaMCAD</title>
+  <meta name="description" content="Plataforma agentica de código aberto para compreensão, extração estrutural e transformação de documentos em formatos acessíveis (PDF/UA, áudio, HTML, DOCX). Iniciativa UFG, LaMCAD e A11yDevs.">
+  <meta name="keywords" content="acessibilidade, a11y, PDF/UA, OCR, IA, leitor de tela, audiodescrição, Docling, A11yDevs, inclusão digital, UFG, LaMCAD, Dr.DocBench">
   <meta name="author" content="A11yDevs">
   <meta name="theme-color" content="#1a365d">
 
@@ -26,7 +26,6 @@
 
   <!-- Estilos -->
   <link rel="stylesheet" href="assets/css/style.css">
-  
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♿</text></svg>">
 </head>
 <body>
@@ -94,7 +93,7 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <div class="site-header__brand">
-        <a href="#inicio" class="brand-link" aria-label="Acessília - Página inicial">
+        <a href="index.html" class="brand-link" aria-label="Acessília - Página inicial">
           <div class="brand-logo" aria-hidden="true">
             <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
@@ -118,14 +117,13 @@
         </button>
 
         <ul id="nav-menu" class="nav-list">
-          <li><a href="#institucional" class="nav-link" data-i18n="nav.institutional">Institucional</a></li>
-          <li><a href="#ecossistema" class="nav-link" data-i18n="nav.ecosystem">Ecossistema</a></li>
-          <li><a href="#pesquisa" class="nav-link" data-i18n="nav.research">Pesquisa & Artigo</a></li>
-          <li><a href="#demonstracao-audio" class="nav-link">Áudio & Demo</a></li>
-          <li><a href="#equipe" class="nav-link" data-i18n="nav.team">Equipe</a></li>
-          <li><a href="#roadmap" class="nav-link" data-i18n="nav.roadmap">Roadmap</a></li>
-          <li><a href="#satelites" class="nav-link" data-i18n="nav.satellites">Satélites</a></li>
-          <li><a href="#como-usar" class="nav-link" data-i18n="nav.how_to_use">Como Usar</a></li>
+          <li><a href="index.html" class="nav-link" aria-current="page" data-i18n="nav.home">Início</a></li>
+          <li><a href="institucional.html" class="nav-link" data-i18n="nav.institutional">Institucional</a></li>
+          <li><a href="pesquisa.html" class="nav-link" data-i18n="nav.research">Pesquisa & Artigo</a></li>
+          <li><a href="ecossistema.html" class="nav-link" data-i18n="nav.ecosystem">Ecossistema</a></li>
+          <li><a href="demonstracao.html" class="nav-link" data-i18n="nav.demo">Demonstração</a></li>
+          <li><a href="como-usar.html" class="nav-link" data-i18n="nav.how_to_use">Como Usar</a></li>
+          <li><a href="roadmap.html" class="nav-link" data-i18n="nav.roadmap">Roadmap</a></li>
           <li>
             <a href="https://github.com/A11yDevs/acessilia" class="btn btn-primary btn-github" target="_blank" rel="noopener noreferrer">
               <svg class="icon-github" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -161,15 +159,15 @@
           </p>
 
           <div class="hero-cta">
-            <a href="#como-usar" class="btn btn-primary btn-lg" data-i18n="hero.btn_start">
+            <a href="como-usar.html" class="btn btn-primary btn-lg" data-i18n="hero.btn_start">
               Começar a Usar
               <span class="arrow" aria-hidden="true">→</span>
             </a>
-            <a href="#demonstracao-audio" class="btn btn-outline btn-lg" data-i18n="hero.btn_audio">
-              🎧 Ouvir Exemplo de Áudio
+            <a href="demonstracao.html" class="btn btn-outline btn-lg" data-i18n="hero.btn_demo">
+              🎧 Ver Demonstração & Áudio
             </a>
-            <a href="#demonstracao" class="btn btn-secondary btn-lg" data-i18n="hero.btn_demo">
-              Simulador Interativo
+            <a href="pesquisa.html" class="btn btn-secondary btn-lg">
+              Conhecer a Pesquisa
             </a>
           </div>
 
@@ -235,7 +233,7 @@
       </div>
     </section>
 
-    <!-- Barra de Parcerias Institucionais (Trust Ribbon) -->
+    <!-- Barra de Parcerias Institucionais -->
     <section class="trust-ribbon" aria-label="Instituições e Laboratórios Parceiros">
       <div class="container trust-ribbon__inner">
         <a href="https://www.ufg.br" class="trust-item" target="_blank" rel="noopener noreferrer">
@@ -284,1101 +282,118 @@
       </div>
     </section>
 
-    <!-- Seção Frentes Institucionais -->
-    <section id="institucional" class="section section--alt" aria-labelledby="inst-title">
+    <!-- Seção Portal: Navegue pelas Áreas do Acessília -->
+    <section class="section" aria-labelledby="portal-areas-title">
       <div class="container">
         <div class="section-header">
           <div class="badge-pill">
             <span class="badge-dot" aria-hidden="true"></span>
-            Ecossistema Acadêmico e Social
+            Estrutura Completa
           </div>
-          <h2 id="inst-title" class="section-title">Um Projeto Multidisciplinar: Pesquisa, Extensão e Inclusão</h2>
+          <h2 id="portal-areas-title" class="section-title">Conheça as Frentes do Projeto</h2>
           <p class="section-subtitle">
-            O Acessília une a pesquisa em inteligência artificial no Instituto de Informática da UFG, a infraestrutura de supercomputação do LaMCAD e o desenvolvimento aberto de tecnologias assistivas.
+            Acesse as seções dedicadas com artigos científicos, ecossistema de software livre, demonstrações e documentação técnica.
           </p>
         </div>
 
-        <div class="grid grid-2">
-          <!-- Pilar 1: Pesquisa UFG & LaMCAD -->
-          <article class="pillar-card">
-            <div class="pillar-card__header">
-              <span class="pillar-card__icon" aria-hidden="true">🔬</span>
-              <span class="pillar-card__badge">Pesquisa Científica</span>
-            </div>
-            <h3 class="pillar-card__title">Projeto de Pesquisa UFG & Apoio LaMCAD</h3>
-            <p class="pillar-card__desc">
-              Desenvolve modelos agenticos e pipelines multimodais para compreensão estrutural profunda de documentos complexos. A pesquisa é acelerada pela infraestrutura de computação de alto desempenho do <strong>LaMCAD/UFG</strong> (Laboratório Multiusuário de Computação de Alto Desempenho e Arquitetura de Dados), viabilizando o processamento distribuído de redes neurais de layout e modelos de visão-linguagem.
+        <div class="subpage-grid">
+          <!-- Card 1: Institucional -->
+          <a href="institucional.html" class="subpage-nav-card">
+            <span class="subpage-nav-card__icon" aria-hidden="true">🏛️</span>
+            <h3 class="subpage-nav-card__title">Frentes Institucionais</h3>
+            <p class="subpage-nav-card__desc">
+              A união entre pesquisa acadêmica na UFG, suporte computacional do LaMCAD, extensão A11yDevs e preparação com o Núcleo de Acessibilidade da UFG.
             </p>
-            <div class="pillar-card__meta">
-              <span><strong>Foco Científico:</strong> Desconstrução de layouts densos e benchmarks de dificuldade (Dr.DocBench).</span>
-              <span><strong>Liderança de Pesquisa:</strong> Prof. Dr. Marcelo Akira Inuzuka (INF/UFG).</span>
-            </div>
-          </article>
+            <span class="subpage-nav-card__link">Acessar Institucional →</span>
+          </a>
 
-          <!-- Pilar 2: Projeto de Extensão A11yDevs -->
-          <article class="pillar-card">
-            <div class="pillar-card__header">
-              <span class="pillar-card__icon" aria-hidden="true">🎓</span>
-              <span class="pillar-card__badge">Extensão Universitária</span>
-            </div>
-            <h3 class="pillar-card__title">Ação de Extensão A11yDevs</h3>
-            <p class="pillar-card__desc">
-              O Acessília é uma das principais frentes do projeto de extensão universitária <strong>A11yDevs</strong> na UFG. Atua conectando a universidade à sociedade por meio da capacitação de estudantes e desenvolvedores na criação de tecnologias assistivas de código aberto, democratizando diretrizes de acessibilidade digital e promovendo cidadania.
+          <!-- Card 2: Pesquisa & Artigo -->
+          <a href="pesquisa.html" class="subpage-nav-card">
+            <span class="subpage-nav-card__icon" aria-hidden="true">🔬</span>
+            <h3 class="subpage-nav-card__title">Pesquisa & Dr.DocBench</h3>
+            <p class="subpage-nav-card__desc">
+              O artigo científico com benchmark rigoroso para avaliação de compreensão e estruturação semântica de documentos acadêmicos por agentes de IA.
             </p>
-            
-            <details class="extension-box">
-              <summary>📄 Visualizar dados do projeto de extensão em andamento</summary>
-              <div class="extension-box__content">
-                <p><strong>Ação de Extensão:</strong> A11yDevs — Desenvolvimento Aberto de Tecnologias Assistivas e Acessibilidade Digital</p>
-                <p><strong>Unidade Proponente:</strong> Instituto de Informática (INF) — Universidade Federal de Goiás</p>
-                <p><strong>Impacto:</strong> Formação de recursos humanos em acessibilidade e produção de ferramentas públicas para instituições educacionais.</p>
-                <p><strong>Coordenação:</strong> Prof. Dr. Marcelo Akira Inuzuka | <strong>Liderança Técnica:</strong> Jhonata Fernandes Cordeiro</p>
-                <p><strong>Situação:</strong> Ativo / Em Execução (2026)</p>
-              </div>
-            </details>
+            <span class="subpage-nav-card__link">Ver Artigo & Citação →</span>
+          </a>
 
-            <div class="pillar-card__meta">
-              <span><strong>Impacto Social:</strong> Transferência direta de tecnologia para estudantes e educadores.</span>
-            </div>
-          </article>
-
-          <!-- Pilar 3: Acessibilidade no Ensino Superior & Núcleo UFG -->
-          <article class="pillar-card">
-            <div class="pillar-card__header">
-              <span class="pillar-card__icon" aria-hidden="true">♿</span>
-              <span class="pillar-card__badge">Em Fase de Implantação</span>
-            </div>
-            <h3 class="pillar-card__title">Acessibilidade no Ensino Superior</h3>
-            <p class="pillar-card__desc">
-              O projeto foi concebido para atender às demandas de conversão e adaptação de livros didáticos, artigos científicos, apostilas e exames para estudantes cegos e com baixa visão. <strong>O sistema está em fase de preparação e planejamento para ser colocado em uso em breve pelo Núcleo de Acessibilidade da UFG</strong>, proporcionando um fluxo institucional integrado e ágil para a produção e entrega de materiais didáticos em formatos acessíveis.
+          <!-- Card 3: Ecossistema -->
+          <a href="ecossistema.html" class="subpage-nav-card">
+            <span class="subpage-nav-card__icon" aria-hidden="true">🧩</span>
+            <h3 class="subpage-nav-card__title">Ecossistema & Repositórios</h3>
+            <p class="subpage-nav-card__desc">
+              Os 4 módulos centrais (Core, Gestor Acadêmico, Servidor MCP, Datasets) e as iniciativas de hardware aberto Acessília Glasses e Math Android.
             </p>
-            <div class="pillar-card__meta">
-              <span><strong>Perspectiva Institucional:</strong> Em preparação para adoção e operação pelo Núcleo de Acessibilidade da UFG.</span>
-              <span><strong>Público Beneficiado:</strong> Estudantes cegos e com baixa visão da UFG e da comunidade educacional.</span>
-            </div>
-          </article>
+            <span class="subpage-nav-card__link">Explorar Repositórios →</span>
+          </a>
 
-          <!-- Pilar 4: Software Livre & Comunidade -->
-          <article class="pillar-card">
-            <div class="pillar-card__header">
-              <span class="pillar-card__icon" aria-hidden="true">🌐</span>
-              <span class="pillar-card__badge">Comunidade Aberta</span>
-            </div>
-            <h3 class="pillar-card__title">Comunidade de Software Livre</h3>
-            <p class="pillar-card__desc">
-              Um ecossistema transparente e colaborativo sob <strong>Licença MIT</strong>. Envolve uma rede multidisciplinar de colaboradores que reúne docentes, pesquisadores em IA, discentes de graduação e pós-graduação, revisores braille e pessoas com deficiência, co-criando soluções abertas, auditáveis e soberanas.
+          <!-- Card 4: Demonstração & Áudio -->
+          <a href="demonstracao.html" class="subpage-nav-card">
+            <span class="subpage-nav-card__icon" aria-hidden="true">🎧</span>
+            <h3 class="subpage-nav-card__title">Demonstração & Áudio Real</h3>
+            <p class="subpage-nav-card__desc">
+              Ouça a audiodescrição técnica de gráficos e fórmulas matemáticas em tempo real, baixe pacotes de amostra e simule o pipeline de extração.
             </p>
-            <div class="pillar-card__meta">
-              <span><strong>Liderança & Coordenação:</strong> Prof. Dr. Marcelo Akira Inuzuka e Jhonata Fernandes Cordeiro.</span>
-              <span><strong>Código Aberto:</strong> Livre para qualquer instituição de ensino ou órgão público utilizar e estender.</span>
-            </div>
-          </article>
+            <span class="subpage-nav-card__link">Testar no Navegador →</span>
+          </a>
+
+          <!-- Card 5: Como Usar -->
+          <a href="como-usar.html" class="subpage-nav-card">
+            <span class="subpage-nav-card__icon" aria-hidden="true">💻</span>
+            <h3 class="subpage-nav-card__title">Instalação & API REST</h3>
+            <p class="subpage-nav-card__desc">
+              Guia prático para subir seu ambiente local via Docker (GHCR), Poetry ou integrar via API assíncrona FastAPI e conector MCP.
+            </p>
+            <span class="subpage-nav-card__link">Ver Guia Técnico →</span>
+          </a>
+
+          <!-- Card 6: Roadmap -->
+          <a href="roadmap.html" class="subpage-nav-card">
+            <span class="subpage-nav-card__icon" aria-hidden="true">🗺️</span>
+            <h3 class="subpage-nav-card__title">Roadmap Público</h3>
+            <p class="subpage-nav-card__desc">
+              Marcos de 2025 até 2027+, cobrindo a validação institucional no ensino superior, suporte a EPUB 3 Media Overlays e tecnologia vestível.
+            </p>
+            <span class="subpage-nav-card__link">Ver Linha do Tempo →</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Seção Ecossistema Acessília (Os 4 Repositórios) -->
-    <section id="ecossistema" class="section ecosystem-section" aria-labelledby="eco-title">
+    <!-- Seção Formatos Gerados -->
+    <section class="section section--alt" aria-labelledby="formatos-title">
       <div class="container">
         <div class="section-header">
-          <div class="badge-pill">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Arquitetura Modular Integrada
-          </div>
-          <h2 id="eco-title" class="section-title">O Ecossistema Acessília</h2>
+          <h2 id="formatos-title" class="section-title">Formatos Universais Gerados</h2>
           <p class="section-subtitle">
-            Conheça os quatro projetos modulares de código aberto que compõem o ecossistema: do núcleo de IA e gateway MCP até a gestão acadêmica e a suíte de testes contínuos.
-          </p>
-        </div>
-
-        <div class="grid grid-2">
-          <!-- Card 1: Acessília Core -->
-          <article class="ecosystem-card">
-            <div class="ecosystem-card__top">
-              <span class="pillar-card__icon" aria-hidden="true">🧠</span>
-              <span class="ecosystem-card__badge">Núcleo de IA & Pipeline</span>
-            </div>
-            <h3 class="ecosystem-card__title">Acessília Core</h3>
-            <a href="https://github.com/A11yDevs/acessilia" class="ecosystem-card__repo" target="_blank" rel="noopener noreferrer">
-              A11yDevs/acessilia ↗
-            </a>
-            <p class="ecosystem-card__desc">
-              A plataforma principal orientada a agentes para extração estrutural, enriquecimento semântico e transformação documental. Executa a orquestração do pipeline completo com Docling, RapidOCR, LLMs (Ollama local ou OpenRouter em nuvem) e geradores nativos de PDF/UA, HTML semântico, áudio narrado (TTS) e DOCX.
-            </p>
-            <ul class="ecosystem-card__features">
-              <li><strong>API REST Assíncrona:</strong> Fila de processamento assíncrono em FastAPI com tokens seguros e efêmeros de download.</li>
-              <li><strong>Exportadores Nativos:</strong> PDF/UA (ISO 14289), áudio sintetizado MP3 com ritmo e capítulos, HTML semântico, DOCX e TXT.</li>
-              <li><strong>Múltiplos Clientes:</strong> Painel web acessível, bot interativo do Telegram e interface de linha de comando (CLI).</li>
-              <li><strong>Distribuição Docker:</strong> Imagens oficiais Linux amd64 no GHCR (variante completa e variante slim).</li>
-            </ul>
-            <div class="tech-tags">
-              <span class="tech-tag">Python 3.11</span>
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">Docling</span>
-              <span class="tech-tag">RapidOCR</span>
-              <span class="tech-tag">Ollama / LLMs</span>
-              <span class="tech-tag">PDF/UA</span>
-            </div>
-            <div class="ecosystem-card__actions">
-              <a href="https://github.com/A11yDevs/acessilia" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
-                <span>Repositório no GitHub</span>
-                <span class="sr-only">(abre em nova janela)</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 2: Acessília Gestor (UFG) -->
-          <article class="ecosystem-card">
-            <div class="ecosystem-card__top">
-              <span class="pillar-card__icon" aria-hidden="true">🏛️</span>
-              <span class="ecosystem-card__badge">Gestão Institucional Web</span>
-            </div>
-            <h3 class="ecosystem-card__title">Acessília Gestor</h3>
-            <a href="https://github.com/A11yDevs/acessilia-ufg" class="ecosystem-card__repo" target="_blank" rel="noopener noreferrer">
-              A11yDevs/acessilia-ufg ↗
-            </a>
-            <p class="ecosystem-card__desc">
-              Painel institucional web independente concebido para a administração acadêmica de acessibilidade na universidade. Gerencia turmas, docentes, discentes com deficiência e fluxos de adaptação e revisão humana especializada de materiais didáticos. Em fase de preparação para implantação no Núcleo de Acessibilidade da UFG.
-            </p>
-            <ul class="ecosystem-card__features">
-              <li><strong>Controle de Acesso RBAC:</strong> Perfis diferenciados para Administradores, Professores, Revisores e Estudantes.</li>
-              <li><strong>Segurança & Alta Confiabilidade:</strong> Criptografia Argon2id, proteção contra força bruta, tokens CSRF e sessões seguras.</li>
-              <li><strong>Arquitetura Leve:</strong> Node.js com Fastify e banco de dados SQLite em modo WAL com 30 tabelas relacionais normalizadas.</li>
-              <li><strong>Integração Desacoplada:</strong> Comunicação com a API do Acessília Core via tracking assíncrono e idempotência rigorosa.</li>
-            </ul>
-            <div class="tech-tags">
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">Fastify</span>
-              <span class="tech-tag">SQLite WAL</span>
-              <span class="tech-tag">Argon2id</span>
-              <span class="tech-tag">RBAC</span>
-              <span class="tech-tag">WCAG 2.2</span>
-            </div>
-            <div class="ecosystem-card__actions">
-              <a href="https://github.com/A11yDevs/acessilia-ufg" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
-                <span>Repositório no GitHub</span>
-                <span class="sr-only">(abre em nova janela)</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 3: Acessília Toolbox (MCP) -->
-          <article class="ecosystem-card">
-            <div class="ecosystem-card__top">
-              <span class="pillar-card__icon" aria-hidden="true">🧰</span>
-              <span class="ecosystem-card__badge">Gateway MCP & Ferramentas</span>
-            </div>
-            <h3 class="ecosystem-card__title">Acessília Toolbox</h3>
-            <a href="https://github.com/A11yDevs/acessilia-toolbox" class="ecosystem-card__repo" target="_blank" rel="noopener noreferrer">
-              A11yDevs/acessilia-toolbox ↗
-            </a>
-            <p class="ecosystem-card__desc">
-              Caixa de ferramentas sem estado (<em>stateless</em>) e gateway de capacidades que expõe operações determinísticas para sistemas agenticos via REST e <strong>Model Context Protocol (MCP)</strong>. Garante neutralidade de fornecedores para que agentes de IA nunca fiquem acoplados a um provedor específico.
-            </p>
-            <ul class="ecosystem-card__features">
-              <li><strong>Suporte Nativo a MCP:</strong> Ferramentas padronizadas para invocação direta por agentes autônomos e IDEs com suporte a MCP.</li>
-              <li><strong>Planejamento PDDL:</strong> Integração com lógica formal PDDL (Planning Domain Definition Language) para orquestração automática.</li>
-              <li><strong>Camada de Mediação Neutra:</strong> Desacoplamento entre capacidades (<code>document.structure.extract</code>) e provedores (<code>docling-serve</code>, <code>MinerU</code>).</li>
-              <li><strong>Infraestrutura de Alto Desempenho:</strong> Suporte a cache inteligente com Valkey e armazenamento distribuído com MinIO.</li>
-            </ul>
-            <div class="tech-tags">
-              <span class="tech-tag">Model Context Protocol (MCP)</span>
-              <span class="tech-tag">PDDL Planning</span>
-              <span class="tech-tag">docling-serve</span>
-              <span class="tech-tag">REST API</span>
-              <span class="tech-tag">Valkey</span>
-              <span class="tech-tag">MinIO</span>
-            </div>
-            <div class="ecosystem-card__actions">
-              <a href="https://github.com/A11yDevs/acessilia-toolbox" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
-                <span>Repositório no GitHub</span>
-                <span class="sr-only">(abre em nova janela)</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 4: Acessília Dataset -->
-          <article class="ecosystem-card">
-            <div class="ecosystem-card__top">
-              <span class="pillar-card__icon" aria-hidden="true">📊</span>
-              <span class="ecosystem-card__badge">Testes & Ground Truth</span>
-            </div>
-            <h3 class="ecosystem-card__title">Acessília Dataset</h3>
-            <a href="https://github.com/A11yDevs/acessilia-dataset" class="ecosystem-card__repo" target="_blank" rel="noopener noreferrer">
-              A11yDevs/acessilia-dataset ↗
-            </a>
-            <p class="ecosystem-card__desc">
-              Infraestrutura compartilhada de testes com acervo curado de documentos reais e sintéticos desafiadores (fórmulas de Bhaskara, integrais gaussianas, matrizes, somatórios e tabelas degradadas), acompanhados das extrações e marcações canônicas esperadas (<em>ground truth</em>).
-            </p>
-            <ul class="ecosystem-card__features">
-              <li><strong>Prevenção de Regressão:</strong> Testes automáticos que garantem a integridade da extração a cada novo PR ou release.</li>
-              <li><strong>Ground Truth para Fórmulas:</strong> Mapeamento rigoroso de imagens matemáticas para notação LaTeX oficial em CSV.</li>
-              <li><strong>Artefatos Intermediários:</strong> Schemas JSON padronizados (v1.0.0) para documentos canônicos, ProcessingManifest e planos PDDL.</li>
-              <li><strong>Integração Flexível:</strong> Consumível tanto como submódulo Git (<code>git submodule</code>) quanto como pacote Python pip.</li>
-            </ul>
-            <div class="tech-tags">
-              <span class="tech-tag">Ground Truth</span>
-              <span class="tech-tag">LaTeX Math</span>
-              <span class="tech-tag">Regression Suite</span>
-              <span class="tech-tag">JSON Schema</span>
-              <span class="tech-tag">CSV Manifests</span>
-              <span class="tech-tag">Git Submodule</span>
-            </div>
-            <div class="ecosystem-card__actions">
-              <a href="https://github.com/A11yDevs/acessilia-dataset" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
-                <span>Repositório no GitHub</span>
-                <span class="sr-only">(abre em nova janela)</span>
-              </a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção Pesquisa & Benchmark Dr.DocBench -->
-    <section id="pesquisa" class="section research-section" aria-labelledby="pesq-title">
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-pill">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Fundamentação Científica
-          </div>
-          <h2 id="pesq-title" class="section-title">Pesquisa Científica & Benchmark Dr.DocBench</h2>
-          <p class="section-subtitle">
-            Como o projeto Acessília supera os limites de parsing onde ferramentas convencionais falham.
-          </p>
-        </div>
-
-        <div class="grid grid-2">
-          <div class="card card--padded">
-            <h3 class="card-title">O Desafio dos Documentos Complexos</h3>
-            <p>
-              Em documentos do mundo real — especialmente artigos acadêmicos, teses e livros técnicos —, elementos visuais como equações matemáticas embutidas, tabelas sem grades, colunas duplas e notas marginais causam quebras catastróficas em leitores de tela e em extratores tradicionais de OCR.
-            </p>
-            <p style="margin-top: 1rem;">
-              O Acessília fundamenta sua arquitetura na superação de casos extremos de falha documentados na literatura científica, integrando segmentação de layout com <strong>Docling</strong>, OCR robusto com <strong>RapidOCR</strong> e agentes de linguagem com visão multimodal.
-            </p>
-          </div>
-
-          <div class="card card--padded">
-            <h3 class="card-title">Alinhamento com o Benchmark Dr.DocBench</h3>
-            <p>
-              O benchmark <strong>Dr.DocBench</strong> (<em>A Comprehensive Benchmark for Expert-Level and Difficult Document Parsing</em>) introduziu uma metodologia rigorosa de avaliação baseada em amostragem de falhas de parsers (<em>parser-failure-based sampling</em>) através de 52 domínios temáticos.
-            </p>
-            <p style="margin-top: 1rem;">
-              O Acessília utiliza essa fundamentação para garantir que mesmo os layouts mais intrincados sejam normalizados em estruturas semânticas limpas, prontas para gerar conformidade <strong>PDF/UA (ISO 14289)</strong> e acessibilidade digital de nível superior.
-            </p>
-          </div>
-        </div>
-
-        <!-- Card Acadêmico do Artigo com Citação -->
-        <article class="paper-card">
-          <div class="paper-header">
-            <span class="paper-badge">Artigo Científico de Referência</span>
-            <span class="paper-meta">arXiv:2606.01393 [cs.CV / cs.CL]</span>
-          </div>
-
-          <h3 class="paper-title">Dr. DocBench: A Comprehensive Benchmark for Expert-Level and Difficult Document Parsing</h3>
-          
-          <p class="paper-abstract">
-            <strong>Resumo de Contexto:</strong> Este benchmark especializado avalia sistemas de parsing em documentos desafiadores com múltiplas páginas, notações especializadas (fórmulas químicas e matemáticas, tabelas complexas e diagramas intrincados), servindo como base de rigor metodológico para as decisões arquiteturais do Acessília.
-          </p>
-
-          <div class="citation-block">
-            <div class="citation-header">
-              <span class="citation-label">Referência BibTeX</span>
-              <button type="button" class="btn-copy" id="btn-copy-bibtex" aria-label="Copiar citação BibTeX do artigo Dr.DocBench">Copiar BibTeX</button>
-            </div>
-            <pre><code>@article{drdocbench2026,
-  title={Dr. DocBench: A Comprehensive Benchmark for Expert-Level and Difficult Document Parsing},
-  author={2077AI Research and Collaborators},
-  journal={arXiv preprint arXiv:2606.01393},
-  year={2026},
-  url={https://arxiv.org/abs/2606.01393}
-}</code></pre>
-          </div>
-
-          <div class="paper-actions">
-            <a href="https://arxiv.org/abs/2606.01393" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-              <span>Ler Artigo no arXiv (2606.01393)</span>
-              <span class="sr-only">(abre em nova janela)</span>
-            </a>
-            <a href="https://github.com/A11yDevs/acessilia-dataset" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-              <span>Ver Dataset de Testes do Acessília</span>
-              <span class="sr-only">(abre em nova janela)</span>
-            </a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Seção Sobre -->
-    <section id="sobre" class="section section--alt" aria-labelledby="sobre-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="sobre-title" class="section-title">O Que É o Projeto Acessília?</h2>
-          <p class="section-subtitle">
-            Uma ponte tecnológica entre documentos visuais e a autonomia de leitura para pessoas cegas ou com baixa visão.
-          </p>
-        </div>
-
-        <div class="grid grid-2">
-          <div class="card card--padded">
-            <div class="card-icon" aria-hidden="true">🎯</div>
-            <h3 class="card-title">O Desafio</h3>
-            <p>
-              Milhões de documentos acadêmicos, livros, relatórios governamentais e apostilas circulam em PDFs sem marcação estrutural, imagens sem audiodescrição ou digitalizações ilegíveis para leitores de tela convencionais (como NVDA, JAWS, Orca ou VoiceOver). O resultado é a exclusão informacional direta.
-            </p>
-          </div>
-
-          <div class="card card--padded">
-            <div class="card-icon" aria-hidden="true">💡</div>
-            <h3 class="card-title">Nossa Solução</h3>
-            <p>
-              O Acessília decompõe o documento, reconstrói sua árvore semântica correta (títulos H1 a H6, tabelas com cabeçalhos acessíveis, listas ordenadas, fórmulas em MathML/LaTeX) e emprega modelos de linguagem para audiodescrever figuras e diagramas com precisão técnica e contexto.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção Funcionalidades -->
-    <section id="funcionalidades" class="section" aria-labelledby="func-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="func-title" class="section-title">Principais Capacidades</h2>
-          <p class="section-subtitle">Projetado com base em padrões de acessibilidade digital e arquitetura moderna.</p>
-        </div>
-
-        <div class="grid grid-3">
-          <!-- Card 1 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">📑</div>
-            <h3 class="feature-title">PDF/UA Universal</h3>
-            <p>
-              Exporta PDFs etiquetados de acordo com a norma <strong>ISO 14289-1 (PDF/UA)</strong>, garantindo conformidade com leitores de tela e tecnologias assistivas em qualquer plataforma.
-            </p>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🖼️</div>
-            <h3 class="feature-title">Audiodescrição com IA</h3>
-            <p>
-              Agentes multimodais inspecionam imagens, fotos, infográficos e esquemas gráficos, gerando descrições textuais contextuais e alt text de alto padrão.
-            </p>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🎧</div>
-            <h3 class="feature-title">Síntese de Voz Integrada</h3>
-            <p>
-              Gera versões em áudio (MP3) com ritmo natural e capítulos estruturados, permitindo audição contínua sem depender exclusivamente do leitor de tela do dispositivo.
-            </p>
-          </article>
-
-          <!-- Card 4 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🔬</div>
-            <h3 class="feature-title">Extração Docling + RapidOCR</h3>
-            <p>
-              Combina redes neurais de ponta para segmentação de layout com motores OCR rápidos, identificando colunas múltiplas, cabeçalhos, notas de rodapé e tabelas complexas.
-            </p>
-          </article>
-
-          <!-- Card 5 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🔒</div>
-            <h3 class="feature-title">Privacidade e Execução Local</h3>
-            <p>
-              Suporta execução 100% offline e local via <strong>Ollama</strong>, protegendo dados confidenciais ou institucionais, além de integração com <strong>OpenRouter</strong> para modelos em nuvem.
-            </p>
-          </article>
-
-          <!-- Card 6 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">⚡</div>
-            <h3 class="feature-title">Múltiplas Interfaces</h3>
-            <p>
-              Acesse como preferir: através da <strong>API REST</strong>, de um <strong>Painel Web</strong> intuitivo, de um <strong>Bot do Telegram</strong> ágil ou via <strong>Linha de Comando (CLI)</strong>.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção Formatos de Saída -->
-    <section id="formatos" class="section section--alt" aria-labelledby="formatos-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="formatos-title" class="section-title">Formatos Acessíveis de Saída</h2>
-          <p class="section-subtitle">
-            Um único upload gera diversos formatos otimizados para cada perfil de uso e tecnologia assistiva.
-          </p>
-        </div>
-
-        <div class="table-responsive">
-          <table class="table-accessible">
-            <caption class="sr-only">Tabela comparativa de formatos de exportação gerados pelo Acessília</caption>
-            <thead>
-              <tr>
-                <th scope="col">Formato</th>
-                <th scope="col">Extensão</th>
-                <th scope="col">Objetivo Principal</th>
-                <th scope="col">Diferencial de Acessibilidade</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>PDF Universalmente Acessível</strong></td>
-                <td><code>.pdf</code> (PDF/UA)</td>
-                <td>Documento final com preservação visual</td>
-                <td>Árvore de tags semânticas, textos alternativos e ordem de leitura navegável.</td>
-              </tr>
-              <tr>
-                <td><strong>Áudio Falado</strong></td>
-                <td><code>.mp3</code></td>
-                <td>Audição móvel e pessoas com fadiga visual</td>
-                <td>Síntese de voz com leitura contextual de fórmulas, tabelas e audiodescrição.</td>
-              </tr>
-              <tr>
-                <td><strong>HTML Estruturado</strong></td>
-                <td><code>.html</code></td>
-                <td>Navegação web e leitores de tela rápidos</td>
-                <td>Marcação HTML5 semântica (H1-H6, semântica ARIA, listas e tabelas completas).</td>
-              </tr>
-              <tr>
-                <td><strong>Documento Editável</strong></td>
-                <td><code>.docx</code></td>
-                <td>Revisão, notas acadêmicas e anotações</td>
-                <td>Estilos estruturados de parágrafo e título, compatível com Microsoft Word e LibreOffice.</td>
-              </tr>
-              <tr>
-                <td><strong>Texto Puro Simples</strong></td>
-                <td><code>.txt</code></td>
-                <td>Terminais braille e dispositivos minimalistas</td>
-                <td>Texto linear limpo sem artefatos de quebra de linha espúrios ou colunas truncadas.</td>
-              </tr>
-              <tr>
-                <td><strong>Pacote Completo</strong></td>
-                <td><code>.zip</code></td>
-                <td>Arquivo institucional e arquivamento</td>
-                <td>Todos os formatos acima empacotados com metadados e relatório de conformidade.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção Arquitetura -->
-    <section id="arquitetura" class="section" aria-labelledby="arq-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="arq-title" class="section-title">Arquitetura Modular</h2>
-          <p class="section-subtitle">
-            Separação clara entre Domínio, Aplicação e Interfaces para máxima extensibilidade.
+            Geração simultânea e automatizada para atender a diferentes necessidades pedagógicas e perfis de leitura.
           </p>
         </div>
 
         <div class="grid grid-3">
-          <div class="card card--bordered">
-            <div class="card-badge">Camada 1</div>
-            <h3 class="card-title">Backend & Domínio</h3>
-            <ul class="clean-list">
-              <li><strong>Agentes de IA:</strong> Avaliação contextual e descrições visuais.</li>
-              <li><strong>Clientes LLM:</strong> Abstração para Ollama, OpenRouter e APIs externas.</li>
-              <li><strong>Pipeline Modular:</strong> Estágios desacoplados de extração e normalização.</li>
-              <li><strong>Exportadores:</strong> Geradores nativos de PDF/UA, HTML, MP3 e DOCX.</li>
-            </ul>
+          <div class="card">
+            <div class="feature-icon" aria-hidden="true">📄</div>
+            <h3 class="card-title">PDF/UA (ISO 14289)</h3>
+            <p>PDF etiquetado com árvore estrutural completa, ordem de leitura linear e contraste validado segundo a norma internacional de acessibilidade.</p>
           </div>
 
-          <div class="card card--bordered">
-            <div class="card-badge">Camada 2</div>
-            <h3 class="card-title">API REST Núcleo</h3>
-            <ul class="clean-list">
-              <li><strong>FastAPI assíncrona:</strong> Alta performance e documentação OpenAPI.</li>
-              <li><strong>Fila de Jobs:</strong> Processamento em fila com consulta de status em tempo real.</li>
-              <li><strong>Segurança:</strong> Downloads via token seguro com expiração configurável.</li>
-              <li><strong>Persistência:</strong> Registro de histórico e telemetria via SQLite.</li>
-            </ul>
+          <div class="card">
+            <div class="feature-icon" aria-hidden="true">🔊</div>
+            <h3 class="card-title">Áudio Narrado (TTS)</h3>
+            <p>Faixas MP3 com divisão por capítulos, ritmo calibrado para estudo acadêmico e audiodescrição minuciosa de tabelas e ilustrações.</p>
           </div>
 
-          <div class="card card--bordered">
-            <div class="card-badge">Camada 3</div>
-            <h3 class="card-title">Frontends & Clientes</h3>
-            <ul class="clean-list">
-              <li><strong>Painel Web:</strong> Interface acessível para envio de arquivos e acompanhamento.</li>
-              <li><strong>Bot do Telegram:</strong> Envio prático de áudio ou documento pelo celular.</li>
-              <li><strong>CLI (Terminal):</strong> Automatização e processamento em lote em servidores.</li>
-              <li><strong>MCP Server:</strong> Integração com agentes e ferramentas externas.</li>
-            </ul>
+          <div class="card">
+            <div class="feature-icon" aria-hidden="true">🌐</div>
+            <h3 class="card-title">HTML5 Semântico com MathML</h3>
+            <p>Páginas leves e responsivas com equações matemáticas em MathML navegáveis símbolo a símbolo por sintetizadores de voz e terminais Braille.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Seção de Demonstração Interativa -->
-    <section id="demonstracao" class="section section--alt" aria-labelledby="demo-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="demo-title" class="section-title">Simulador do Pipeline Acessília</h2>
-          <p class="section-subtitle">
-            Experimente como o Acessília processa um documento e gera acessibilidade instantânea.
-          </p>
-        </div>
-
-        <div class="demo-wrapper">
-          <div class="demo-controls" role="region" aria-label="Controles do simulador">
-            <label for="demo-select-doc" class="form-label">
-              <strong>Selecione um exemplo de documento para simular:</strong>
-            </label>
-            <div class="demo-actions">
-              <select id="demo-select-doc" class="form-select">
-                <option value="artigo">Artigo Científico com Gráficos e Fórmulas</option>
-                <option value="apostila">Apostila Universitária com Tabelas Complexas</option>
-                <option value="relatorio">Relatório Técnico com Imagens Digitalizadas</option>
-              </select>
-              <button type="button" id="btn-run-simulation" class="btn btn-primary">
-                <span class="icon" aria-hidden="true">▶</span>
-                Executar Simulação
-              </button>
-            </div>
-          </div>
-
-          <div class="demo-stage" id="demo-stage" aria-live="polite">
-            <div class="demo-status" id="demo-status-box">
-              <div class="status-indicator">
-                <span class="status-pulse" aria-hidden="true"></span>
-                <span id="demo-status-text">Pronto para simulação. Pressione "Executar Simulação".</span>
-              </div>
-            </div>
-
-            <div class="demo-results" id="demo-results-box" style="display: none;">
-              <h3 class="demo-results__title">Resultado da Extração Semântica</h3>
-              
-              <div class="grid grid-2">
-                <div class="card result-card">
-                  <h4 class="result-heading">Antes: PDF Não Estruturado</h4>
-                  <div class="raw-preview" id="demo-raw-content">
-                    <em>Texto corrido desordenado sem tags, tabelas transformadas em colunas desconexas, imagens sem alt text e ausência de títulos navegáveis.</em>
-                  </div>
-                </div>
-
-                <div class="card result-card result-card--accessible">
-                  <h4 class="result-heading">Depois: Estrutura Acessília Enriquecida</h4>
-                  <div class="accessible-preview" id="demo-accessible-content">
-                    <!-- Preenchido dinamicamente via JS -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção de Demonstração Sonora e Amostra Acessível -->
-    <section id="demonstracao-audio" class="section" aria-labelledby="audio-title">
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-pill" data-i18n="audio.badge">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Síntese de Voz & Audiodescrição
-          </div>
-          <h2 id="audio-title" class="section-title" data-i18n="audio.section_title">
-            Demonstração Sonora Real & Download Acessível
-          </h2>
-          <p class="section-subtitle" data-i18n="audio.section_subtitle">
-            Experimente a síntese de voz com descrição detalhada de gráficos e equações matemáticas estruturadas, e baixe um pacote de exemplo.
-          </p>
-        </div>
-
-        <div class="audio-demo-card">
-          <div class="audio-card-header">
-            <div class="audio-title">
-              <span class="icon-audio" aria-hidden="true">🎧</span>
-              <strong data-i18n="audio.card_title">Exemplo Narrado: Artigo de Física & Matemática</strong>
-            </div>
-            <span class="badge-pill">Síntese de Voz Web</span>
-          </div>
-
-          <!-- Controles do Player Acessível -->
-          <div class="audio-player-controls" role="region" aria-label="Controles do reprodutor de áudio acessível">
-            <button type="button" id="audio-play-btn" class="btn btn-primary btn-audio" aria-pressed="false" aria-label="Reproduzir audiodescrição técnica">
-              <span class="icon" aria-hidden="true">▶</span>
-              <span data-i18n="audio.play">Reproduzir Áudio</span>
-            </button>
-
-            <button type="button" id="audio-stop-btn" class="btn btn-outline btn-audio" aria-label="Parar reprodução de áudio">
-              <span class="icon" aria-hidden="true">⏹</span>
-              <span data-i18n="audio.stop">Parar</span>
-            </button>
-
-            <div class="audio-progress-container">
-              <div class="audio-progress-bar" role="progressbar" aria-label="Progresso da reprodução de áudio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div id="audio-progress-bar" class="audio-progress-fill" style="width: 0%;"></div>
-              </div>
-              <div class="audio-time-display">
-                <span id="audio-time-display">00:00 / 00:24</span>
-                <div class="audio-speed-control">
-                  <label for="audio-rate-select" class="sr-only">Velocidade da voz</label>
-                  <select id="audio-rate-select" class="audio-rate-select" aria-label="Selecionar velocidade da voz">
-                    <option value="0.75">0.75x</option>
-                    <option value="1.0" selected>1.0x (Normal)</option>
-                    <option value="1.25">1.25x</option>
-                    <option value="1.5">1.5x</option>
-                    <option value="2.0">2.0x</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Transcrição Sincronizada -->
-          <div class="audio-transcript-box">
-            <span class="transcript-label" aria-hidden="true">Transcrição Sincronizada em Tempo Real:</span>
-            <div id="audio-transcript" class="transcript-text" aria-live="polite">
-              <span class="transcript-phrase">Acessília: Demonstração de audiodescrição técnica e matemática acessível.</span>
-              <span class="transcript-phrase">Figura 1: Gráfico comparativo de desempenho.</span>
-              <span class="transcript-phrase">No eixo horizontal estão os modelos e no eixo vertical a taxa de acurácia.</span>
-              <span class="transcript-phrase">O algoritmo de linha de base obtém 72 porcento, enquanto o pipeline Acessília atinge 94 porcento.</span>
-              <span class="transcript-phrase">Equação matemática 4: E é igual a m vezes c ao quadrado.</span>
-              <span class="transcript-phrase">Fórmula quadrática: x é igual a menos b mais ou menos raiz quadrada de delta dividido por dois a.</span>
-              <span class="transcript-phrase">Documento integralmente acessível em conformidade com o padrão internacional PDF/UA.</span>
-            </div>
-          </div>
-
-          <!-- Caixa de Download de Amostra -->
-          <div class="download-sample-box" style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 1.25rem; background-color: var(--bg-alt); border-radius: var(--radius-md); border: 1px dashed var(--color-primary);">
-            <div>
-              <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;" data-i18n="audio.download_sample">Baixar Amostra Acessível (.HTML / MathML)</strong>
-              <small style="color: var(--text-secondary);" data-i18n="audio.download_desc">Pacote modelo com HTML5 semântico, MathML legível por leitor de tela, audiodescrição de imagem e tags WCAG 2.2 AAA.</small>
-            </div>
-            <button type="button" id="btn-download-sample" class="btn btn-primary">
-              <span class="icon" aria-hidden="true">💾</span>
-              <span>Baixar Pacote de Amostra</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção Equipe Acadêmica & Governança (UFG) -->
-    <section id="equipe" class="section section--alt" aria-labelledby="equipe-title">
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-pill" data-i18n="team.badge">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Governança & Pesquisa
-          </div>
-          <h2 id="equipe-title" class="section-title" data-i18n="team.title">
-            Equipe Acadêmica e Colaboradores
-          </h2>
-          <p class="section-subtitle" data-i18n="team.subtitle">
-            Conheça os docentes, pesquisadores, discentes e revisores que constroem a acessibilidade digital na UFG.
-          </p>
-        </div>
-
-        <div class="team-grid">
-          <!-- Prof. Dr. Marcelo Akira Inuzuka -->
-          <article class="team-card">
-            <div class="team-card__top">
-              <div class="team-avatar" aria-hidden="true">👨‍🏫</div>
-              <div class="team-info">
-                <h3 class="team-name">Prof. Dr. Marcelo Akira Inuzuka</h3>
-                <span class="team-role">Pesquisador Responsável & Orientador</span>
-                <span class="team-institution">INF / UFG • LaMCAD</span>
-              </div>
-            </div>
-            <p class="team-bio">
-              Professor Associado do Instituto de Informática da Universidade Federal de Goiás (INF/UFG). Doutor em Ciência da Computação, atua em pesquisas em Inteligência Artificial, Processamento de Linguagem Natural, Interação Humano-Computador e Tecnologias Assistivas. Coordena a ação de extensão A11yDevs e orienta o projeto científico Acessília e o benchmark Dr.DocBench.
-            </p>
-            <div class="team-card__badges">
-              <span class="team-badge">Coordenação Geral</span>
-              <span class="team-badge">Pesquisa Científica</span>
-              <span class="team-badge">LaMCAD/UFG</span>
-            </div>
-            <div class="team-links">
-              <a href="http://lattes.cnpq.br/4429983935824707" class="team-link" target="_blank" rel="noopener noreferrer">Currículo Lattes ↗</a>
-              <a href="https://inf.ufg.br" class="team-link" target="_blank" rel="noopener noreferrer">INF/UFG ↗</a>
-            </div>
-          </article>
-
-          <!-- Jhonata Fernandes Cordeiro -->
-          <article class="team-card">
-            <div class="team-card__top">
-              <div class="team-avatar" aria-hidden="true">💻</div>
-              <div class="team-info">
-                <h3 class="team-name">Jhonata Fernandes Cordeiro</h3>
-                <span class="team-role">Líder Técnico & Arquiteto de Software</span>
-                <span class="team-institution">A11yDevs • UFG</span>
-              </div>
-            </div>
-            <p class="team-bio">
-              Pesquisador e arquiteto de software líder da iniciativa Acessília. Responsável pela concepção da arquitetura agentica multimodal, integração do pipeline com Docling e RapidOCR, desenvolvimento do benchmark Dr.DocBench, especificações do ecossistema e projetos satélites de acessibilidade digital na comunidade A11yDevs.
-            </p>
-            <div class="team-card__badges">
-              <span class="team-badge">Liderança Técnica</span>
-              <span class="team-badge">Arquitetura de IA</span>
-              <span class="team-badge">Dr.DocBench</span>
-            </div>
-            <div class="team-links">
-              <a href="https://github.com/fjhonata" class="team-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-              <a href="https://github.com/A11yDevs" class="team-link" target="_blank" rel="noopener noreferrer">A11yDevs ↗</a>
-            </div>
-          </article>
-
-          <!-- Bolsistas e Pesquisadores Discentes -->
-          <article class="team-card">
-            <div class="team-card__top">
-              <div class="team-avatar" aria-hidden="true">🎓</div>
-              <div class="team-info">
-                <h3 class="team-name">Discentes & Bolsistas de Extensão</h3>
-                <span class="team-role">Iniciação Científica & Extensão Universitária</span>
-                <span class="team-institution">INF / UFG • A11yDevs</span>
-              </div>
-            </div>
-            <p class="team-bio">
-              Estudantes dos cursos de Ciência da Computação, Engenharia de Software e Inteligência Artificial do INF/UFG. Atuam na curadoria e catalogação do Acessilia-Dataset, avaliação de extrações de layout denso, implementação de agentes de enriquecimento e desenvolvimento do portal web acessília-ufg.
-            </p>
-            <div class="team-card__badges">
-              <span class="team-badge">Extensão UFG</span>
-              <span class="team-badge">Iniciação Científica</span>
-              <span class="team-badge">Acessilia-Dataset</span>
-            </div>
-            <div class="team-links">
-              <a href="https://github.com/A11yDevs/acessilia-dataset" class="team-link" target="_blank" rel="noopener noreferrer">Repositório do Dataset ↗</a>
-            </div>
-          </article>
-
-          <!-- Revisores e Usuários com Deficiência Visual -->
-          <article class="team-card">
-            <div class="team-card__top">
-              <div class="team-avatar" aria-hidden="true">♿</div>
-              <div class="team-info">
-                <h3 class="team-name">Consultores e Revisores Cegos</h3>
-                <span class="team-role">Painel Heurístico & Validação com Usuários</span>
-                <span class="team-institution">Comunidade Acessível • UFG</span>
-              </div>
-            </div>
-            <p class="team-bio">
-              Estudantes e profissionais cegos e com baixa visão que participam ativamente da co-criação e validação heurística dos documentos gerados. Testam saídas em leitores de tela reais (NVDA, JAWS, VoiceOver, Orca) e linhas Braille, garantindo que a audiodescrição e os MathMLs façam sentido pedagógico na prática.
-            </p>
-            <div class="team-card__badges">
-              <span class="team-badge">Validação Heurística</span>
-              <span class="team-badge">Leitores de Tela</span>
-              <span class="team-badge">Design Inclusivo</span>
-            </div>
-            <div class="team-links">
-              <a href="#institucional" class="team-link">Ver Parcerias ↗</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção Roadmap Público de Desenvolvimento -->
-    <section id="roadmap" class="section" aria-labelledby="roadmap-title">
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-pill" data-i18n="roadmap.badge">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Planejamento Estratégico
-          </div>
-          <h2 id="roadmap-title" class="section-title" data-i18n="roadmap.title">
-            Roadmap Público de Desenvolvimento
-          </h2>
-          <p class="section-subtitle" data-i18n="roadmap.subtitle">
-            Da concepção dos modelos agenticos à implantação no Núcleo de Acessibilidade da UFG e dispositivos vestíveis.
-          </p>
-        </div>
-
-        <div class="roadmap-timeline">
-          <!-- 2025: Fundação -->
-          <div class="roadmap-item completed">
-            <div class="roadmap-marker" aria-hidden="true"></div>
-            <div class="roadmap-content">
-              <div class="roadmap-header">
-                <span class="roadmap-badge">2025 • Concluído</span>
-                <span class="roadmap-status">Marco 01</span>
-              </div>
-              <h3 class="roadmap-title">Fundação e Concepção do Pipeline de IA</h3>
-              <p class="roadmap-desc">
-                Criação da arquitetura central desacoplada em Python. Integração de bibliotecas líderes de OCR e extração estrutural (Docling e RapidOCR). Primeiras validações de prompts de audiodescrição técnica e estruturação da comunidade de software livre A11yDevs na UFG.
-              </p>
-              <div class="roadmap-tags">
-                <span class="roadmap-tag">Docling</span>
-                <span class="roadmap-tag">RapidOCR</span>
-                <span class="roadmap-tag">Pipeline Core</span>
-                <span class="roadmap-tag">Comunidade A11yDevs</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2026: Consolidação Acadêmica -->
-          <div class="roadmap-item current">
-            <div class="roadmap-marker" aria-hidden="true"></div>
-            <div class="roadmap-content">
-              <div class="roadmap-header">
-                <span class="roadmap-badge">2026 • Em Execução</span>
-                <span class="roadmap-status">Marco 02 (Atual)</span>
-              </div>
-              <h3 class="roadmap-title">Consolidação Acadêmica & Benchmark Dr.DocBench</h3>
-              <p class="roadmap-desc">
-                Submissão do artigo científico do benchmark Dr.DocBench. Disponibilização pública dos quatro repositórios centrais: Acessília Core, Gestor Acessilia-UFG, Acessília-Toolbox (MCP Server) e Acessília-Dataset. Lançamento dos exportadores de PDF/UA (ISO 14289), áudio narrado e HTML5 com MathML.
-              </p>
-              <div class="roadmap-tags">
-                <span class="roadmap-tag">Artigo Dr.DocBench</span>
-                <span class="roadmap-tag">PDF/UA Nativo</span>
-                <span class="roadmap-tag">MCP Server</span>
-                <span class="roadmap-tag">FastAPI Assíncrona</span>
-                <span class="roadmap-tag">Docker GHCR</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2026/2027: Implantação Institucional UFG -->
-          <div class="roadmap-item">
-            <div class="roadmap-marker" aria-hidden="true"></div>
-            <div class="roadmap-content">
-              <div class="roadmap-header">
-                <span class="roadmap-badge">2026 / 2027 • Em Preparação</span>
-                <span class="roadmap-status">Marco 03</span>
-              </div>
-              <h3 class="roadmap-title">Implantação e Validação Institucional no Ensino Superior</h3>
-              <p class="roadmap-desc">
-                <strong>Fase de planejamento e preparação técnica para entrada em operação no Núcleo de Acessibilidade da UFG.</strong> O objetivo é colocar o sistema em uso ativo em breve para apoiar a equipe de transcritores e adaptadores no atendimento de estudantes cegos e com baixa visão matriculados em cursos de graduação e pós-graduação da UFG.
-              </p>
-              <div class="roadmap-tags">
-                <span class="roadmap-tag">Núcleo de Acessibilidade UFG</span>
-                <span class="roadmap-tag">Acervo Acadêmico</span>
-                <span class="roadmap-tag">Esteira de Produção</span>
-                <span class="roadmap-tag">Validação com Usuários</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2027+: Expansão Multimodal & Hardware Assistivo -->
-          <div class="roadmap-item">
-            <div class="roadmap-marker" aria-hidden="true"></div>
-            <div class="roadmap-content">
-              <div class="roadmap-header">
-                <span class="roadmap-badge">2027+ • Futuro</span>
-                <span class="roadmap-status">Marco 04</span>
-              </div>
-              <h3 class="roadmap-title">Expansão Multimodal & Dispositivos Assistivos</h3>
-              <p class="roadmap-desc">
-                Suporte total a EPUB 3 com Media Overlays sincronizados (leitura em voz alta com rastreamento visual). Integração com os projetos satélites de hardware aberto Acessília Glasses (óculos vestíveis) e Acessília Math Android (via Termux) para levar a acessibilidade matemática a qualquer lugar.
-              </p>
-              <div class="roadmap-tags">
-                <span class="roadmap-tag">EPUB 3 Media Overlays</span>
-                <span class="roadmap-tag">Acessília Glasses</span>
-                <span class="roadmap-tag">Acessília Math Android</span>
-                <span class="roadmap-tag">Hardware Aberto</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção Projetos Satélites da Comunidade A11yDevs -->
-    <section id="satelites" class="section section--alt" aria-labelledby="sat-title">
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-pill" data-i18n="satellites.badge">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Iniciativas da Comunidade
-          </div>
-          <h2 id="sat-title" class="section-title" data-i18n="satellites.title">
-            Projetos Satélites da Comunidade A11yDevs
-          </h2>
-          <p class="section-subtitle" data-i18n="satellites.subtitle">
-            Soluções complementares de hardware vestível, matemática móvel e padrões semânticos abertos.
-          </p>
-        </div>
-
-        <div class="satellites-grid">
-          <!-- Satélite 1: Acessília Glasses -->
-          <article class="satellite-card">
-            <div class="satellite-header">
-              <div class="satellite-icon" aria-hidden="true">👓</div>
-              <div>
-                <h3 class="satellite-name">Acessília Glasses</h3>
-                <span class="satellite-tag">Hardware Assistivo Vestível</span>
-              </div>
-            </div>
-            <p class="satellite-desc">
-              Protótipo de óculos vestíveis inteligentes de baixo custo baseados em Raspberry Pi e microcâmera. Realiza captura de quadros de aula, apostilas impressas e placas de sinalização no campus, enviando para o núcleo de inferência da UFG para sintetizar audiodescrição instantânea no fone de condução óssea do estudante.
-            </p>
-            <div class="tech-tags">
-              <span class="tech-tag">Hardware Aberto</span>
-              <span class="tech-tag">Raspberry Pi</span>
-              <span class="tech-tag">Visão em Tempo Real</span>
-              <span class="tech-tag">Condução Óssea</span>
-            </div>
-            <div class="satellite-links">
-              <a href="https://github.com/A11yDevs/acessilia-glasses" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
-                A11yDevs/acessilia-glasses ↗
-              </a>
-            </div>
-          </article>
-
-          <!-- Satélite 2: Acessília Math Android -->
-          <article class="satellite-card">
-            <div class="satellite-header">
-              <div class="satellite-icon" aria-hidden="true">📱</div>
-              <div>
-                <h3 class="satellite-name">Acessília Math Android</h3>
-                <span class="satellite-tag">Ambiente Portátil / Termux</span>
-              </div>
-            </div>
-            <p class="satellite-desc">
-              Distribuição móvel otimizada para execução local em smartphones Android via Termux. Permite que estudantes de ciências exatas leiam, naveguem e manipulem equações matemáticas densas em MathML, LaTeX e Braille Nemeth diretamente no bolso, inclusive em ambientes sem conectividade com a internet.
-            </p>
-            <div class="tech-tags">
-              <span class="tech-tag">Android / Termux</span>
-              <span class="tech-tag">MathML Semântico</span>
-              <span class="tech-tag">Braille Nemeth</span>
-              <span class="tech-tag">Modo Offline</span>
-            </div>
-            <div class="satellite-links">
-              <a href="https://github.com/A11yDevs/acessilia-math-android" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
-                A11yDevs/acessilia-math-android ↗
-              </a>
-            </div>
-          </article>
-
-          <!-- Satélite 3: Normas Acessília -->
-          <article class="satellite-card">
-            <div class="satellite-header">
-              <div class="satellite-icon" aria-hidden="true">📏</div>
-              <div>
-                <h3 class="satellite-name">Normas Acessília</h3>
-                <span class="satellite-tag">Especificação Semântica</span>
-              </div>
-            </div>
-            <p class="satellite-desc">
-              Manual de diretrizes, esquemas JSON e guias de boas práticas para produção de material didático acessível no ensino superior. Define vocabulários padronizados para audiodescrição de tabelas, circuitos elétricos, diagramas UML e fluxogramas, garantindo consistência em toda a produção editorial acadêmica.
-            </p>
-            <div class="tech-tags">
-              <span class="tech-tag">Norma ISO 14289</span>
-              <span class="tech-tag">WCAG 2.2 AAA</span>
-              <span class="tech-tag">Vocabulário Aberto</span>
-              <span class="tech-tag">e-MAG</span>
-            </div>
-            <div class="satellite-links">
-              <a href="https://github.com/A11yDevs/normas-acessilia" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
-                A11yDevs/normas-acessilia ↗
-              </a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção Como Usar / Instalação -->
-    <section id="como-usar" class="section" aria-labelledby="usar-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="usar-title" class="section-title">Como Começar</h2>
-          <p class="section-subtitle">
-            Suba seu próprio ambiente Acessília em poucos minutos via Docker ou Poetry.
-          </p>
-        </div>
-
-        <div class="tabs" id="install-tabs">
-          <div class="tabs__list" role="tablist" aria-label="Opções de instalação e execução">
-            <button type="button" class="tab-button" role="tab" aria-selected="true" aria-controls="panel-docker" id="tab-docker">
-              Docker (Recomendado)
-            </button>
-            <button type="button" class="tab-button" role="tab" aria-selected="false" aria-controls="panel-poetry" id="tab-poetry" tabindex="-1">
-              Poetry / Python 3.11+
-            </button>
-            <button type="button" class="tab-button" role="tab" aria-selected="false" aria-controls="panel-api" id="tab-api" tabindex="-1">
-              Consumindo a API REST
-            </button>
-          </div>
-
-          <!-- Painel Docker -->
-          <div class="tab-panel" id="panel-docker" role="tabpanel" aria-labelledby="tab-docker">
-            <h3 class="sr-only">Execução com Docker</h3>
-            <p>Utilize as imagens oficiais publicadas no GitHub Container Registry (ghcr.io):</p>
-            <div class="code-block">
-              <div class="code-block__header">
-                <span class="code-lang">Bash / Terminal</span>
-                <button type="button" class="btn-copy" aria-label="Copiar comando Docker para a área de transferência">Copiar</button>
-              </div>
-              <pre><code># Baixar a imagem completa com Docling, RapidOCR e PyTorch CPU
-docker pull ghcr.io/a11ydevs/acessilia:main
-
-# Executar os serviços (API na porta 8000 e painel Web na 8001)
-docker run --rm \
-  --env-file .env \
-  -p 8000:8000 \
-  -p 8001:8001 \
-  -v "$PWD/var:/app/var" \
-  ghcr.io/a11ydevs/acessilia:main</code></pre>
-            </div>
-            <p class="tip-note">
-              <strong>Nota:</strong> Para servidores com recursos reduzidos, utilize a versão leve <code>ghcr.io/a11ydevs/acessilia:main-slim</code>.
-            </p>
-          </div>
-
-          <!-- Painel Poetry -->
-          <div class="tab-panel" id="panel-poetry" role="tabpanel" aria-labelledby="tab-poetry" hidden>
-            <h3 class="sr-only">Instalação com Poetry</h3>
-            <p>Clone o repositório oficial e configure o ambiente com o Poetry:</p>
-            <div class="code-block">
-              <div class="code-block__header">
-                <span class="code-lang">Bash / Terminal</span>
-                <button type="button" class="btn-copy" aria-label="Copiar comandos Poetry para a área de transferência">Copiar</button>
-              </div>
-              <pre><code># Clonar o repositório
-git clone https://github.com/A11yDevs/acessilia.git
-cd acessilia
-
-# Instalar dependências
-poetry install
-
-# Configurar variáveis de ambiente
-cp .env.example .env
-
-# Iniciar todos os serviços (API + Web + Telegram)
-poetry run python -m frontend.run</code></pre>
-            </div>
-          </div>
-
-          <!-- Painel API -->
-          <div class="tab-panel" id="panel-api" role="tabpanel" aria-labelledby="tab-api" hidden>
-            <h3 class="sr-only">Consumindo a API REST</h3>
-            <p>Envie um arquivo para processamento assíncrono via cURL:</p>
-            <div class="code-block">
-              <div class="code-block__header">
-                <span class="code-lang">cURL / HTTP</span>
-                <button type="button" class="btn-copy" aria-label="Copiar requisição cURL para a área de transferência">Copiar</button>
-              </div>
-              <pre><code># 1. Enviar documento para a fila
-curl -X POST "http://localhost:8000/api/v1/jobs" \
-  -F "file=@documento.pdf" \
-  -F "export_formats=pdf_ua,mp3,html"
-
-# 2. Consultar status do processamento
-curl -X GET "http://localhost:8000/api/v1/jobs/{task_id}"
-
-# 3. Baixar versão PDF/UA acessível gerada
-curl -O "http://localhost:8000/api/v1/download/{token}/pdf_ua"</code></pre>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção FAQ -->
-    <section id="faq" class="section section--alt" aria-labelledby="faq-title">
+    <!-- Seção FAQ Resumida -->
+    <section class="section" aria-labelledby="faq-title">
       <div class="container">
         <div class="section-header">
           <h2 id="faq-title" class="section-title">Perguntas Frequentes (FAQ)</h2>
@@ -1417,7 +432,7 @@ curl -O "http://localhost:8000/api/v1/download/{token}/pdf_ua"</code></pre>
             </summary>
             <div class="faq-answer">
               <p>
-                O Acessília usa modelos de visão computacional combinados com prompts estruturados para audiodescrição técnica (seguindo diretrizes de audiodescrição para exames e materiais didáticos). Fórmulas matemáticas são extraídas e convertidas em notação semântica (como LaTeX ou MathML), permitindo navegação símbolo por símbolo no leitor de tela.
+                O Acessília usa modelos de visão computacional combinados com prompts estruturados para audiodescrição técnica. Fórmulas matemáticas são extraídas e convertidas em MathML e LaTeX semântico, permitindo navegação símbolo por símbolo no leitor de tela.
               </p>
             </div>
           </details>
@@ -1449,16 +464,15 @@ curl -O "http://localhost:8000/api/v1/download/{token}/pdf_ua"</code></pre>
             Acessar o Repositório no GitHub
             <span class="sr-only">(abre em nova janela)</span>
           </a>
-          <a href="https://github.com/A11yDevs/acessilia/blob/main/CONTRIBUTING.md" class="btn btn-outline-light btn-lg" target="_blank" rel="noopener noreferrer">
-            Guia de Contribuição
-            <span class="sr-only">(abre em nova janela)</span>
+          <a href="como-usar.html" class="btn btn-outline-light btn-lg">
+            Guia de Instalação Técnica
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Seção Declaração Formal de Acessibilidade -->
-    <section id="declaracao-a11y" class="section" aria-labelledby="dec-title">
+    <!-- Declaração Formal de Acessibilidade -->
+    <section id="declaracao-a11y" class="section section--alt" aria-labelledby="dec-title">
       <div class="container">
         <div class="declaration-card">
           <div class="declaration-header">
@@ -1470,14 +484,10 @@ curl -O "http://localhost:8000/api/v1/download/{token}/pdf_ua"</code></pre>
           <p data-i18n="declaration.p1">
             O sítio oficial do Acessília foi projetado e auditado para alcançar nível <strong>AAA de conformidade</strong> segundo as Diretrizes de Acessibilidade para Conteúdo Web (<strong>WCAG 2.2</strong>) do W3C e as recomendações do <strong>e-MAG</strong> (Modelo de Acessibilidade em Governo Eletrônico).
           </p>
-          <p data-i18n="declaration.p2">
-            A plataforma é validada continuamente com leitores de tela <strong>NVDA, JAWS, VoiceOver e Orca</strong>, além de navegação exclusiva por teclado, validação de contraste de cores acima de 7:1 e suporte integral a internacionalização.
-          </p>
           <div class="declaration-badges">
             <span class="criteria-badge">WCAG 2.2 AAA</span>
             <span class="criteria-badge">e-MAG Governo Federal</span>
             <span class="criteria-badge">PDF/UA (ISO 14289)</span>
-            <span class="criteria-badge">W3C WAI-ARIA APG</span>
             <span class="criteria-badge">MathPlayer & MathML</span>
             <span class="criteria-badge">HTML5 Semântico</span>
           </div>
@@ -1496,7 +506,7 @@ curl -O "http://localhost:8000/api/v1/download/{token}/pdf_ua"</code></pre>
           <span class="brand-tagline">UFG • INF • LaMCAD • A11yDevs</span>
         </div>
         <p class="footer-desc">
-          Iniciativa de pesquisa e extensão desenvolvida no <strong>Instituto de Informática da Universidade Federal de Goiás (INF/UFG)</strong>, com suporte computacional do <strong>LaMCAD/UFG</strong>, dedicada ao desenvolvimento aberto de tecnologias assistivas para estudantes cegos e com baixa visão.
+          Iniciativa de pesquisa e extensão desenvolvida no <strong>Instituto de Informática da Universidade Federal de Goiás (INF/UFG)</strong>, com suporte computacional do <strong>LaMCAD/UFG</strong>.
         </p>
         <p class="footer-license">
           Software Livre sob a <a href="https://github.com/A11yDevs/acessilia/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">Licença MIT</a>.
@@ -1506,15 +516,13 @@ curl -O "http://localhost:8000/api/v1/download/{token}/pdf_ua"</code></pre>
       <div class="footer-col">
         <h3 class="footer-heading">Navegação</h3>
         <ul class="footer-links">
-          <li><a href="#institucional">Frentes Institucionais</a></li>
-          <li><a href="#ecossistema">Ecossistema</a></li>
-          <li><a href="#pesquisa">Pesquisa & Dr.DocBench</a></li>
-          <li><a href="#demonstracao-audio">Demonstração Sonora</a></li>
-          <li><a href="#equipe">Equipe UFG</a></li>
-          <li><a href="#roadmap">Roadmap Público</a></li>
-          <li><a href="#satelites">Projetos Satélites</a></li>
-          <li><a href="#como-usar">Instalação & API</a></li>
-          <li><a href="#faq">Perguntas Frequentes</a></li>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="institucional.html">Frentes Institucionais</a></li>
+          <li><a href="pesquisa.html">Pesquisa & Dr.DocBench</a></li>
+          <li><a href="ecossistema.html">Ecossistema</a></li>
+          <li><a href="demonstracao.html">Demonstração</a></li>
+          <li><a href="como-usar.html">Instalação & API</a></li>
+          <li><a href="roadmap.html">Roadmap Público</a></li>
         </ul>
       </div>
 
@@ -1540,8 +548,8 @@ curl -O "http://localhost:8000/api/v1/download/{token}/pdf_ua"</code></pre>
 
     <div class="site-footer__bottom">
       <div class="container footer-bottom__inner">
-        <p>© 2026 A11yDevs — Universidade Federal de Goiás (UFG). Coordenação: Prof. Dr. Marcelo Akira Inuzuka & Jhonata Fernandes Cordeiro.</p>
-        <p><a href="#inicio" class="back-to-top">Voltar ao topo ↑</a></p>
+        <p>© 2026 A11yDevs — Universidade Federal de Goiás (UFG).</p>
+        <p><a href="#accessibility-toolbar" class="back-to-top">Voltar ao topo ↑</a></p>
       </div>
     </div>
   </footer>
@@ -1566,38 +574,14 @@ curl -O "http://localhost:8000/api/v1/download/{token}/pdf_ua"</code></pre>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><kbd>Alt</kbd> + <kbd>1</kbd></td>
-            <td>Pular diretamente para o conteúdo principal</td>
-          </tr>
-          <tr>
-            <td><kbd>Alt</kbd> + <kbd>2</kbd></td>
-            <td>Pular para a barra de acessibilidade (fonte, cores, idioma)</td>
-          </tr>
-          <tr>
-            <td><kbd>Alt</kbd> + <kbd>3</kbd></td>
-            <td>Pular para o menu de navegação</td>
-          </tr>
-          <tr>
-            <td><kbd>Alt</kbd> + <kbd>C</kbd></td>
-            <td>Alternar modo de alto contraste</td>
-          </tr>
-          <tr>
-            <td><kbd>Alt</kbd> + <kbd>T</kbd></td>
-            <td>Alternar tema de cores (claro / escuro)</td>
-          </tr>
-          <tr>
-            <td><kbd>Alt</kbd> + <kbd>L</kbd></td>
-            <td>Alternar idioma do site (Português / Inglês)</td>
-          </tr>
-          <tr>
-            <td><kbd>?</kbd> (Shift + /)</td>
-            <td>Abrir esta janela de atalhos de teclado</td>
-          </tr>
-          <tr>
-            <td><kbd>Esc</kbd></td>
-            <td>Fechar janelas modais e menus abertos</td>
-          </tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>1</kbd></td><td>Pular diretamente para o conteúdo principal</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>2</kbd></td><td>Pular para a barra de acessibilidade (fonte, cores, idioma)</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>3</kbd></td><td>Pular para o menu de navegação</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>C</kbd></td><td>Alternar modo de alto contraste</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>T</kbd></td><td>Alternar tema de cores (claro / escuro)</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>L</kbd></td><td>Alternar idioma do site (Português / Inglês)</td></tr>
+          <tr><td><kbd>?</kbd> (Shift + /)</td><td>Abrir esta janela de atalhos de teclado</td></tr>
+          <tr><td><kbd>Esc</kbd></td><td>Fechar janelas modais e menus abertos</td></tr>
         </tbody>
       </table>
 
