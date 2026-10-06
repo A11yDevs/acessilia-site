@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roadmap Público — Acessília | Planejamento Estratégico</title>
-  <meta name="description" content="Linha do tempo pública e marcos de desenvolvimento do Acessília: da concepção dos modelos agenticos à implantação no Núcleo de Acessibilidade da UFG.">
-  <meta name="keywords" content="roadmap, planejamento, marcos, futuro, UFG, Núcleo de Acessibilidade, tecnologia assistiva, EPUB 3, Acessília">
+  <title>Roadmap Público — Acessília | Planejamento Estratégico & Arquitetura</title>
+  <meta name="description" content="Linha do tempo pública e marcos de desenvolvimento do Acessília: da extração multimodal determinística e planejamento formal PDDL à preparação técnica para o Núcleo de Acessibilidade da UFG.">
+  <meta name="keywords" content="roadmap, planejamento, marcos, arquitetura, PDDL, Agno, Fast Downward, UFG, Núcleo de Acessibilidade, tecnologia assistiva, EPUB 3, Acessília">
   <meta name="author" content="A11yDevs">
   <meta name="theme-color" content="#1a365d">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://acessilia.org/roadmap.html">
-  <meta property="og:title" content="Roadmap Público — Acessília">
-  <meta property="og:description" content="Conheça os marcos concluídos e os próximos passos do projeto Acessília.">
+  <meta property="og:title" content="Roadmap Público — Acessília | Planejamento Estratégico">
+  <meta property="og:description" content="Linha do tempo técnica e marcos do ecossistema Acessília baseados na arquitetura real dos repositórios A11yDevs.">
   <meta property="og:locale" content="pt_BR">
 
   <!-- Estilos -->
@@ -143,50 +143,159 @@
         </nav>
         <h1 class="page-title">Roadmap Público de Desenvolvimento</h1>
         <p class="page-lead">
-          Acompanhe os marcos históricos e o planejamento estratégico do Acessília: da concepção dos modelos agenticos à implantação no Núcleo de Acessibilidade da UFG e integração com dispositivos vestíveis.
+          Acompanhe os marcos históricos e o planejamento estratégico do ecossistema Acessília (2025–2027+): da extração multimodal determinística e planejamento formal de agentes (PDDL 2.2 + Agno) à preparação técnica para implantação no Núcleo de Acessibilidade da UFG e dispositivos assistivos abertos.
         </p>
       </div>
     </header>
 
-    <!-- Seção Linha do Tempo / Roadmap -->
-    <section class="section" aria-labelledby="roadmap-timeline-title">
+    <!-- Seção 1: Visão Geral dos 4 Ciclos Estratégicos -->
+    <section class="section" aria-labelledby="cycles-overview-title">
       <div class="container">
         <div class="section-header">
-          <div class="badge-pill" data-i18n="roadmap.badge">
+          <div class="badge-pill">
             <span class="badge-dot" aria-hidden="true"></span>
-            Planejamento Estratégico
+            <span data-i18n="roadmap.badge">Planejamento Estratégico Multidisciplinar</span>
           </div>
-          <h2 id="roadmap-timeline-title" class="section-title" data-i18n="roadmap.title">
-            Marcos de Desenvolvimento (2025–2027+)
+          <h2 id="cycles-overview-title" class="section-title">
+            Quatro Ciclos de Evolução Tecnológica
           </h2>
-          <p class="section-subtitle" data-i18n="roadmap.subtitle">
-            Transparência contínua com a comunidade acadêmica e de software livre.
+          <p class="section-subtitle">
+            Transparência contínua com a comunidade acadêmica, desenvolvedores de software livre e órgãos de acessibilidade.
+          </p>
+        </div>
+
+        <div class="roadmap-cycle-grid">
+          <!-- Ciclo 1 -->
+          <article class="roadmap-cycle-card" aria-labelledby="cycle-1-title">
+            <span class="roadmap-cycle-badge status-completed">2025 – Início 2026 • Concluído</span>
+            <h3 id="cycle-1-title" class="roadmap-cycle-title">Ciclo 01: Fundação & Extração Multimodal</h3>
+            <p class="roadmap-cycle-desc">
+              Criação da arquitetura central desacoplada, pipeline de extração estrutural (Docling + RapidOCR), API assíncrona FastAPI, dataset ground truth e primeira edição das Normas Semânticas Brasileiras.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Docling</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">PDF/UA ISO 14289</span>
+              <span class="tech-tag">Normas ACL</span>
+            </div>
+          </article>
+
+          <!-- Ciclo 2 -->
+          <article class="roadmap-cycle-card is-current" aria-labelledby="cycle-2-title">
+            <span class="roadmap-cycle-badge status-current">2026 • Em Execução (Atual)</span>
+            <h3 id="cycle-2-title" class="roadmap-cycle-title">Ciclo 02: Agentes PDDL & Gestor NAI</h3>
+            <p class="roadmap-cycle-desc">
+              Planejamento formal PDDL 2.2 com Agno e Fast Downward, gateway MCP desacoplado (Acessília Toolbox), painel institucional Fastify/SQLite com Diff lado a lado e app nativo Android em Kotlin com Sherpa-ONNX offline.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">PDDL 2.2</span>
+              <span class="tech-tag">Agno</span>
+              <span class="tech-tag">Fastify / SQLite</span>
+              <span class="tech-tag">MCP Gateway</span>
+            </div>
+          </article>
+
+          <!-- Ciclo 3 -->
+          <article class="roadmap-cycle-card" aria-labelledby="cycle-3-title">
+            <span class="roadmap-cycle-badge status-preparation">2026 / 2027 • Em Preparação</span>
+            <h3 id="cycle-3-title" class="roadmap-cycle-title">Ciclo 03: Implantação Institucional UFG</h3>
+            <p class="roadmap-cycle-desc">
+              Fase de planejamento e preparação técnica para entrada em operação no Núcleo de Acessibilidade da UFG, esteira de digitalização de acervo acadêmico, telemetria em cluster LaMCAD e linter automatizado em CI/CD.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Núcleo Acessibilidade</span>
+              <span class="tech-tag">Acervo UFG</span>
+              <span class="tech-tag">LaMCAD GPU</span>
+              <span class="tech-tag">acessilia-lint</span>
+            </div>
+          </article>
+
+          <!-- Ciclo 4 -->
+          <article class="roadmap-cycle-card" aria-labelledby="cycle-4-title">
+            <span class="roadmap-cycle-badge status-future">2027+ • Futuro & Expansão</span>
+            <h3 id="cycle-4-title" class="roadmap-cycle-title">Ciclo 04: EPUB 3 & Hardware Assistivo</h3>
+            <p class="roadmap-cycle-desc">
+              Geração de EPUB 3 com Media Overlays sincronizados (voz e texto), publicação aberta do app móvel de matemática, evolução dos óculos abertos Acessília Glasses e replicação do modelo para outras universidades federais.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">EPUB 3 SMIL</span>
+              <span class="tech-tag">Acessília Glasses</span>
+              <span class="tech-tag">Condução Óssea</span>
+              <span class="tech-tag">Rede IFES</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 2: Linha do Tempo Técnica Detalhada (Roadmap Timeline) -->
+    <section class="section section--alt" aria-labelledby="roadmap-timeline-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Linha do Tempo Oficial
+          </div>
+          <h2 id="roadmap-timeline-title" class="section-title">
+            Detalhamento Técnico dos Marcos por Repositório
+          </h2>
+          <p class="section-subtitle">
+            Cada marco reflete entregas verificáveis e implementações ativas nos repositórios da organização A11yDevs.
           </p>
         </div>
 
         <div class="roadmap-timeline">
-          <!-- 2025: Fundação -->
+
+          <!-- Marco 01: Concluído -->
           <div class="roadmap-item completed">
             <div class="roadmap-marker" aria-hidden="true"></div>
             <div class="roadmap-content">
               <div class="roadmap-header">
-                <span class="roadmap-badge">2025 • Concluído</span>
+                <span class="roadmap-badge">2025 – Início de 2026 • Concluído</span>
                 <span class="roadmap-status">Marco 01</span>
               </div>
-              <h3 class="roadmap-title">Fundação e Concepção do Pipeline de IA</h3>
+              <h3 class="roadmap-title">Fundação do Pipeline Central, Exportadores Nativos e Normas Semânticas</h3>
               <p class="roadmap-desc">
-                Criação da arquitetura central desacoplada em Python. Integração de bibliotecas líderes de OCR e extração estrutural (Docling e RapidOCR). Primeiras validações de prompts de audiodescrição técnica e estruturação da comunidade de software livre A11yDevs no INF/UFG.
+                Estruturação da base computacional e normativa do projeto. O foco foi garantir que documentos acadêmicos complexos (PDFs com diagramas, colunas duplas e equações) fossem processados sem perda de hierarquia e convertidos deterministicamente em múltiplos formatos universais de leitura.
               </p>
+
+              <div class="roadmap-deliverables-block">
+                <h4 class="roadmap-deliverables-title">
+                  <span aria-hidden="true">📦</span> Entregas e Módulos Implementados:
+                </h4>
+                <ul class="roadmap-deliverables completed">
+                  <li>
+                    <strong>Acessília Core (<a href="https://github.com/A11yDevs/acessilia" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">A11yDevs/acessilia</a>):</strong> Concepção da arquitetura desacoplada em três camadas (Domínio → Aplicação → Interface). Pipeline de extração estrutural integrando Docling e RapidOCR/Tesseract. API assíncrona FastAPI com controle de jobs (`/api/v1/jobs`), download seguro via tokens efêmeros, persistência em SQLite e imagens de contêiner publicadas no GHCR (`main` e `main-slim`).
+                  </li>
+                  <li>
+                    <strong>Formatos Acessíveis Nativos:</strong> Geração simultânea de PDF/UA (ISO 14289) com árvores de tags lógicas, áudio narrado (MP3 com síntese TTS e audiodescrição embutida), HTML5 semântico com equações em MathML legíveis por leitores de tela, TXT e DOCX estruturado.
+                  </li>
+                  <li>
+                    <strong>Dataset de Validação (<a href="https://github.com/A11yDevs/acessilia-dataset" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">A11yDevs/acessilia-dataset</a>):</strong> Curadoria de 120+ documentos universitários em 3 estágios (`input/`, `intermediate/`, `outputs/`), incluindo tutoriais completos de programação, apostilas de ciências exatas com fórmulas em LaTeX limpas e degradadas (ruído/rotação) e gabaritos de teste.
+                  </li>
+                  <li>
+                    <strong>Normas Brasileiras de Descrição Semântica (<a href="https://github.com/A11yDevs/normas-acessilia" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">A11yDevs/normas-acessilia</a>):</strong> Publicação da versão 1.1.0 das normas técnicas. Estruturação das Famílias ACESSILIA-100 a 800 (100: Objetividade e Fidelidade, 200: Imagens, 300: Gráficos/Tabelas, 400: Científico, 500: Educacional, 600: Multimídia, 700: Conformidade, 800: Perfis) com identificadores estáveis `ACL-<FAMÍLIA>-<TIPO>-<NÚMERO>`.
+                  </li>
+                  <li>
+                    <strong>Protótipo de Matemática por Voz (<a href="https://github.com/A11yDevs/acessilia-math-termux" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">A11yDevs/acessilia-math-termux</a>):</strong> Protótipo P0/P1 de navegação auditiva de fórmulas matemáticas estruturadas sobre Extended MathML semântico (`acc:*`), com reconhecimento de voz 100% offline via Sherpa-ONNX (modelo NeMo CTC português) e feedback de beeps binaurais (880 Hz / 440 Hz).
+                  </li>
+                </ul>
+              </div>
+
               <div class="roadmap-tags">
-                <span class="roadmap-tag">Docling</span>
+                <span class="roadmap-tag">Docling 2.0</span>
                 <span class="roadmap-tag">RapidOCR</span>
-                <span class="roadmap-tag">Pipeline Core</span>
-                <span class="roadmap-tag">Comunidade A11yDevs</span>
+                <span class="roadmap-tag">FastAPI Assíncrona</span>
+                <span class="roadmap-tag">PDF/UA ISO 14289</span>
+                <span class="roadmap-tag">Extended MathML</span>
+                <span class="roadmap-tag">Sherpa-ONNX Offline</span>
+                <span class="roadmap-tag">Normas ACL-100 a 800</span>
+                <span class="roadmap-tag">Docker GHCR</span>
               </div>
             </div>
           </div>
 
-          <!-- 2026: Consolidação Acadêmica -->
+          <!-- Marco 02: Em Execução (Atual) -->
           <div class="roadmap-item current">
             <div class="roadmap-marker" aria-hidden="true"></div>
             <div class="roadmap-content">
@@ -194,21 +303,51 @@
                 <span class="roadmap-badge">2026 • Em Execução</span>
                 <span class="roadmap-status">Marco 02 (Atual)</span>
               </div>
-              <h3 class="roadmap-title">Consolidação Acadêmica & Benchmark Dr.DocBench</h3>
+              <h3 class="roadmap-title">Arquitetura Agêntica Formal (PDDL 2.2 + Agno) & Acessília Gestor Institucional</h3>
               <p class="roadmap-desc">
-                Submissão do artigo científico do benchmark Dr.DocBench. Disponibilização pública dos quatro repositórios centrais: Acessília Core, Gestor Acessilia-UFG, Acessília-Toolbox (MCP Server) e Acessília-Dataset. Lançamento dos exportadores de PDF/UA (ISO 14289), áudio narrado e HTML5 com MathML.
+                Marco técnico em andamento. Eliminação de alucinações de orquestração por meio de planejamento formal matemático (PDDL), desacoplamento de ferramentas via gateway MCP, consolidação do portal institucional web com WCAG 2.2 AAA e submissão do benchmark acadêmico Dr.DocBench.
               </p>
+
+              <div class="roadmap-deliverables-block">
+                <h4 class="roadmap-deliverables-title">
+                  <span aria-hidden="true">⚡</span> Entregas e Módulos em Execução:
+                </h4>
+                <ul class="roadmap-deliverables current">
+                  <li>
+                    <strong>Planejamento Agêntico Formal PDDL 2.2 no Core (<a href="https://github.com/A11yDevs/acessilia" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">A11yDevs/acessilia</a>):</strong> Implementação da arquitetura PMV 2.1 com framework Agno: o `InformationalStructuralAgent` (Agno + Docling) extrai o `processing-manifest.json` com obrigações estruturais, métodos admissíveis e custos inteiros; o `PlannerAgent` compila deterministicamente o `problem.pddl` a partir de `domain_v2.2.pddl` com minimização estrita de custo (`:metric minimize (total-cost)`); suporte duplo a planners (`internal` via DAG heurístico e `fast-downward` A* blind com axiomas), com modo `both` para verificação diferencial formal; `ExecutorAgent` via Agno Workflow nominal gerando `execution-report.json`. Nenhum LLM gera PDDL diretamente.
+                  </li>
+                  <li>
+                    <strong>Stateless Capability Gateway & MCP (<a href="https://github.com/A11yDevs/acessilia-toolbox" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">A11yDevs/acessilia-toolbox</a>):</strong> Gateway desacoplado expondo capacidades neutras de provedor via REST (`POST /v1/capabilities/{id}:execute`) e protocolo MCP (Model Context Protocol). Publicação formal de predicados e fragmentos PDDL em `/planning/predicates` e `/planning/domain-fragments`, isolando a lógica agêntica de provedores como Docling-serve, MinerU, Valkey e MinIO.
+                  </li>
+                  <li>
+                    <strong>Acessília Gestor — NAI/UFG (<a href="https://github.com/A11yDevs/acessilia-ufg" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">A11yDevs/acessilia-ufg</a>):</strong> Painel Web institucional em Node.js / Fastify com SQLite WAL (`better-sqlite3`, 30 tabelas relacionais normalizadas), Argon2id e RBAC rigoroso (Admin, Professor, Revisora, Estudante). Acessibilidade estrita WCAG 2.2 AAA: barra de zoom tipográfico (A/A+/A++), Alto Contraste amarelo/preto (`#000000`/`#ffff00`), Dark Slate ergonômico (`#0b1120`), modo Dislexia, régua focal de leitura (`Alt+R`), leitor web de audiolivro e **Fluxo de Revisão Técnica Humana com Diff comparativo lado a lado** (PDF original escaneado vs. texto acessibilizado).
+                  </li>
+                  <li>
+                    <strong>App Móvel Acessília Math Android (<a href="https://github.com/A11yDevs/acessilia-math-android" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">A11yDevs/acessilia-math-android</a>):</strong> Portabilidade do núcleo de navegação em árvore matemática (`MathNode`, `ExtendedMathMLParser`, `MathNavigator`) para aplicativo Android nativo em Kotlin. Integração JNI com `sherpa-onnx` arm64-v8a e ONNX Runtime para reconhecimento de fala 100% offline em português, suporte ao leitor de tela TalkBack e botões táteis ampliados.
+                  </li>
+                  <li>
+                    <strong>Benchmark Científico Dr.DocBench:</strong> Submissão do artigo científico consolidando a metodologia de avaliação objetiva de fidelidade estrutural, OCR de fórmulas e precisão semântica, processado na infraestrutura de supercomputação do LaMCAD/UFG.
+                  </li>
+                </ul>
+              </div>
+
               <div class="roadmap-tags">
-                <span class="roadmap-tag">Artigo Dr.DocBench</span>
-                <span class="roadmap-tag">PDF/UA Nativo</span>
-                <span class="roadmap-tag">MCP Server</span>
-                <span class="roadmap-tag">FastAPI Assíncrona</span>
-                <span class="roadmap-tag">Docker GHCR</span>
+                <span class="roadmap-tag">PDDL 2.2 Formal</span>
+                <span class="roadmap-tag">Agno Framework</span>
+                <span class="roadmap-tag">Fast Downward A*</span>
+                <span class="roadmap-tag">Model Context Protocol (MCP)</span>
+                <span class="roadmap-tag">Fastify + SQLite WAL</span>
+                <span class="roadmap-tag">Diff Lado a Lado</span>
+                <span class="roadmap-tag">WCAG 2.2 AAA Nativo</span>
+                <span class="roadmap-tag">Kotlin Android</span>
+                <span class="roadmap-tag">TalkBack</span>
+                <span class="roadmap-tag">Dr.DocBench</span>
+                <span class="roadmap-tag">LaMCAD/UFG</span>
               </div>
             </div>
           </div>
 
-          <!-- 2026/2027: Implantação Institucional UFG -->
+          <!-- Marco 03: Em Preparação -->
           <div class="roadmap-item">
             <div class="roadmap-marker" aria-hidden="true"></div>
             <div class="roadmap-content">
@@ -218,36 +357,314 @@
               </div>
               <h3 class="roadmap-title">Implantação e Validação Institucional no Ensino Superior</h3>
               <p class="roadmap-desc">
-                <strong>Fase de planejamento e preparação técnica para entrada em operação no Núcleo de Acessibilidade da UFG.</strong> O objetivo é colocar o sistema em uso ativo em breve para apoiar a equipe de transcritores e adaptadores no atendimento de estudantes cegos e com baixa visão matriculados em cursos de graduação e pós-graduação da UFG.
+                Fase de planejamento e preparação técnica voltada para a entrada em operação no ambiente real da universidade. O sistema será integrado aos fluxos institucionais para apoiar a equipe de transcrição e adaptação no atendimento a discentes cegos e com baixa visão.
               </p>
+
+              <div class="roadmap-deliverables-block">
+                <h4 class="roadmap-deliverables-title">
+                  <span aria-hidden="true">⏳</span> Metas em Preparação e Homologação:
+                </h4>
+                <ul class="roadmap-deliverables preparation">
+                  <li>
+                    <strong>Preparação para Entrada em Operação no Núcleo de Acessibilidade da UFG:</strong>
+                    O sistema está em fase de planejamento e preparação técnica para, em breve, entrar em uso regular pela equipe de adaptadores e revisores do Núcleo de Acessibilidade da UFG. Isso inclui homologação em ambiente universitário, definição de protocolos pedagógicos e treinamento no fluxo de revisão técnica com diff lado a lado.
+                  </li>
+                  <li>
+                    <strong>Esteira Automatizada de Conversão de Acervo Acadêmico:</strong>
+                    Implantação de rotinas para digitalização e conversão em lote de bibliografias básicas, ementas, apostilas e avaliações dos cursos de graduação e pós-graduação da UFG, garantindo prazos compatíveis com o calendário letivo.
+                  </li>
+                  <li>
+                    <strong>Observabilidade em Cluster (<a href="https://github.com/A11yDevs/acessilia-observability" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">A11yDevs/acessilia-observability</a>):</strong>
+                    Mecanismo unificado de telemetria distribuída, monitoramento contínuo de filas assíncronas, métricas de GPU no supercomputador do LaMCAD/UFG e logs de auditoria em conformidade com a Lei Brasileira de Inclusão (LBI nº 13.146/2015).
+                  </li>
+                  <li>
+                    <strong>Auditoria Contínua com `acessilia-lint` (<a href="https://github.com/A11yDevs/normas-acessilia" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">A11yDevs/normas-acessilia</a>):</strong>
+                    Integração do linter formal de descrições semânticas em pipelines de CI/CD para verificação automática de esquemas JSON/XSD e conformidade estrita com as normas da Família ACESSILIA-700 antes da disponibilização de materiais.
+                  </li>
+                </ul>
+              </div>
+
               <div class="roadmap-tags">
                 <span class="roadmap-tag">Núcleo de Acessibilidade UFG</span>
                 <span class="roadmap-tag">Acervo Acadêmico</span>
+                <span class="roadmap-tag">Human-in-the-Loop</span>
                 <span class="roadmap-tag">Esteira de Produção</span>
-                <span class="roadmap-tag">Validação com Usuários</span>
+                <span class="roadmap-tag">LaMCAD Telemetria</span>
+                <span class="roadmap-tag">acessilia-lint</span>
+                <span class="roadmap-tag">LBI nº 13.146/2015</span>
               </div>
             </div>
           </div>
 
-          <!-- 2027+: Expansão Multimodal & Hardware Assistivo -->
+          <!-- Marco 04: Futuro & Expansão -->
           <div class="roadmap-item">
             <div class="roadmap-marker" aria-hidden="true"></div>
             <div class="roadmap-content">
               <div class="roadmap-header">
-                <span class="roadmap-badge">2027+ • Futuro</span>
+                <span class="roadmap-badge">2027+ • Futuro & Expansão</span>
                 <span class="roadmap-status">Marco 04</span>
               </div>
-              <h3 class="roadmap-title">Expansão Multimodal & Dispositivos Assistivos</h3>
+              <h3 class="roadmap-title">Formatos Multimodais Avançados, EPUB 3 Media Overlays & Dispositivos Vestíveis</h3>
               <p class="roadmap-desc">
-                Suporte total a EPUB 3 com Media Overlays sincronizados (leitura em voz alta com rastreamento visual). Integração com os projetos satélites de hardware aberto Acessília Glasses (óculos vestíveis) e Acessília Math Android (via Termux) para levar a acessibilidade matemática a qualquer lugar.
+                Expansão para além dos navegadores e leitores de tela convencionais, viabilizando novos formatos abertos de leitura e interfaces físicas vestíveis para garantir acessibilidade em tempo real dentro e fora da sala de aula.
               </p>
+
+              <div class="roadmap-deliverables-block">
+                <h4 class="roadmap-deliverables-title">
+                  <span aria-hidden="true">✦</span> Metas Estratégicas Planejadas:
+                </h4>
+                <ul class="roadmap-deliverables future">
+                  <li>
+                    <strong>Exportador Nativo EPUB 3 com Media Overlays Sincronizados:</strong>
+                    Geração de livros digitais acessíveis com sincronização de áudio narrado e realce visual de texto em tempo real (SMIL / Media Overlays), beneficiando tanto pessoas cegas quanto estudantes com dislexia, TDAH e baixa visão.
+                  </li>
+                  <li>
+                    <strong>Distribuição Pública do Acessília Math Android:</strong>
+                    Lançamento oficial nas lojas abertas (F-Droid) do aplicativo autônomo para exploração tátil e auditiva de expressões matemáticas complexas em aulas de Cálculo, Álgebra Linear e Física.
+                  </li>
+                  <li>
+                    <strong>Hardware Assistivo Acessília Glasses (<a href="https://github.com/A11yDevs/acessilia-glasses" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">A11yDevs/acessilia-glasses</a>):</strong>
+                    Evolução do protótipo vestível de hardware aberto: captura por microcâmera em armação de óculos, processamento multimodal via rede sem fio e retorno em áudio por condução óssea, permitindo ao estudante cego acompanhar lousas, quadros e projeções em tempo real.
+                  </li>
+                  <li>
+                    <strong>Replicação em Outras Instituições Federais de Ensino Superior (IFES):</strong>
+                    Empacotamento de pacote de distribuição e manual de implantação aberto para outros núcleos de acessibilidade de universidades públicas brasileiras, consolidando uma rede cooperativa nacional de material acessível.
+                  </li>
+                </ul>
+              </div>
+
               <div class="roadmap-tags">
                 <span class="roadmap-tag">EPUB 3 Media Overlays</span>
+                <span class="roadmap-tag">SMIL 3.0</span>
                 <span class="roadmap-tag">Acessília Glasses</span>
-                <span class="roadmap-tag">Acessília Math Android</span>
+                <span class="roadmap-tag">Condução Óssea</span>
                 <span class="roadmap-tag">Hardware Aberto</span>
+                <span class="roadmap-tag">Rede IFES Cooperativa</span>
               </div>
             </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 3: Matriz de Componentes e Status do Ecossistema -->
+    <section class="section" aria-labelledby="matrix-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Matriz de Componentes
+          </div>
+          <h2 id="matrix-title" class="section-title">
+            Estado Atual dos Repositórios do Ecossistema
+          </h2>
+          <p class="section-subtitle">
+            Mapeamento dos oito componentes de código aberto mantidos pela comunidade A11yDevs.
+          </p>
+        </div>
+
+        <div class="table-responsive">
+          <table class="roadmap-table">
+            <caption class="sr-only">Matriz técnica de repositórios, papéis arquiteturais, tecnologias centrais e estágio no roadmap do Acessília</caption>
+            <thead>
+              <tr>
+                <th scope="col">Módulo / Repositório</th>
+                <th scope="col">Papel Arquitetural</th>
+                <th scope="col">Tecnologias Centrais</th>
+                <th scope="col">Ciclo do Roadmap</th>
+                <th scope="col">Status Atual</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <a href="https://github.com/A11yDevs/acessilia" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">
+                    A11yDevs/acessilia
+                  </a>
+                </th>
+                <td>Motor Agêntico Central, API REST e Exportadores Multimodais</td>
+                <td>Python 3.11+, FastAPI, Agno, PDDL 2.2, Docling, Fast Downward, Docker</td>
+                <td>Ciclo 01 & 02</td>
+                <td>
+                  <span class="status-pill status-pill--current">⚡ Em Execução (PMV 2.1)</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="https://github.com/A11yDevs/acessilia-toolbox" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">
+                    A11yDevs/acessilia-toolbox
+                  </a>
+                </th>
+                <td>Stateless Capability Gateway & Servidor MCP</td>
+                <td>Python, FastAPI, MCP Protocol, Docker, MinIO, Valkey, PDDL fragments</td>
+                <td>Ciclo 02</td>
+                <td>
+                  <span class="status-pill status-pill--current">⚡ Em Execução</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="https://github.com/A11yDevs/acessilia-ufg" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">
+                    A11yDevs/acessilia-ufg
+                  </a>
+                </th>
+                <td>Acessília Gestor Institucional (NAI / UFG)</td>
+                <td>Node.js, Fastify, SQLite WAL (30 tabelas), Argon2id, WCAG 2.2 AAA, Diff comparativo</td>
+                <td>Ciclo 02 & 03</td>
+                <td>
+                  <span class="status-pill status-pill--preparation">⏳ Piloto / Em Preparação</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="https://github.com/A11yDevs/acessilia-dataset" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">
+                    A11yDevs/acessilia-dataset
+                  </a>
+                </th>
+                <td>Conjunto de Testes, Ground Truth e Fixtures de Extração</td>
+                <td>PDFs acadêmicos, imagens sintéticas de fórmulas, manifestos PDDL, JSON Schema</td>
+                <td>Ciclo 01 & 02</td>
+                <td>
+                  <span class="status-pill status-pill--completed">✓ Concluído / Contínuo</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="https://github.com/A11yDevs/acessilia-math-android" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">
+                    A11yDevs/acessilia-math-android
+                  </a>
+                </th>
+                <td>Navegador Audível Nativo de Fórmulas para Android</td>
+                <td>Kotlin puro (JVM), Android SDK, TalkBack, Sherpa-ONNX JNI, ONNX Runtime</td>
+                <td>Ciclo 02 & 04</td>
+                <td>
+                  <span class="status-pill status-pill--current">⚡ Em Execução</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="https://github.com/A11yDevs/acessilia-math-termux" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">
+                    A11yDevs/acessilia-math-termux
+                  </a>
+                </th>
+                <td>Protótipo de Validação de Navegação Matemática por Voz</td>
+                <td>Python, Termux:API, Extended MathML, Sherpa-ONNX offline, ffmpeg</td>
+                <td>Ciclo 01</td>
+                <td>
+                  <span class="status-pill status-pill--completed">✓ Concluído (P0/P1)</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="https://github.com/A11yDevs/normas-acessilia" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">
+                    A11yDevs/normas-acessilia
+                  </a>
+                </th>
+                <td>Sistema Brasileiro de Normas para Descrição Semântica</td>
+                <td>Famílias ACESSILIA-100 a 800, JSON Schema 2020-12, XSD, acessilia-lint</td>
+                <td>Ciclo 01 & 03</td>
+                <td>
+                  <span class="status-pill status-pill--completed">✓ Concluído (v1.1.0) / CI</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="https://github.com/A11yDevs/acessilia-observability" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">
+                    A11yDevs/acessilia-observability
+                  </a>
+                </th>
+                <td>Telemetria, Filas Assíncronas e Métricas de GPU LaMCAD</td>
+                <td>Prometheus, Grafana, OpenTelemetry, métricas NVIDIA CUDA</td>
+                <td>Ciclo 03</td>
+                <td>
+                  <span class="status-pill status-pill--preparation">⏳ Em Preparação</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <a href="https://github.com/A11yDevs/acessilia-glasses" class="roadmap-repo-link" target="_blank" rel="noopener noreferrer">
+                    A11yDevs/acessilia-glasses
+                  </a>
+                </th>
+                <td>Dispositivo Vestível Assistivo de Hardware Aberto</td>
+                <td>Câmera embarcada, áudio por condução óssea, modelos de visão multimodal</td>
+                <td>Ciclo 04</td>
+                <td>
+                  <span class="status-pill status-pill--future">✦ Planejado</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 4: Pilares de Inovação Técnica e Decisões de Engenharia -->
+    <section class="section section--alt" aria-labelledby="pillars-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-pill">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Decisões Arquiteturais
+          </div>
+          <h2 id="pillars-title" class="section-title">
+            Pilares de Engenharia do Acessília
+          </h2>
+          <p class="section-subtitle">
+            Como resolvemos os desafios de confiabilidade, determinismo e acessibilidade universal.
+          </p>
+        </div>
+
+        <div class="roadmap-pillars-grid">
+          <article class="roadmap-pillar-card">
+            <div class="roadmap-pillar-icon" aria-hidden="true">📐</div>
+            <h3 class="roadmap-pillar-title">Planejamento Formal PDDL 2.2 + Agno</h3>
+            <p class="roadmap-pillar-desc">
+              Diferente de sistemas agênticos baseados em prompts livres que sofrem com alucinações, o Acessília compila as obrigações do documento em um problema formal PDDL com minimização estrita de custo inteiro. Nenhum LLM escreve PDDL diretamente; a composição é matematicamente verificável por planners de referência (Fast Downward / DAG heurístico).
+            </p>
+          </article>
+
+          <article class="roadmap-pillar-card">
+            <div class="roadmap-pillar-icon" aria-hidden="true">🔌</div>
+            <h3 class="roadmap-pillar-title">Gateway Desacoplado & Padrão MCP</h3>
+            <p class="roadmap-pillar-desc">
+              O Acessília Toolbox adota uma tríade contratual clara: <em>OpenAPI</em> define o contrato sintático de rede, <em>MCP (Model Context Protocol)</em> define o contrato de interação entre agentes e ferramentas, e <em>PDDL</em> define o contrato semântico de composição. O motor agêntico nunca se acopla rigidamente a bibliotecas como Docling ou MinerU.
+            </p>
+          </article>
+
+          <article class="roadmap-pillar-card">
+            <div class="roadmap-pillar-icon" aria-hidden="true">🎙️</div>
+            <h3 class="roadmap-pillar-title">ASR Offline & Extended MathML Semântico</h3>
+            <p class="roadmap-pillar-desc">
+              Para democratizar o acesso em sala de aula, o Acessília Math opera 100% offline via Sherpa-ONNX (modelo CTC quantizado int8) e árvore sintática de Extended MathML (`acc:*`). O estudante cego navega por comandos falados dinâmicos ("entrar fração", "ir para numerador", "onde estou", "subir") com feedback sonoro binaural sem depender de internet.
+            </p>
+          </article>
+
+          <article class="roadmap-pillar-card">
+            <div class="roadmap-pillar-icon" aria-hidden="true">⚖️</div>
+            <h3 class="roadmap-pillar-title">Revisão Humana com Diff Lado a Lado</h3>
+            <p class="roadmap-pillar-desc">
+              A inteligência artificial acelera a produção, mas a validação pedagógica institucional exige rigor. O Acessília Gestor implementa um fluxo de revisão técnica com comparador visual lado a lado (PDF original escaneado vs. documento gerado), permitindo correções pontuais antes da publicação no acervo oficial.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 5: Banner de Aviso Institucional UFG / NAI -->
+    <section class="section" aria-labelledby="notice-banner-title">
+      <div class="container">
+        <div class="institutional-notice-banner">
+          <div class="institutional-notice-icon" aria-hidden="true">🏛️</div>
+          <div class="institutional-notice-content">
+            <h3 id="notice-banner-title">Nota Institucional sobre a Implantação no Núcleo de Acessibilidade da UFG</h3>
+            <p>
+              O sistema Acessília encontra-se atualmente em <strong>fase ativa de planejamento, testes técnicos e preparação para entrada em operação em breve</strong> no <strong>Núcleo de Acessibilidade da Universidade Federal de Goiás (UFG)</strong>.
+            </p>
+            <p>
+              O objetivo dessa etapa preparatória é homologar a esteira de conversão e capacitar a equipe técnica de adaptadores e revisores, assegurando conformidade estrita com a <strong>Lei Brasileira de Inclusão (LBI - Lei nº 13.146/2015)</strong> e com os padrões <strong>WCAG 2.2 Nível AAA</strong> e <strong>e-MAG</strong> antes da disponibilização regular aos estudantes da universidade.
+            </p>
           </div>
         </div>
       </div>

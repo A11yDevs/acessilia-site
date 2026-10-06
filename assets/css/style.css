@@ -2174,3 +2174,387 @@ kbd {
   gap: 0.3rem;
 }
 
+/* ==========================================================================
+   24. Estilos Especializados do Roadmap Público e Matriz Técnica
+   ========================================================================== */
+
+.roadmap-cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.roadmap-cycle-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--bg-card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.roadmap-cycle-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.roadmap-cycle-card.is-current {
+  border-color: var(--color-primary);
+  background-color: var(--bg-secondary);
+}
+
+.roadmap-cycle-card.is-current::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 20px;
+  right: 20px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: 999px;
+}
+
+.roadmap-cycle-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+  width: fit-content;
+}
+
+.roadmap-cycle-badge.status-completed {
+  background-color: rgba(21, 128, 61, 0.15);
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+}
+
+.roadmap-cycle-badge.status-current {
+  background-color: rgba(30, 64, 175, 0.15);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.roadmap-cycle-badge.status-preparation {
+  background-color: rgba(217, 119, 6, 0.15);
+  color: var(--color-warning);
+  border: 1px solid var(--color-warning);
+}
+
+.roadmap-cycle-badge.status-future {
+  background-color: var(--bg-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--bg-card-border);
+}
+
+.roadmap-cycle-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.roadmap-cycle-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.roadmap-cycle-card .tech-tags {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+/* Timeline Custom Styles */
+.roadmap-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background-color: var(--bg-alt);
+  color: var(--text-primary);
+  border: 1px solid var(--bg-card-border);
+}
+
+.roadmap-status {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.roadmap-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.roadmap-tag {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  background-color: var(--bg-alt);
+  color: var(--text-secondary);
+  border: 1px solid var(--bg-card-border);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.roadmap-deliverables-block {
+  margin: 1.25rem 0;
+  background-color: var(--bg-alt);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+}
+
+.roadmap-deliverables-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.roadmap-deliverables {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.roadmap-deliverables li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.roadmap-deliverables.completed li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: 800;
+}
+
+.roadmap-deliverables.current li::before {
+  content: "⚡";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+.roadmap-deliverables.preparation li::before {
+  content: "⏳";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+.roadmap-deliverables.future li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+
+.roadmap-deliverables li strong {
+  color: var(--text-primary);
+}
+
+/* Tabela de Matriz do Ecossistema */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-md);
+  margin: 2rem 0;
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.roadmap-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.roadmap-table caption {
+  padding: 1rem 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-align: left;
+  color: var(--text-primary);
+  background-color: var(--bg-alt);
+  border-bottom: 2px solid var(--bg-card-border);
+}
+
+.roadmap-table th,
+.roadmap-table td {
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--bg-card-border);
+  vertical-align: middle;
+}
+
+.roadmap-table th {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.roadmap-table tbody tr:hover {
+  background-color: var(--bg-alt);
+}
+
+.roadmap-table td strong {
+  color: var(--text-primary);
+}
+
+.roadmap-repo-link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.roadmap-repo-link:hover {
+  text-decoration: underline;
+  color: var(--color-primary);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-pill--completed {
+  background-color: rgba(21, 128, 61, 0.15);
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+}
+
+.status-pill--current {
+  background-color: rgba(30, 64, 175, 0.15);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.status-pill--preparation {
+  background-color: rgba(217, 119, 6, 0.15);
+  color: var(--color-warning);
+  border: 1px solid var(--color-warning);
+}
+
+.status-pill--future {
+  background-color: var(--bg-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--bg-card-border);
+}
+
+/* Pilares de Engenharia do Roadmap */
+.roadmap-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 3rem 0;
+}
+
+.roadmap-pillar-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--bg-card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.roadmap-pillar-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+}
+
+.roadmap-pillar-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.roadmap-pillar-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.roadmap-pillar-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Banner de Aviso Institucional UFG / NAI */
+.institutional-notice-banner {
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--color-primary);
+  border-left: 6px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  margin: 3rem 0;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.institutional-notice-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.institutional-notice-content h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.institutional-notice-content p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.institutional-notice-content p:last-child {
+  margin-bottom: 0;
+}
+
