@@ -23,6 +23,7 @@
   --color-primary-text: #FFFFFF;
 
   --color-accent: #0284C7;
+  --link-color: #1E40AF;          /* Links de texto: 8,7:1 sobre branco */
   --color-success: #15803D;
   --color-warning: #B45309;
 
@@ -56,6 +57,7 @@
   --color-primary-text: #090D16;
 
   --color-accent: #38BDF8;
+  --link-color: #60A5FA;          /* Links de texto no escuro: ≥ 5,7:1 sobre --bg-alt/--bg-card/--bg-primary */
   --color-success: #4ADE80;
   --color-warning: #FBBF24;
 
@@ -82,6 +84,7 @@
   --color-primary-text: #000000 !important;
 
   --color-accent: #00FFFF !important;
+  --link-color: #FFFF00 !important;
   --focus-ring-color: #FFFF00 !important;
   --focus-ring-outline: #FFFFFF !important;
 
@@ -1785,7 +1788,7 @@ body {
 .team-grid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
 }
 
 .team-card--lead {
@@ -1798,9 +1801,10 @@ body {
   transform: none;
 }
 
-/* Links de equipe: cor primária garante contraste AA/AAA (accent falha em texto pequeno) */
+/* Links de equipe: --link-color mantém contraste ≥ 4,5:1 nos temas claro, escuro e alto contraste
+   (--color-accent falha em texto pequeno; --color-primary fica no limite no tema escuro) */
 .team-card .team-link {
-  color: var(--color-primary);
+  color: var(--link-color);
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
@@ -1824,6 +1828,14 @@ body {
 }
 
 @media (max-width: 600px) {
+  .team-card {
+    padding: 1.25rem;
+  }
+  .team-card__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
   .team-facts {
     grid-template-columns: 1fr;
   }
@@ -1838,7 +1850,7 @@ body {
   margin: 0;
   display: grid;
   gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
 }
 
 .research-lines li {
@@ -1890,7 +1902,7 @@ body {
 }
 
 .content-narrow a {
-  color: var(--color-primary);
+  color: var(--link-color);
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
@@ -1922,7 +1934,7 @@ body {
 }
 
 .page-lead a {
-  color: var(--color-primary);
+  color: var(--link-color);
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
@@ -2279,7 +2291,7 @@ kbd {
 }
 
 .breadcrumb a {
-  color: var(--color-primary);
+  color: var(--link-color);
   text-decoration: none;
   font-weight: 600;
 }

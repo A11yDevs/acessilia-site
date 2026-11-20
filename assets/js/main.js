@@ -225,6 +225,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // de idioma navega para a página equivalente, em vez de traduzir via JS.
   const langAlternate = htmlEl.getAttribute('data-lang-alternate');
 
+  // Ao abrir uma página de idioma fixo (por link direto, menu ou rodapé), o idioma dela
+  // passa a ser a preferência, para que as próximas páginas dinâmicas sigam o mesmo idioma.
+  if (langAlternate) {
+    const pageLang = htmlEl.getAttribute('lang') || 'pt-BR';
+    currentLang = pageLang.startsWith('pt') ? 'pt-BR' : 'en';
+    localStorage.setItem('acessilia_lang', currentLang);
+  }
+
   function applyLanguage(lang) {
     currentLang = lang;
     htmlEl.setAttribute('lang', lang);
