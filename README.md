@@ -78,8 +78,43 @@ acessilia-site/
 │       └── main.js         # Lógica de acessibilidade, abas ARIA e simulador
 ├── .nojekyll               # Desativa o processador Jekyll no Pages
 ├── index.html              # Página principal do website
+├── institucional.html      # Frentes institucionais
+├── pesquisa.html           # Artigo Dr.DocBench e citação
+├── equipe.html             # Equipe e liderança científica (pt-BR)
+├── team.html               # Research Team & Leadership (EN)
+├── ecossistema.html        # Repositórios do ecossistema
+├── demonstracao.html       # Demonstração interativa
+├── como-usar.html          # Instalação e API
 └── README.md               # Documentação do repositório
 ```
+
+---
+
+## 🧑‍🔬 Manutenção da Página de Equipe (`equipe.html` / `team.html`)
+
+A página de equipe é a referência pública da liderança científica e da equipe do projeto. Ela existe em duas versões estáticas, uma por idioma, que devem ser mantidas **equivalentes**:
+
+- `equipe.html` — português (`lang="pt-BR"`)
+- `team.html` — inglês (`lang="en"`)
+
+Ambas declaram `data-lang-alternate` no elemento `<html>`. Nelas, o botão de idioma (e `Alt+L`) navega para a outra versão, sem tradução via JavaScript.
+
+**Regras de conteúdo**
+
+- Só publique informações verificáveis em fonte independente: perfil institucional, ACL Anthology, ORCID, Lattes ou repositórios públicos.
+- Afiliações seguem o que consta na publicação ou no perfil institucional.
+- Integrantes só são listados individualmente com autorização e com participação documentada. Não publique e-mails nem dados pessoais.
+- Não apresente o Acessília como laboratório, unidade ou grupo certificado sem documento que comprove isso.
+- Métricas de desempenho devem citar a fonte (artigo e tabela).
+
+**Para incluir ou alterar um integrante ou publicação**
+
+1. Edite o bloco correspondente em `equipe.html` **e** em `team.html`.
+2. Se a mudança envolver o pesquisador responsável ou publicações, atualize também o bloco JSON-LD (`<script type="application/ld+json">`) nas duas páginas.
+3. Verifique se os links externos respondem.
+4. Revise a página com navegação por teclado, no tema escuro e no alto contraste.
+
+**Revisão periódica:** a cada semestre letivo, ou ao publicar um novo artigo, confira vínculos, papéis e links acadêmicos.
 
 ---
 

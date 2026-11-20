@@ -23,6 +23,7 @@
   --color-primary-text: #FFFFFF;
 
   --color-accent: #0284C7;
+  --link-color: #1E40AF;          /* Links de texto: 8,7:1 sobre branco */
   --color-success: #15803D;
   --color-warning: #B45309;
 
@@ -56,6 +57,7 @@
   --color-primary-text: #090D16;
 
   --color-accent: #38BDF8;
+  --link-color: #60A5FA;          /* Links de texto no escuro: ≥ 5,7:1 sobre --bg-alt/--bg-card/--bg-primary */
   --color-success: #4ADE80;
   --color-warning: #FBBF24;
 
@@ -82,6 +84,7 @@
   --color-primary-text: #000000 !important;
 
   --color-accent: #00FFFF !important;
+  --link-color: #FFFF00 !important;
   --focus-ring-color: #FFFF00 !important;
   --focus-ring-outline: #FFFFFF !important;
 
@@ -357,10 +360,11 @@ body {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 1.5rem;
+  gap: clamp(0.75rem, 1.4vw, 1.5rem);
 }
 
 .nav-link {
+  white-space: nowrap;
   text-decoration: none;
   color: var(--text-secondary);
   font-weight: 600;
@@ -1134,6 +1138,32 @@ body {
   }
 }
 
+/* Menu colapsável: com 7 itens o menu horizontal não cabe abaixo de ~1200px */
+@media (max-width: 1200px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-primary);
+    border-bottom: 2px solid var(--bg-card-border);
+    flex-direction: column;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .nav-list.is-active {
+    display: flex;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -1754,6 +1784,161 @@ body {
   color: var(--color-primary);
 }
 
+/* Página Equipe & Liderança Científica (equipe.html / team.html) */
+.team-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+.team-card--lead {
+  max-width: 960px;
+  margin: 0 auto;
+  border-color: var(--color-primary);
+}
+
+.team-card--lead:hover {
+  transform: none;
+}
+
+/* Links de equipe: --link-color mantém contraste ≥ 4,5:1 nos temas claro, escuro e alto contraste
+   (--color-accent falha em texto pequeno; --color-primary fica no limite no tema escuro) */
+.team-card .team-link {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.team-facts {
+  display: grid;
+  grid-template-columns: minmax(140px, max-content) 1fr;
+  gap: 0.5rem 1.25rem;
+  margin: 0 0 1.25rem 0;
+  font-size: 0.95rem;
+}
+
+.team-facts dt {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.team-facts dd {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .team-card {
+    padding: 1.25rem;
+  }
+  .team-card__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .team-facts {
+    grid-template-columns: 1fr;
+  }
+  .team-facts dd {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.research-lines {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.research-lines li {
+  background-color: var(--bg-card);
+  border: 2px solid var(--bg-card-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.research-lines h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.research-lines p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.content-narrow {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.content-narrow h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 2rem 0 0.75rem 0;
+}
+
+.content-narrow p,
+.content-narrow li {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.content-narrow ul {
+  padding-left: 1.25rem;
+  margin: 0 0 1rem 0;
+}
+
+.content-narrow li {
+  margin-bottom: 0.5rem;
+}
+
+.content-narrow a {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.table-caption-visible {
+  caption-side: top;
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding-bottom: 0.75rem;
+}
+
+.source-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+.notice-box {
+  border-left: 4px solid var(--color-primary);
+  background-color: var(--bg-alt);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  margin: 1.5rem 0;
+}
+
+.notice-box p {
+  margin: 0;
+}
+
+.page-lead a {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 /* ==========================================================================
    20. Linha do Tempo & Roadmap Público
    ========================================================================== */
@@ -2106,7 +2291,7 @@ kbd {
 }
 
 .breadcrumb a {
-  color: var(--color-primary);
+  color: var(--link-color);
   text-decoration: none;
   font-weight: 600;
 }

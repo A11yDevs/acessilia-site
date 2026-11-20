@@ -138,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'nav.home': 'Início',
       'nav.institutional': 'Institucional',
       'nav.research': 'Pesquisa & Artigo',
+      'nav.team': 'Equipe',
       'nav.ecosystem': 'Ecossistema',
       'nav.demo': 'Demonstração',
       'nav.how_to_use': 'Como Usar',
@@ -181,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'nav.home': 'Home',
       'nav.institutional': 'Institutional',
       'nav.research': 'Research & Paper',
+      'nav.team': 'Research Team',
       'nav.ecosystem': 'Ecosystem',
       'nav.demo': 'Demonstration',
       'nav.how_to_use': 'Getting Started',
@@ -218,6 +220,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentLang = localStorage.getItem('acessilia_lang') || 'pt-BR';
 
+  // Páginas com versão estática por idioma (ex.: equipe.html / team.html) declaram
+  // data-lang-alternate no <html>. Nelas o idioma do documento é fixo e o botão
+  // de idioma navega para a página equivalente, em vez de traduzir via JS.
+  const langAlternate = htmlEl.getAttribute('data-lang-alternate');
+
+  // Ao abrir uma página de idioma fixo (por link direto, menu ou rodapé), o idioma dela
+  // passa a ser a preferência, para que as próximas páginas dinâmicas sigam o mesmo idioma.
+  if (langAlternate) {
+    const pageLang = htmlEl.getAttribute('lang') || 'pt-BR';
+    currentLang = pageLang.startsWith('pt') ? 'pt-BR' : 'en';
+    localStorage.setItem('acessilia_lang', currentLang);
+  }
+
   function applyLanguage(lang) {
     currentLang = lang;
     htmlEl.setAttribute('lang', lang);
@@ -241,6 +256,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // Links com equivalente em inglês (data-href-en) apontam para a versão do idioma ativo
+    document.querySelectorAll('[data-href-en]').forEach(el => {
+      if (!el.hasAttribute('data-href-pt')) {
+        el.setAttribute('data-href-pt', el.getAttribute('href'));
+      }
+      el.setAttribute('href', lang === 'en' ? el.getAttribute('data-href-en') : el.getAttribute('data-href-pt'));
+    });
+
     // Atualiza labels de acessibilidade com data-i18n-aria
     document.querySelectorAll('[data-i18n-aria]').forEach(el => {
       const key = el.getAttribute('data-i18n-aria');
@@ -258,12 +281,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Aplica idioma inicial
-  if (currentLang !== 'pt-BR') {
+  // Aplica idioma inicial (exceto em páginas de idioma fixo)
+  if (!langAlternate && currentLang !== 'pt-BR') {
     applyLanguage(currentLang);
   }
 
   function toggleLanguage() {
+    if (langAlternate) {
+      const pageLang = htmlEl.getAttribute('lang') || 'pt-BR';
+      localStorage.setItem('acessilia_lang', pageLang.startsWith('pt') ? 'en' : 'pt-BR');
+      window.location.href = langAlternate;
+      return;
+    }
     const nextLang = currentLang === 'pt-BR' ? 'en' : 'pt-BR';
     applyLanguage(nextLang);
     const msg = nextLang === 'pt-BR'
@@ -321,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fechar menu ao clicar em um link interno
   navMenu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      if (window.innerWidth <= 768 && navMenu.classList.contains('is-active')) {
+      if (window.innerWidth <= 1200 && navMenu.classList.contains('is-active')) {
         navMenu.classList.remove('is-active');
         btnNavToggle?.setAttribute('aria-expanded', 'false');
       }
