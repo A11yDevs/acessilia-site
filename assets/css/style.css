@@ -357,10 +357,11 @@ body {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 1.5rem;
+  gap: clamp(0.75rem, 1.4vw, 1.5rem);
 }
 
 .nav-link {
+  white-space: nowrap;
   text-decoration: none;
   color: var(--text-secondary);
   font-weight: 600;
@@ -1134,6 +1135,32 @@ body {
   }
 }
 
+/* Menu colapsável: com 7 itens o menu horizontal não cabe abaixo de ~1200px */
+@media (max-width: 1200px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-primary);
+    border-bottom: 2px solid var(--bg-card-border);
+    flex-direction: column;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .nav-list.is-active {
+    display: flex;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -1752,6 +1779,152 @@ body {
 .team-link:hover {
   text-decoration: underline;
   color: var(--color-primary);
+}
+
+/* Página Equipe & Liderança Científica (equipe.html / team.html) */
+.team-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.team-card--lead {
+  max-width: 960px;
+  margin: 0 auto;
+  border-color: var(--color-primary);
+}
+
+.team-card--lead:hover {
+  transform: none;
+}
+
+/* Links de equipe: cor primária garante contraste AA/AAA (accent falha em texto pequeno) */
+.team-card .team-link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.team-facts {
+  display: grid;
+  grid-template-columns: minmax(140px, max-content) 1fr;
+  gap: 0.5rem 1.25rem;
+  margin: 0 0 1.25rem 0;
+  font-size: 0.95rem;
+}
+
+.team-facts dt {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.team-facts dd {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .team-facts {
+    grid-template-columns: 1fr;
+  }
+  .team-facts dd {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.research-lines {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.research-lines li {
+  background-color: var(--bg-card);
+  border: 2px solid var(--bg-card-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.research-lines h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.research-lines p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.content-narrow {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.content-narrow h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 2rem 0 0.75rem 0;
+}
+
+.content-narrow p,
+.content-narrow li {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.content-narrow ul {
+  padding-left: 1.25rem;
+  margin: 0 0 1rem 0;
+}
+
+.content-narrow li {
+  margin-bottom: 0.5rem;
+}
+
+.content-narrow a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.table-caption-visible {
+  caption-side: top;
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding-bottom: 0.75rem;
+}
+
+.source-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+.notice-box {
+  border-left: 4px solid var(--color-primary);
+  background-color: var(--bg-alt);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  margin: 1.5rem 0;
+}
+
+.notice-box p {
+  margin: 0;
+}
+
+.page-lead a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 /* ==========================================================================
