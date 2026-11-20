@@ -1801,6 +1801,16 @@ body {
   transform: none;
 }
 
+.team-photo {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
 /* Links de equipe: --link-color mantém contraste ≥ 4,5:1 nos temas claro, escuro e alto contraste
    (--color-accent falha em texto pequeno; --color-primary fica no limite no tema escuro) */
 .team-card .team-link {
